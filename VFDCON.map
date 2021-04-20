@@ -1,0 +1,522 @@
+Archive member included because of file (symbol)
+
+C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\avr5\libgcc.a(_clear_bss.o)
+                              VFDCON.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+Key_Toggle          0x1               VFDCON.o
+j                   0x2               VFDCON.o
+Check_Sum           0x1               VFDCON.o
+System_Fault_Count  0x1               VFDCON.o
+LCD_LINE4_TEMP      0x14              VFDCON.o
+Head_Count          0x2               VFDCON.o
+LED_Data            0x1               VFDCON.o
+Key_Data            0x1               VFDCON.o
+UHD_Key_Flag        0x1               VFDCON.o
+Temp_Buf_Count      0x1               VFDCON.o
+Serial_OK_Flag1     0x1               VFDCON.o
+UHD_Enable          0x1               VFDCON.o
+Buf_Start_Count     0x2               VFDCON.o
+Key_Push_Count      0x1               VFDCON.o
+LCD_LINE2_BUF       0x14              VFDCON.o
+System_Run_Okay     0x1               VFDCON.o
+i_count             0x2               VFDCON.o
+RxD_BUF1            0x3e8             VFDCON.o
+Reset_Key_Count     0x1               VFDCON.o
+Led_Count           0x1               VFDCON.o
+LCD_LINE2_TEMP      0x14              VFDCON.o
+i                   0x2               VFDCON.o
+LCD_Replay_Count    0x1               VFDCON.o
+RxD_Info_BUF        0x5e              VFDCON.o
+Serial_Flag         0x1               VFDCON.o
+Flow_Count          0x1               VFDCON.o
+LCD_LINE4_BUF       0x14              VFDCON.o
+Serial_Reset_Count1
+                    0x1               VFDCON.o
+Led_Delay_Count     0x1               VFDCON.o
+j_count             0x2               VFDCON.o
+LCD_LINE1_TEMP      0x14              VFDCON.o
+LCD_LINE3_TEMP      0x14              VFDCON.o
+Key_Input           0x1               VFDCON.o
+LCD_LINE1_BUF       0x14              VFDCON.o
+KEY_BUF             0xe               VFDCON.o
+Serial_Count1       0x2               VFDCON.o
+LCD_LINE3_BUF       0x14              VFDCON.o
+Time_Flag           0x1               VFDCON.o
+Key_Count           0x2               VFDCON.o
+Ser_Check_Sum       0x1               VFDCON.o
+Read_Length         0x2               VFDCON.o
+LCD_Serial_Time_Count
+                    0x1               VFDCON.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+LOAD VFDCON.o
+LOAD C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\libm.a
+LOAD C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\avr5\libgcc.a
+LOAD C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\libc.a
+LOAD C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xf96
+ *(.vectors)
+ .vectors       0x00000000       0x8c C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+                0x0000008c                __ctors_start = .
+ *(.ctors)
+                0x0000008c                __ctors_end = .
+                0x0000008c                __dtors_start = .
+ *(.dtors)
+                0x0000008c                __dtors_end = .
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x0000008c                . = ALIGN (0x2)
+ *(.init0)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000008c        0xc C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+ *(.init3)
+ *(.init4)
+ .init4         0x00000098       0x1a C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+                0x00000098                __do_copy_data
+ .init4         0x000000b2       0x10 C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\avr5\libgcc.a(_clear_bss.o)
+                0x000000b2                __do_clear_bss
+ *(.init5)
+ *(.init6)
+ *(.init7)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000c2        0x4 C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+ *(.text)
+ .text          0x000000c6        0x4 C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+                0x000000c6                __vector_22
+                0x000000c6                __vector_28
+                0x000000c6                __vector_1
+                0x000000c6                __vector_32
+                0x000000c6                __vector_34
+                0x000000c6                __vector_24
+                0x000000c6                __bad_interrupt
+                0x000000c6                __vector_6
+                0x000000c6                __vector_31
+                0x000000c6                __vector_3
+                0x000000c6                __vector_23
+                0x000000c6                __vector_25
+                0x000000c6                __vector_11
+                0x000000c6                __vector_13
+                0x000000c6                __vector_17
+                0x000000c6                __vector_19
+                0x000000c6                __vector_7
+                0x000000c6                __vector_27
+                0x000000c6                __vector_5
+                0x000000c6                __vector_33
+                0x000000c6                __vector_4
+                0x000000c6                __vector_9
+                0x000000c6                __vector_2
+                0x000000c6                __vector_21
+                0x000000c6                __vector_15
+                0x000000c6                __vector_29
+                0x000000c6                __vector_8
+                0x000000c6                __vector_26
+                0x000000c6                __vector_14
+                0x000000c6                __vector_10
+                0x000000c6                __vector_16
+                0x000000c6                __vector_20
+ .text          0x000000ca      0xecc VFDCON.o
+                0x00000300                EEPROM_read
+                0x00000398                __vector_12
+                0x000000ca                MCU_initialize
+                0x000002a2                LCD_string
+                0x00000404                Serial1_Buf_Processing
+                0x000001a6                LCD_Position
+                0x000002c4                Beep
+                0x00000334                __vector_30
+                0x00000158                TX1_char
+                0x00000150                TX0_char
+                0x00000112                Delay_ms
+                0x00000710                main
+                0x0000025c                LCD_data
+                0x000000fa                Delay_nop
+                0x000004d8                Serial1_Check
+                0x000000fc                Delay_us
+                0x00000220                LCD_command
+                0x00000310                EEPROM_write
+                0x00000320                __vector_18
+                0x00000168                LCD_Reset
+                0x000002e2                Beep_Long
+                0x00000f96                . = ALIGN (0x2)
+ *(.text.*)
+                0x00000f96                . = ALIGN (0x2)
+ *(.fini9)
+ *(.fini8)
+ *(.fini7)
+ *(.fini6)
+ *(.fini5)
+ *(.fini4)
+ *(.fini3)
+ *(.fini2)
+ *(.fini1)
+ *(.fini0)
+                0x00000f96                _etext = .
+
+.data           0x00800100       0x68 load address 0x00000f96
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100       0x67 VFDCON.o
+                0x00800100                Time_Count
+ *(.gnu.linkonce.d*)
+                0x00800168                . = ALIGN (0x2)
+ *fill*         0x00800167        0x1 00
+                0x00800168                _edata = .
+                0x00800168                PROVIDE (__data_end, .)
+
+.bss            0x00800168      0x51d
+                0x00800168                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800168        0x1 VFDCON.o
+                0x00800168                Key_Flag
+ *(COMMON)
+ COMMON         0x00800169      0x51c VFDCON.o
+                                  0x0 (size before relaxing)
+                0x00800169                Key_Toggle
+                0x0080016a                j
+                0x0080016c                Check_Sum
+                0x0080016d                System_Fault_Count
+                0x0080016e                LCD_LINE4_TEMP
+                0x00800182                Head_Count
+                0x00800184                LED_Data
+                0x00800185                Key_Data
+                0x00800186                UHD_Key_Flag
+                0x00800187                Temp_Buf_Count
+                0x00800188                Serial_OK_Flag1
+                0x00800189                UHD_Enable
+                0x0080018a                Buf_Start_Count
+                0x0080018c                Key_Push_Count
+                0x0080018d                LCD_LINE2_BUF
+                0x008001a1                System_Run_Okay
+                0x008001a2                i_count
+                0x008001a4                RxD_BUF1
+                0x0080058c                Reset_Key_Count
+                0x0080058d                Led_Count
+                0x0080058e                LCD_LINE2_TEMP
+                0x008005a2                i
+                0x008005a4                LCD_Replay_Count
+                0x008005a5                RxD_Info_BUF
+                0x00800603                Serial_Flag
+                0x00800604                Flow_Count
+                0x00800605                LCD_LINE4_BUF
+                0x00800619                Serial_Reset_Count1
+                0x0080061a                Led_Delay_Count
+                0x0080061b                j_count
+                0x0080061d                LCD_LINE1_TEMP
+                0x00800631                LCD_LINE3_TEMP
+                0x00800645                Key_Input
+                0x00800646                LCD_LINE1_BUF
+                0x0080065a                KEY_BUF
+                0x00800668                Serial_Count1
+                0x0080066a                LCD_LINE3_BUF
+                0x0080067e                Time_Flag
+                0x0080067f                Key_Count
+                0x00800681                Ser_Check_Sum
+                0x00800682                Read_Length
+                0x00800684                LCD_Serial_Time_Count
+                0x00800685                PROVIDE (__bss_end, .)
+                0x00000f96                __data_load_start = LOADADDR (.data)
+                0x00000ffe                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800685        0x0
+                0x00800685                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800685                PROVIDE (__noinit_end, .)
+                0x00800685                _end = .
+                0x00800685                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0 load address 0x00000ffe
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.stab           0x00000000     0x1c20
+ *(.stab)
+ .stab          0x00000000     0x1c20 VFDCON.o
+
+.stabstr        0x00000000      0xc22
+ *(.stabstr)
+ .stabstr       0x00000000      0xc22 VFDCON.o
+                                  0x0 (size before relaxing)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(VFDCON.elf elf32-avr)
+
+Cross Reference Table
+
+Symbol                                            File
+Beep                                              VFDCON.o
+Beep_Long                                         VFDCON.o
+Buf_Start_Count                                   VFDCON.o
+Check_Sum                                         VFDCON.o
+Delay_ms                                          VFDCON.o
+Delay_nop                                         VFDCON.o
+Delay_us                                          VFDCON.o
+EEPROM_read                                       VFDCON.o
+EEPROM_write                                      VFDCON.o
+Flow_Count                                        VFDCON.o
+Head_Count                                        VFDCON.o
+KEY_BUF                                           VFDCON.o
+Key_Count                                         VFDCON.o
+Key_Data                                          VFDCON.o
+Key_Flag                                          VFDCON.o
+Key_Input                                         VFDCON.o
+Key_Push_Count                                    VFDCON.o
+Key_Toggle                                        VFDCON.o
+LCD_LINE1_BUF                                     VFDCON.o
+LCD_LINE1_TEMP                                    VFDCON.o
+LCD_LINE2_BUF                                     VFDCON.o
+LCD_LINE2_TEMP                                    VFDCON.o
+LCD_LINE3_BUF                                     VFDCON.o
+LCD_LINE3_TEMP                                    VFDCON.o
+LCD_LINE4_BUF                                     VFDCON.o
+LCD_LINE4_TEMP                                    VFDCON.o
+LCD_Position                                      VFDCON.o
+LCD_Replay_Count                                  VFDCON.o
+LCD_Reset                                         VFDCON.o
+LCD_Serial_Time_Count                             VFDCON.o
+LCD_command                                       VFDCON.o
+LCD_data                                          VFDCON.o
+LCD_string                                        VFDCON.o
+LED_Data                                          VFDCON.o
+Led_Count                                         VFDCON.o
+Led_Delay_Count                                   VFDCON.o
+MCU_initialize                                    VFDCON.o
+Read_Length                                       VFDCON.o
+Reset_Key_Count                                   VFDCON.o
+RxD_BUF1                                          VFDCON.o
+RxD_Info_BUF                                      VFDCON.o
+Ser_Check_Sum                                     VFDCON.o
+Serial1_Buf_Processing                            VFDCON.o
+Serial1_Check                                     VFDCON.o
+Serial_Count1                                     VFDCON.o
+Serial_Flag                                       VFDCON.o
+Serial_OK_Flag1                                   VFDCON.o
+Serial_Reset_Count1                               VFDCON.o
+System_Fault_Count                                VFDCON.o
+System_Run_Okay                                   VFDCON.o
+TX0_char                                          VFDCON.o
+TX1_char                                          VFDCON.o
+Temp_Buf_Count                                    VFDCON.o
+Time_Count                                        VFDCON.o
+Time_Flag                                         VFDCON.o
+UHD_Enable                                        VFDCON.o
+UHD_Key_Flag                                      VFDCON.o
+__bad_interrupt                                   C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__bss_end                                         C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\avr5\libgcc.a(_clear_bss.o)
+__bss_start                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\avr5\libgcc.a(_clear_bss.o)
+__data_end                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__data_load_start                                 C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__data_start                                      C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__do_clear_bss                                    C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\avr5\libgcc.a(_clear_bss.o)
+                                                  VFDCON.o
+__do_copy_data                                    C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+                                                  VFDCON.o
+__heap_end                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__init                                            C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__stack                                           C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+                                                  VFDCON.o
+__vector_1                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_10                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_11                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_12                                       VFDCON.o
+                                                  C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_13                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_14                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_15                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_16                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_17                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_18                                       VFDCON.o
+                                                  C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_19                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_2                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_20                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_21                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_22                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_23                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_24                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_25                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_26                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_27                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_28                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_29                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_3                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_30                                       VFDCON.o
+                                                  C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_31                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_32                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_33                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_34                                       C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_4                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_5                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_6                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_7                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_8                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_9                                        C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vector_default                                  C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+__vectors                                         C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o
+i                                                 VFDCON.o
+i_count                                           VFDCON.o
+j                                                 VFDCON.o
+j_count                                           VFDCON.o
+main                                              VFDCON.o
+                                                  C:\AvrEdit\WinAVR\bin\..\lib\gcc-lib\avr\3.3.1\..\..\..\..\avr\lib\avr5\crtm128.o

@@ -1,0 +1,3962 @@
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 1
+
+
+   1               		.file	"VFDCON.c"
+   2               		.arch atmega128
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.stabs	"C:\\AvrEdit\\AVR_Work\\VFD_CON_R3\\VFD-CON_R3_20171201_MDE-80H/",100,0,0,.Ltext0
+  11               		.stabs	"VFDCON.c",100,0,0,.Ltext0
+  12               		.text
+  13               	.Ltext0:
+  14               		.stabs	"gcc2_compiled.",60,0,0,0
+  15               		.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+  16               		.stabs	"char:t(0,2)=r(0,2);0;127;",128,0,0,0
+  17               		.stabs	"long int:t(0,3)=@s32;r(0,3);0020000000000;0017777777777;",128,0,0,0
+  18               		.stabs	"unsigned int:t(0,4)=r(0,4);0000000000000;0000000177777;",128,0,0,0
+  19               		.stabs	"long unsigned int:t(0,5)=@s32;r(0,5);0000000000000;0037777777777;",128,0,0,0
+  20               		.stabs	"long long int:t(0,6)=@s64;r(0,6);01000000000000000000000;0777777777777777777777;",128,0,0,
+  21               		.stabs	"long long unsigned int:t(0,7)=@s64;r(0,7);0000000000000;01777777777777777777777;",128,0,0,
+  22               		.stabs	"short int:t(0,8)=r(0,8);-32768;32767;",128,0,0,0
+  23               		.stabs	"short unsigned int:t(0,9)=r(0,9);0000000000000;0000000177777;",128,0,0,0
+  24               		.stabs	"signed char:t(0,10)=@s8;r(0,10);-128;127;",128,0,0,0
+  25               		.stabs	"unsigned char:t(0,11)=@s8;r(0,11);0;255;",128,0,0,0
+  26               		.stabs	"float:t(0,12)=r(0,1);4;0;",128,0,0,0
+  27               		.stabs	"double:t(0,13)=r(0,1);4;0;",128,0,0,0
+  28               		.stabs	"long double:t(0,14)=r(0,1);4;0;",128,0,0,0
+  29               		.stabs	"complex int:t(0,15)=s4real:(0,1),0,16;imag:(0,1),16,16;;",128,0,0,0
+  30               		.stabs	"complex float:t(0,16)=R3;8;0;",128,0,0,0
+  31               		.stabs	"complex double:t(0,17)=R3;8;0;",128,0,0,0
+  32               		.stabs	"complex long double:t(0,18)=R3;8;0;",128,0,0,0
+  33               		.stabs	"__builtin_va_list:t(0,19)=*(0,20)=(0,20)",128,0,0,0
+  34               		.stabs	"_Bool:t(0,21)=@s8;-16;",128,0,0,0
+  35               		.stabs	"VFDCON.c",130,0,0,0
+  36               		.stabs	"C:/AvrEdit/WinAVR/avr/include/avr/io.h",130,0,0,0
+  37               		.stabs	"C:/AvrEdit/WinAVR/avr/include/avr/sfr_defs.h",130,0,0,0
+  38               		.stabn	162,0,0,0
+  39               		.stabs	"C:/AvrEdit/WinAVR/avr/include/avr/iom128.h",130,0,0,0
+  40               		.stabn	162,0,0,0
+  41               		.stabn	162,0,0,0
+  42               		.stabs	"VFDCON_Sub.h",130,0,0,0
+  43               		.stabs	"MCU_initialize:F(0,20)",36,0,18,MCU_initialize
+  44               	.global	MCU_initialize
+  45               		.type	MCU_initialize, @function
+  46               	MCU_initialize:
+  47               		.stabs	"VFDCON_Sub.h",132,0,0,.Ltext1
+  48               	.Ltext1:
+   1:VFDCON_Sub.h  **** /*
+   2:VFDCON_Sub.h  **** ***************************************************************************************************
+   3:VFDCON_Sub.h  **** *                            VFD-CON Controller User Functions
+   4:VFDCON_Sub.h  **** *
+   5:VFDCON_Sub.h  **** *                          (c) Copyright 2017, MARUENG Co., Ltd., Daejeon, South Korea
+   6:VFDCON_Sub.h  **** *                                           All Rights Reserved
+   7:VFDCON_Sub.h  **** *
+   8:VFDCON_Sub.h  **** * File : VFDCON_Sub.h
+   9:VFDCON_Sub.h  **** * By   : DongHyun Kwon
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 2
+
+
+  10:VFDCON_Sub.h  **** ***************************************************************************************************
+  11:VFDCON_Sub.h  **** */
+  12:VFDCON_Sub.h  **** 
+  13:VFDCON_Sub.h  **** #define LCD_DATABUS	*((unsigned char *)0x2000)	
+  14:VFDCON_Sub.h  **** #define LCD_CONTROL	*((unsigned char *)0x2100)
+  15:VFDCON_Sub.h  **** 
+  16:VFDCON_Sub.h  **** 
+  17:VFDCON_Sub.h  **** void MCU_initialize(void)			/* initialize ATmege128 MCU */
+  18:VFDCON_Sub.h  **** { 
+  49               		.stabn 68,0,18,.LM1-MCU_initialize
+  50               	.LM1:
+  51               	/* prologue: frame size=0 */
+  52               	/* prologue end (size=0) */
+  19:VFDCON_Sub.h  ****   //MCUCR	= 0x80;	// enable external memory and I/O
+  20:VFDCON_Sub.h  ****   //XMCRA = 0x44;	// 0x1100-0x7FFF=1 wait, 0x8000-0xFFFF=0 wait
+  21:VFDCON_Sub.h  ****   //XMCRB = 0x80;	// enable bus keeper, use A8~A15 as address
+  22:VFDCON_Sub.h  **** 
+  23:VFDCON_Sub.h  **** 
+  24:VFDCON_Sub.h  **** 	DDRA	= 0xFF;
+  53               		.stabn 68,0,24,.LM2-MCU_initialize
+  54               	.LM2:
+  55 0000 9FEF      		ldi r25,lo8(-1)
+  56 0002 9ABB      		out 58-0x20,r25
+  25:VFDCON_Sub.h  **** 	PORTA	= 0x00;
+  57               		.stabn 68,0,25,.LM3-MCU_initialize
+  58               	.LM3:
+  59 0004 1BBA      		out 59-0x20,__zero_reg__
+  26:VFDCON_Sub.h  **** 
+  27:VFDCON_Sub.h  **** 	DDRB	= 0xFF;
+  60               		.stabn 68,0,27,.LM4-MCU_initialize
+  61               	.LM4:
+  62 0006 97BB      		out 55-0x20,r25
+  28:VFDCON_Sub.h  **** 	PORTB	= 0x00;
+  63               		.stabn 68,0,28,.LM5-MCU_initialize
+  64               	.LM5:
+  65 0008 18BA      		out 56-0x20,__zero_reg__
+  29:VFDCON_Sub.h  **** 
+  30:VFDCON_Sub.h  **** 	DDRC	= 0x00;
+  66               		.stabn 68,0,30,.LM6-MCU_initialize
+  67               	.LM6:
+  68 000a 14BA      		out 52-0x20,__zero_reg__
+  31:VFDCON_Sub.h  **** 	PORTC	= 0x00;
+  69               		.stabn 68,0,31,.LM7-MCU_initialize
+  70               	.LM7:
+  71 000c 15BA      		out 53-0x20,__zero_reg__
+  32:VFDCON_Sub.h  **** 
+  33:VFDCON_Sub.h  **** 
+  34:VFDCON_Sub.h  **** 	DDRD	= 0xF3;
+  72               		.stabn 68,0,34,.LM8-MCU_initialize
+  73               	.LM8:
+  74 000e 83EF      		ldi r24,lo8(-13)
+  75 0010 81BB      		out 49-0x20,r24
+  35:VFDCON_Sub.h  **** 	PORTD	= 0xF3;
+  76               		.stabn 68,0,35,.LM9-MCU_initialize
+  77               	.LM9:
+  78 0012 82BB      		out 50-0x20,r24
+  36:VFDCON_Sub.h  **** 
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 3
+
+
+  37:VFDCON_Sub.h  **** 	DDRE	= 0xFE;
+  79               		.stabn 68,0,37,.LM10-MCU_initialize
+  80               	.LM10:
+  81 0014 8EEF      		ldi r24,lo8(-2)
+  82 0016 82B9      		out 34-0x20,r24
+  38:VFDCON_Sub.h  **** 	PORTE	= 0x00;
+  83               		.stabn 68,0,38,.LM11-MCU_initialize
+  84               	.LM11:
+  85 0018 13B8      		out 35-0x20,__zero_reg__
+  39:VFDCON_Sub.h  **** 
+  40:VFDCON_Sub.h  ****   DDRF	= 0x00;
+  86               		.stabn 68,0,40,.LM12-MCU_initialize
+  87               	.LM12:
+  88 001a 1092 6100 		sts 97,__zero_reg__
+  41:VFDCON_Sub.h  ****   PORTF	= 0xFF;
+  89               		.stabn 68,0,41,.LM13-MCU_initialize
+  90               	.LM13:
+  91 001e 9093 6200 		sts 98,r25
+  42:VFDCON_Sub.h  **** 
+  43:VFDCON_Sub.h  **** 
+  44:VFDCON_Sub.h  ****   DDRG	= 0x13;
+  92               		.stabn 68,0,44,.LM14-MCU_initialize
+  93               	.LM14:
+  94 0022 83E1      		ldi r24,lo8(19)
+  95 0024 8093 6400 		sts 100,r24
+  45:VFDCON_Sub.h  ****   PORTG	= 0x03;
+  96               		.stabn 68,0,45,.LM15-MCU_initialize
+  97               	.LM15:
+  98 0028 83E0      		ldi r24,lo8(3)
+  99 002a 8093 6500 		sts 101,r24
+  46:VFDCON_Sub.h  **** 
+  47:VFDCON_Sub.h  **** }
+ 100               		.stabn 68,0,47,.LM16-MCU_initialize
+ 101               	.LM16:
+ 102               	/* epilogue: frame size=0 */
+ 103 002e 0895      		ret
+ 104               	/* epilogue end (size=1) */
+ 105               	/* function MCU_initialize size 24 (23) */
+ 106               		.size	MCU_initialize, .-MCU_initialize
+ 107               	.Lscope0:
+ 108               		.stabs	"",36,0,0,.Lscope0-MCU_initialize
+ 109               		.stabs	"Delay_nop:F(0,20)",36,0,51,Delay_nop
+ 110               	.global	Delay_nop
+ 111               		.type	Delay_nop, @function
+ 112               	Delay_nop:
+  48:VFDCON_Sub.h  **** 
+  49:VFDCON_Sub.h  **** 
+  50:VFDCON_Sub.h  **** void Delay_nop(void)		/* time delay for us */
+  51:VFDCON_Sub.h  **** { 
+ 113               		.stabn 68,0,51,.LM17-Delay_nop
+ 114               	.LM17:
+ 115               	/* prologue: frame size=0 */
+ 116               	/* prologue end (size=0) */
+ 117               		.stabn 68,0,51,.LM18-Delay_nop
+ 118               	.LM18:
+ 119               	/* epilogue: frame size=0 */
+ 120 0030 0895      		ret
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 4
+
+
+ 121               	/* epilogue end (size=1) */
+ 122               	/* function Delay_nop size 1 (0) */
+ 123               		.size	Delay_nop, .-Delay_nop
+ 124               	.Lscope1:
+ 125               		.stabs	"",36,0,0,.Lscope1-Delay_nop
+ 126               		.stabs	"Delay_us:F(0,20)",36,0,57,Delay_us
+ 127               		.stabs	"time_us:P(0,11)",64,0,56,24
+ 128               	.global	Delay_us
+ 129               		.type	Delay_us, @function
+ 130               	Delay_us:
+  52:VFDCON_Sub.h  **** 
+  53:VFDCON_Sub.h  **** }
+  54:VFDCON_Sub.h  **** 
+  55:VFDCON_Sub.h  **** 
+  56:VFDCON_Sub.h  **** void Delay_us(unsigned char time_us)		/* time delay for us */
+  57:VFDCON_Sub.h  **** { register unsigned char i;
+ 131               		.stabn 68,0,57,.LM19-Delay_us
+ 132               	.LM19:
+ 133               	/* prologue: frame size=0 */
+ 134               	/* prologue end (size=0) */
+  58:VFDCON_Sub.h  **** 
+  59:VFDCON_Sub.h  ****   for(i = 0; i < time_us; i++)			// 4 cycle +
+ 135               		.stabn 68,0,59,.LM20-Delay_us
+ 136               	.LM20:
+ 137               	.LBB2:
+ 138 0032 90E0      		ldi r25,lo8(0)
+ 139 0034 9817      		cp r25,r24
+ 140 0036 38F4      		brsh .L10
+ 141               	.L8:
+  60:VFDCON_Sub.h  ****     { asm volatile(" PUSH  R0 ");		// 2 cycle +
+ 142               		.stabn 68,0,60,.LM21-Delay_us
+ 143               	.LM21:
+ 144               	/* #APP */
+ 145 0038 0F92      		 PUSH  R0 
+  61:VFDCON_Sub.h  ****       asm volatile(" POP   R0 ");		// 2 cycle +
+ 146               		.stabn 68,0,61,.LM22-Delay_us
+ 147               	.LM22:
+ 148 003a 0F90      		 POP   R0 
+  62:VFDCON_Sub.h  **** //    asm volatile(" PUSH  R0 ");		// 2 cycle +
+  63:VFDCON_Sub.h  **** //    asm volatile(" POP   R0 ");		// 2 cycle +
+  64:VFDCON_Sub.h  ****       asm volatile(" PUSH  R0 ");		// 2 cycle +
+ 149               		.stabn 68,0,64,.LM23-Delay_us
+ 150               	.LM23:
+ 151 003c 0F92      		 PUSH  R0 
+  65:VFDCON_Sub.h  ****       asm volatile(" POP   R0 ");		// 2 cycle = 16 cycle = 1 us for 16MHz
+ 152               		.stabn 68,0,65,.LM24-Delay_us
+ 153               	.LM24:
+ 154 003e 0F90      		 POP   R0 
+ 155               		.stabn 68,0,59,.LM25-Delay_us
+ 156               	.LM25:
+ 157               	/* #NOAPP */
+ 158 0040 9F5F      		subi r25,lo8(-(1))
+ 159 0042 9817      		cp r25,r24
+ 160 0044 C8F3      		brlo .L8
+ 161               	.L10:
+  66:VFDCON_Sub.h  ****     }
+  67:VFDCON_Sub.h  **** }
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 5
+
+
+ 162               		.stabn 68,0,67,.LM26-Delay_us
+ 163               	.LM26:
+ 164 0046 0895      		ret
+ 165               	.LBE2:
+ 166               	/* epilogue: frame size=0 */
+ 167               	/* epilogue: noreturn */
+ 168               	/* epilogue end (size=0) */
+ 169               	/* function Delay_us size 15 (15) */
+ 170               		.size	Delay_us, .-Delay_us
+ 171               		.stabs	"i:r(0,11)",64,0,57,25
+ 172               		.stabn	192,0,0,.LBB2-Delay_us
+ 173               		.stabn	224,0,0,.LBE2-Delay_us
+ 174               	.Lscope2:
+ 175               		.stabs	"",36,0,0,.Lscope2-Delay_us
+ 176               		.stabs	"Delay_ms:F(0,20)",36,0,71,Delay_ms
+ 177               		.stabs	"time_ms:P(0,4)",64,0,70,16
+ 178               	.global	Delay_ms
+ 179               		.type	Delay_ms, @function
+ 180               	Delay_ms:
+  68:VFDCON_Sub.h  **** 
+  69:VFDCON_Sub.h  **** 
+  70:VFDCON_Sub.h  **** void Delay_ms(unsigned int time_ms)		/* time delay for ms */
+  71:VFDCON_Sub.h  **** { register unsigned int i;
+ 181               		.stabn 68,0,71,.LM27-Delay_ms
+ 182               	.LM27:
+ 183               	/* prologue: frame size=0 */
+ 184 0048 0F93      		push r16
+ 185 004a 1F93      		push r17
+ 186 004c CF93      		push r28
+ 187 004e DF93      		push r29
+ 188               	/* prologue end (size=4) */
+ 189 0050 8C01      		movw r16,r24
+  72:VFDCON_Sub.h  **** 
+  73:VFDCON_Sub.h  ****   for(i = 0; i < time_ms; i++)
+ 190               		.stabn 68,0,73,.LM28-Delay_ms
+ 191               	.LM28:
+ 192               	.LBB3:
+ 193 0052 C0E0      		ldi r28,lo8(0)
+ 194 0054 D0E0      		ldi r29,hi8(0)
+ 195 0056 C817      		cp r28,r24
+ 196 0058 D907      		cpc r29,r25
+ 197 005a 80F4      		brsh .L18
+ 198               	.L16:
+  74:VFDCON_Sub.h  ****     { Delay_us(250);
+ 199               		.stabn 68,0,74,.LM29-Delay_ms
+ 200               	.LM29:
+ 201 005c 8AEF      		ldi r24,lo8(-6)
+ 202 005e 0E94 0000 		call Delay_us
+  75:VFDCON_Sub.h  ****       Delay_us(250);
+ 203               		.stabn 68,0,75,.LM30-Delay_ms
+ 204               	.LM30:
+ 205 0062 8AEF      		ldi r24,lo8(-6)
+ 206 0064 0E94 0000 		call Delay_us
+  76:VFDCON_Sub.h  ****       Delay_us(250);
+ 207               		.stabn 68,0,76,.LM31-Delay_ms
+ 208               	.LM31:
+ 209 0068 8AEF      		ldi r24,lo8(-6)
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 6
+
+
+ 210 006a 0E94 0000 		call Delay_us
+  77:VFDCON_Sub.h  ****       Delay_us(150);
+ 211               		.stabn 68,0,77,.LM32-Delay_ms
+ 212               	.LM32:
+ 213 006e 86E9      		ldi r24,lo8(-106)
+ 214 0070 0E94 0000 		call Delay_us
+ 215               		.stabn 68,0,73,.LM33-Delay_ms
+ 216               	.LM33:
+ 217 0074 2196      		adiw r28,1
+ 218 0076 C017      		cp r28,r16
+ 219 0078 D107      		cpc r29,r17
+ 220 007a 80F3      		brlo .L16
+ 221               	.L18:
+  78:VFDCON_Sub.h  ****     }
+  79:VFDCON_Sub.h  **** }
+ 222               		.stabn 68,0,79,.LM34-Delay_ms
+ 223               	.LM34:
+ 224               	.LBE3:
+ 225               	/* epilogue: frame size=0 */
+ 226 007c DF91      		pop r29
+ 227 007e CF91      		pop r28
+ 228 0080 1F91      		pop r17
+ 229 0082 0F91      		pop r16
+ 230 0084 0895      		ret
+ 231               	/* epilogue end (size=5) */
+ 232               	/* function Delay_ms size 31 (22) */
+ 233               		.size	Delay_ms, .-Delay_ms
+ 234               		.stabs	"i:r(0,4)",64,0,71,28
+ 235               		.stabn	192,0,0,.LBB3-Delay_ms
+ 236               		.stabn	224,0,0,.LBE3-Delay_ms
+ 237               	.Lscope3:
+ 238               		.stabs	"",36,0,0,.Lscope3-Delay_ms
+ 239               		.stabs	"TX0_char:F(0,20)",36,0,84,TX0_char
+ 240               		.stabs	"data:P(0,11)",64,0,83,24
+ 241               	.global	TX0_char
+ 242               		.type	TX0_char, @function
+ 243               	TX0_char:
+  80:VFDCON_Sub.h  **** 
+  81:VFDCON_Sub.h  **** 
+  82:VFDCON_Sub.h  **** 
+  83:VFDCON_Sub.h  **** void TX0_char(unsigned char data)		/* transmit a character by USART0 */
+  84:VFDCON_Sub.h  **** {
+ 244               		.stabn 68,0,84,.LM35-TX0_char
+ 245               	.LM35:
+ 246               	/* prologue: frame size=0 */
+ 247               	/* prologue end (size=0) */
+  85:VFDCON_Sub.h  ****   while((UCSR0A & 0x20) == 0x00);		// data register empty ?
+ 248               		.stabn 68,0,85,.LM36-TX0_char
+ 249               	.LM36:
+ 250               	.L20:
+ 251 0086 5D9B      		sbis 43-0x20,5
+ 252 0088 FECF      		rjmp .L20
+  86:VFDCON_Sub.h  ****   UDR0 = data;
+ 253               		.stabn 68,0,86,.LM37-TX0_char
+ 254               	.LM37:
+ 255 008a 8CB9      		out 44-0x20,r24
+  87:VFDCON_Sub.h  **** }
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 7
+
+
+ 256               		.stabn 68,0,87,.LM38-TX0_char
+ 257               	.LM38:
+ 258               	/* epilogue: frame size=0 */
+ 259 008c 0895      		ret
+ 260               	/* epilogue end (size=1) */
+ 261               	/* function TX0_char size 4 (3) */
+ 262               		.size	TX0_char, .-TX0_char
+ 263               	.Lscope4:
+ 264               		.stabs	"",36,0,0,.Lscope4-TX0_char
+ 265               		.stabs	"TX1_char:F(0,20)",36,0,91,TX1_char
+ 266               		.stabs	"data:P(0,11)",64,0,90,25
+ 267               	.global	TX1_char
+ 268               		.type	TX1_char, @function
+ 269               	TX1_char:
+  88:VFDCON_Sub.h  **** 
+  89:VFDCON_Sub.h  **** 
+  90:VFDCON_Sub.h  **** void TX1_char(unsigned char data)		/* transmit a character by USART1 */
+  91:VFDCON_Sub.h  **** {
+ 270               		.stabn 68,0,91,.LM39-TX1_char
+ 271               	.LM39:
+ 272               	/* prologue: frame size=0 */
+ 273               	/* prologue end (size=0) */
+ 274 008e 982F      		mov r25,r24
+  92:VFDCON_Sub.h  ****   while((UCSR1A & 0x20) == 0x00);		// data register empty ?
+ 275               		.stabn 68,0,92,.LM40-TX1_char
+ 276               	.LM40:
+ 277               	.L24:
+ 278 0090 8091 9B00 		lds r24,155
+ 279 0094 85FF      		sbrs r24,5
+ 280 0096 FCCF      		rjmp .L24
+  93:VFDCON_Sub.h  ****   UDR1 = data;
+ 281               		.stabn 68,0,93,.LM41-TX1_char
+ 282               	.LM41:
+ 283 0098 9093 9C00 		sts 156,r25
+  94:VFDCON_Sub.h  **** }
+ 284               		.stabn 68,0,94,.LM42-TX1_char
+ 285               	.LM42:
+ 286               	/* epilogue: frame size=0 */
+ 287 009c 0895      		ret
+ 288               	/* epilogue end (size=1) */
+ 289               	/* function TX1_char size 8 (7) */
+ 290               		.size	TX1_char, .-TX1_char
+ 291               	.Lscope5:
+ 292               		.stabs	"",36,0,0,.Lscope5-TX1_char
+ 293               		.stabs	"LCD_Reset:F(0,20)",36,0,98,LCD_Reset
+ 294               	.global	LCD_Reset
+ 295               		.type	LCD_Reset, @function
+ 296               	LCD_Reset:
+  95:VFDCON_Sub.h  **** 
+  96:VFDCON_Sub.h  **** 
+  97:VFDCON_Sub.h  **** void LCD_Reset(void)		/* write a command(instruction) to text LCD */
+  98:VFDCON_Sub.h  **** {
+ 297               		.stabn 68,0,98,.LM43-LCD_Reset
+ 298               	.LM43:
+ 299               	/* prologue: frame size=0 */
+ 300               	/* prologue end (size=0) */
+  99:VFDCON_Sub.h  **** 	cbi(PORTG,1); // VFD_nSEL
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 8
+
+
+ 301               		.stabn 68,0,99,.LM44-LCD_Reset
+ 302               	.LM44:
+ 303 009e 8091 6500 		lds r24,101
+ 304 00a2 8D7F      		andi r24,lo8(-3)
+ 305 00a4 8093 6500 		sts 101,r24
+ 100:VFDCON_Sub.h  **** 	cbi(PORTG,0); // VFD_nWR
+ 306               		.stabn 68,0,100,.LM45-LCD_Reset
+ 307               	.LM45:
+ 308 00a8 8091 6500 		lds r24,101
+ 309 00ac 8E7F      		andi r24,lo8(-2)
+ 310 00ae 8093 6500 		sts 101,r24
+ 101:VFDCON_Sub.h  **** 	PORTA = 0x1F;
+ 311               		.stabn 68,0,101,.LM46-LCD_Reset
+ 312               	.LM46:
+ 313 00b2 8FE1      		ldi r24,lo8(31)
+ 314 00b4 8BBB      		out 59-0x20,r24
+ 102:VFDCON_Sub.h  **** 	Delay_us(1);
+ 315               		.stabn 68,0,102,.LM47-LCD_Reset
+ 316               	.LM47:
+ 317 00b6 81E0      		ldi r24,lo8(1)
+ 318 00b8 0E94 0000 		call Delay_us
+ 103:VFDCON_Sub.h  **** 	sbi(PORTG,0); // VFD_nWR
+ 319               		.stabn 68,0,103,.LM48-LCD_Reset
+ 320               	.LM48:
+ 321 00bc 8091 6500 		lds r24,101
+ 322 00c0 8160      		ori r24,lo8(1)
+ 323 00c2 8093 6500 		sts 101,r24
+ 104:VFDCON_Sub.h  **** 	sbi(PORTG,1); // VFD_nSEL
+ 324               		.stabn 68,0,104,.LM49-LCD_Reset
+ 325               	.LM49:
+ 326 00c6 8091 6500 		lds r24,101
+ 327 00ca 8260      		ori r24,lo8(2)
+ 328 00cc 8093 6500 		sts 101,r24
+ 105:VFDCON_Sub.h  **** 	PORTA = 0x00;
+ 329               		.stabn 68,0,105,.LM50-LCD_Reset
+ 330               	.LM50:
+ 331 00d0 1BBA      		out 59-0x20,__zero_reg__
+ 106:VFDCON_Sub.h  **** 	while((inp(PING) & 0x08) == 0x08); // LCD Texe Time
+ 332               		.stabn 68,0,106,.LM51-LCD_Reset
+ 333               	.LM51:
+ 334               	.L28:
+ 335 00d2 8091 6300 		lds r24,99
+ 336 00d6 83FD      		sbrc r24,3
+ 337 00d8 FCCF      		rjmp .L28
+ 107:VFDCON_Sub.h  **** 
+ 108:VFDCON_Sub.h  **** }
+ 338               		.stabn 68,0,108,.LM52-LCD_Reset
+ 339               	.LM52:
+ 340               	/* epilogue: frame size=0 */
+ 341 00da 0895      		ret
+ 342               	/* epilogue end (size=1) */
+ 343               	/* function LCD_Reset size 31 (30) */
+ 344               		.size	LCD_Reset, .-LCD_Reset
+ 345               	.Lscope6:
+ 346               		.stabs	"",36,0,0,.Lscope6-LCD_Reset
+ 347               		.stabs	"LCD_Position:F(0,20)",36,0,112,LCD_Position
+ 348               		.stabs	"command:P(0,11)",64,0,111,28
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 9
+
+
+ 349               	.global	LCD_Position
+ 350               		.type	LCD_Position, @function
+ 351               	LCD_Position:
+ 109:VFDCON_Sub.h  **** 
+ 110:VFDCON_Sub.h  **** 
+ 111:VFDCON_Sub.h  **** void LCD_Position(unsigned char command)		/* write a command(instruction) to text LCD */
+ 112:VFDCON_Sub.h  **** {
+ 352               		.stabn 68,0,112,.LM53-LCD_Position
+ 353               	.LM53:
+ 354               	/* prologue: frame size=0 */
+ 355 00dc CF93      		push r28
+ 356               	/* prologue end (size=1) */
+ 357 00de C82F      		mov r28,r24
+ 113:VFDCON_Sub.h  **** 	cbi(PORTG,1); // VFD_nSEL
+ 358               		.stabn 68,0,113,.LM54-LCD_Position
+ 359               	.LM54:
+ 360 00e0 8091 6500 		lds r24,101
+ 361 00e4 8D7F      		andi r24,lo8(-3)
+ 362 00e6 8093 6500 		sts 101,r24
+ 114:VFDCON_Sub.h  **** 	cbi(PORTG,0); // VFD_nWR
+ 363               		.stabn 68,0,114,.LM55-LCD_Position
+ 364               	.LM55:
+ 365 00ea 8091 6500 		lds r24,101
+ 366 00ee 8E7F      		andi r24,lo8(-2)
+ 367 00f0 8093 6500 		sts 101,r24
+ 115:VFDCON_Sub.h  **** 	PORTA = 0x10;
+ 368               		.stabn 68,0,115,.LM56-LCD_Position
+ 369               	.LM56:
+ 370 00f4 80E1      		ldi r24,lo8(16)
+ 371 00f6 8BBB      		out 59-0x20,r24
+ 116:VFDCON_Sub.h  **** 	Delay_us(1);
+ 372               		.stabn 68,0,116,.LM57-LCD_Position
+ 373               	.LM57:
+ 374 00f8 81E0      		ldi r24,lo8(1)
+ 375 00fa 0E94 0000 		call Delay_us
+ 117:VFDCON_Sub.h  **** 	sbi(PORTG,0); // VFD_nWR
+ 376               		.stabn 68,0,117,.LM58-LCD_Position
+ 377               	.LM58:
+ 378 00fe 8091 6500 		lds r24,101
+ 379 0102 8160      		ori r24,lo8(1)
+ 380 0104 8093 6500 		sts 101,r24
+ 118:VFDCON_Sub.h  **** 	sbi(PORTG,1); // VFD_nSEL
+ 381               		.stabn 68,0,118,.LM59-LCD_Position
+ 382               	.LM59:
+ 383 0108 8091 6500 		lds r24,101
+ 384 010c 8260      		ori r24,lo8(2)
+ 385 010e 8093 6500 		sts 101,r24
+ 119:VFDCON_Sub.h  **** 	while((inp(PING) & 0x08) == 0x08); // LCD Texe Time
+ 386               		.stabn 68,0,119,.LM60-LCD_Position
+ 387               	.LM60:
+ 388               	.L32:
+ 389 0112 8091 6300 		lds r24,99
+ 390 0116 83FD      		sbrc r24,3
+ 391 0118 FCCF      		rjmp .L32
+ 120:VFDCON_Sub.h  **** 	
+ 121:VFDCON_Sub.h  **** 	cbi(PORTG,1); // VFD_nSEL
+ 392               		.stabn 68,0,121,.LM61-LCD_Position
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 10
+
+
+ 393               	.LM61:
+ 394 011a 8091 6500 		lds r24,101
+ 395 011e 8D7F      		andi r24,lo8(-3)
+ 396 0120 8093 6500 		sts 101,r24
+ 122:VFDCON_Sub.h  **** 	cbi(PORTG,0); // VFD_nWR
+ 397               		.stabn 68,0,122,.LM62-LCD_Position
+ 398               	.LM62:
+ 399 0124 8091 6500 		lds r24,101
+ 400 0128 8E7F      		andi r24,lo8(-2)
+ 401 012a 8093 6500 		sts 101,r24
+ 123:VFDCON_Sub.h  **** 	PORTA = command;
+ 402               		.stabn 68,0,123,.LM63-LCD_Position
+ 403               	.LM63:
+ 404 012e CBBB      		out 59-0x20,r28
+ 124:VFDCON_Sub.h  **** 	Delay_us(1);
+ 405               		.stabn 68,0,124,.LM64-LCD_Position
+ 406               	.LM64:
+ 407 0130 81E0      		ldi r24,lo8(1)
+ 408 0132 0E94 0000 		call Delay_us
+ 125:VFDCON_Sub.h  **** 	sbi(PORTG,0); // VFD_nWR
+ 409               		.stabn 68,0,125,.LM65-LCD_Position
+ 410               	.LM65:
+ 411 0136 8091 6500 		lds r24,101
+ 412 013a 8160      		ori r24,lo8(1)
+ 413 013c 8093 6500 		sts 101,r24
+ 126:VFDCON_Sub.h  **** 	sbi(PORTG,1); // VFD_nSEL
+ 414               		.stabn 68,0,126,.LM66-LCD_Position
+ 415               	.LM66:
+ 416 0140 8091 6500 		lds r24,101
+ 417 0144 8260      		ori r24,lo8(2)
+ 418 0146 8093 6500 		sts 101,r24
+ 127:VFDCON_Sub.h  **** 	while((inp(PING) & 0x08) == 0x08); // LCD Texe Time
+ 419               		.stabn 68,0,127,.LM67-LCD_Position
+ 420               	.LM67:
+ 421               	.L35:
+ 422 014a 8091 6300 		lds r24,99
+ 423 014e 83FD      		sbrc r24,3
+ 424 0150 FCCF      		rjmp .L35
+ 128:VFDCON_Sub.h  **** 
+ 129:VFDCON_Sub.h  **** }
+ 425               		.stabn 68,0,129,.LM68-LCD_Position
+ 426               	.LM68:
+ 427               	/* epilogue: frame size=0 */
+ 428 0152 CF91      		pop r28
+ 429 0154 0895      		ret
+ 430               	/* epilogue end (size=2) */
+ 431               	/* function LCD_Position size 61 (58) */
+ 432               		.size	LCD_Position, .-LCD_Position
+ 433               	.Lscope7:
+ 434               		.stabs	"",36,0,0,.Lscope7-LCD_Position
+ 435               		.stabs	"LCD_command:F(0,20)",36,0,132,LCD_command
+ 436               		.stabs	"command:P(0,11)",64,0,131,25
+ 437               	.global	LCD_command
+ 438               		.type	LCD_command, @function
+ 439               	LCD_command:
+ 130:VFDCON_Sub.h  **** 
+ 131:VFDCON_Sub.h  **** void LCD_command(unsigned char command)		/* write a command(instruction) to text LCD */
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 11
+
+
+ 132:VFDCON_Sub.h  **** {
+ 440               		.stabn 68,0,132,.LM69-LCD_command
+ 441               	.LM69:
+ 442               	/* prologue: frame size=0 */
+ 443               	/* prologue end (size=0) */
+ 444 0156 982F      		mov r25,r24
+ 133:VFDCON_Sub.h  **** 	cbi(PORTG,1); // VFD_nSEL
+ 445               		.stabn 68,0,133,.LM70-LCD_command
+ 446               	.LM70:
+ 447 0158 8091 6500 		lds r24,101
+ 448 015c 8D7F      		andi r24,lo8(-3)
+ 449 015e 8093 6500 		sts 101,r24
+ 134:VFDCON_Sub.h  **** 	cbi(PORTG,0); // VFD_nWR
+ 450               		.stabn 68,0,134,.LM71-LCD_command
+ 451               	.LM71:
+ 452 0162 8091 6500 		lds r24,101
+ 453 0166 8E7F      		andi r24,lo8(-2)
+ 454 0168 8093 6500 		sts 101,r24
+ 135:VFDCON_Sub.h  **** 	PORTA = command;
+ 455               		.stabn 68,0,135,.LM72-LCD_command
+ 456               	.LM72:
+ 457 016c 9BBB      		out 59-0x20,r25
+ 136:VFDCON_Sub.h  **** 	Delay_us(1);
+ 458               		.stabn 68,0,136,.LM73-LCD_command
+ 459               	.LM73:
+ 460 016e 81E0      		ldi r24,lo8(1)
+ 461 0170 0E94 0000 		call Delay_us
+ 137:VFDCON_Sub.h  **** 	sbi(PORTG,0); // VFD_nWR
+ 462               		.stabn 68,0,137,.LM74-LCD_command
+ 463               	.LM74:
+ 464 0174 8091 6500 		lds r24,101
+ 465 0178 8160      		ori r24,lo8(1)
+ 466 017a 8093 6500 		sts 101,r24
+ 138:VFDCON_Sub.h  **** 	sbi(PORTG,1); // VFD_nSEL
+ 467               		.stabn 68,0,138,.LM75-LCD_command
+ 468               	.LM75:
+ 469 017e 8091 6500 		lds r24,101
+ 470 0182 8260      		ori r24,lo8(2)
+ 471 0184 8093 6500 		sts 101,r24
+ 139:VFDCON_Sub.h  **** 	while((inp(PING) & 0x08) == 0x08); // LCD Texe Time
+ 472               		.stabn 68,0,139,.LM76-LCD_command
+ 473               	.LM76:
+ 474               	.L39:
+ 475 0188 8091 6300 		lds r24,99
+ 476 018c 83FD      		sbrc r24,3
+ 477 018e FCCF      		rjmp .L39
+ 140:VFDCON_Sub.h  **** }
+ 478               		.stabn 68,0,140,.LM77-LCD_command
+ 479               	.LM77:
+ 480               	/* epilogue: frame size=0 */
+ 481 0190 0895      		ret
+ 482               	/* epilogue end (size=1) */
+ 483               	/* function LCD_command size 30 (29) */
+ 484               		.size	LCD_command, .-LCD_command
+ 485               	.Lscope8:
+ 486               		.stabs	"",36,0,0,.Lscope8-LCD_command
+ 487               		.stabs	"LCD_data:F(0,20)",36,0,144,LCD_data
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 12
+
+
+ 488               		.stabs	"data:P(0,11)",64,0,143,25
+ 489               	.global	LCD_data
+ 490               		.type	LCD_data, @function
+ 491               	LCD_data:
+ 141:VFDCON_Sub.h  **** 
+ 142:VFDCON_Sub.h  **** 
+ 143:VFDCON_Sub.h  **** void LCD_data(unsigned char data)		/* display a character on text LCD */
+ 144:VFDCON_Sub.h  **** {
+ 492               		.stabn 68,0,144,.LM78-LCD_data
+ 493               	.LM78:
+ 494               	/* prologue: frame size=0 */
+ 495               	/* prologue end (size=0) */
+ 496 0192 982F      		mov r25,r24
+ 145:VFDCON_Sub.h  **** 	cbi(PORTG,1); // VFD_nSEL
+ 497               		.stabn 68,0,145,.LM79-LCD_data
+ 498               	.LM79:
+ 499 0194 8091 6500 		lds r24,101
+ 500 0198 8D7F      		andi r24,lo8(-3)
+ 501 019a 8093 6500 		sts 101,r24
+ 146:VFDCON_Sub.h  **** 	cbi(PORTG,0); // VFD_nWR
+ 502               		.stabn 68,0,146,.LM80-LCD_data
+ 503               	.LM80:
+ 504 019e 8091 6500 		lds r24,101
+ 505 01a2 8E7F      		andi r24,lo8(-2)
+ 506 01a4 8093 6500 		sts 101,r24
+ 147:VFDCON_Sub.h  **** 	if(data < 0x20)
+ 507               		.stabn 68,0,147,.LM81-LCD_data
+ 508               	.LM81:
+ 509 01a8 9032      		cpi r25,lo8(32)
+ 510 01aa 18F4      		brsh .L43
+ 148:VFDCON_Sub.h  **** 	{
+ 149:VFDCON_Sub.h  **** 		PORTA = 0x20;
+ 511               		.stabn 68,0,149,.LM82-LCD_data
+ 512               	.LM82:
+ 513 01ac 80E2      		ldi r24,lo8(32)
+ 514 01ae 8BBB      		out 59-0x20,r24
+ 515 01b0 01C0      		rjmp .L44
+ 516               	.L43:
+ 150:VFDCON_Sub.h  **** 	}else{
+ 151:VFDCON_Sub.h  **** 		PORTA = data;
+ 517               		.stabn 68,0,151,.LM83-LCD_data
+ 518               	.LM83:
+ 519 01b2 9BBB      		out 59-0x20,r25
+ 520               	.L44:
+ 152:VFDCON_Sub.h  **** 	}
+ 153:VFDCON_Sub.h  **** 	Delay_us(1);
+ 521               		.stabn 68,0,153,.LM84-LCD_data
+ 522               	.LM84:
+ 523 01b4 81E0      		ldi r24,lo8(1)
+ 524 01b6 0E94 0000 		call Delay_us
+ 154:VFDCON_Sub.h  **** 	sbi(PORTG,0); // VFD_nWR
+ 525               		.stabn 68,0,154,.LM85-LCD_data
+ 526               	.LM85:
+ 527 01ba 8091 6500 		lds r24,101
+ 528 01be 8160      		ori r24,lo8(1)
+ 529 01c0 8093 6500 		sts 101,r24
+ 155:VFDCON_Sub.h  **** 	sbi(PORTG,1); // VFD_nSEL
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 13
+
+
+ 530               		.stabn 68,0,155,.LM86-LCD_data
+ 531               	.LM86:
+ 532 01c4 8091 6500 		lds r24,101
+ 533 01c8 8260      		ori r24,lo8(2)
+ 534 01ca 8093 6500 		sts 101,r24
+ 156:VFDCON_Sub.h  **** 	while((inp(PING) & 0x08) == 0x08); // LCD Texe Time
+ 535               		.stabn 68,0,156,.LM87-LCD_data
+ 536               	.LM87:
+ 537               	.L45:
+ 538 01ce 8091 6300 		lds r24,99
+ 539 01d2 83FD      		sbrc r24,3
+ 540 01d4 FCCF      		rjmp .L45
+ 157:VFDCON_Sub.h  **** 	
+ 158:VFDCON_Sub.h  **** }
+ 541               		.stabn 68,0,158,.LM88-LCD_data
+ 542               	.LM88:
+ 543               	/* epilogue: frame size=0 */
+ 544 01d6 0895      		ret
+ 545               	/* epilogue end (size=1) */
+ 546               	/* function LCD_data size 35 (34) */
+ 547               		.size	LCD_data, .-LCD_data
+ 548               	.Lscope9:
+ 549               		.stabs	"",36,0,0,.Lscope9-LCD_data
+ 550               		.stabs	"LCD_string:F(0,20)",36,0,161,LCD_string
+ 551               		.stabs	"command:P(0,11)",64,0,160,24
+ 552               		.stabs	"string:P(5,1)=*(0,11)",64,0,160,28
+ 553               	.global	LCD_string
+ 554               		.type	LCD_string, @function
+ 555               	LCD_string:
+ 159:VFDCON_Sub.h  **** 
+ 160:VFDCON_Sub.h  **** void LCD_string(unsigned char command, unsigned char *string) /* display a string on LCD */
+ 161:VFDCON_Sub.h  **** {
+ 556               		.stabn 68,0,161,.LM89-LCD_string
+ 557               	.LM89:
+ 558               	/* prologue: frame size=0 */
+ 559 01d8 CF93      		push r28
+ 560 01da DF93      		push r29
+ 561               	/* prologue end (size=2) */
+ 562 01dc EB01      		movw r28,r22
+ 162:VFDCON_Sub.h  ****   LCD_Position(command);				// start position of string
+ 563               		.stabn 68,0,162,.LM90-LCD_string
+ 564               	.LM90:
+ 565 01de 0E94 0000 		call LCD_Position
+ 163:VFDCON_Sub.h  ****   while(*string != '\0')			// display string
+ 566               		.stabn 68,0,163,.LM91-LCD_string
+ 567               	.LM91:
+ 568 01e2 8881      		ld r24,Y
+ 569 01e4 8823      		tst r24
+ 570 01e6 31F0      		breq .L54
+ 571               	.L52:
+ 164:VFDCON_Sub.h  ****     { LCD_data(*string);
+ 572               		.stabn 68,0,164,.LM92-LCD_string
+ 573               	.LM92:
+ 574 01e8 8991      		ld r24,Y+
+ 575 01ea 0E94 0000 		call LCD_data
+ 165:VFDCON_Sub.h  ****        string++;
+ 576               		.stabn 68,0,165,.LM93-LCD_string
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 14
+
+
+ 577               	.LM93:
+ 578 01ee 8881      		ld r24,Y
+ 579 01f0 8823      		tst r24
+ 580 01f2 D1F7      		brne .L52
+ 581               	.L54:
+ 166:VFDCON_Sub.h  ****     }
+ 167:VFDCON_Sub.h  **** }
+ 582               		.stabn 68,0,167,.LM94-LCD_string
+ 583               	.LM94:
+ 584               	/* epilogue: frame size=0 */
+ 585 01f4 DF91      		pop r29
+ 586 01f6 CF91      		pop r28
+ 587 01f8 0895      		ret
+ 588               	/* epilogue end (size=3) */
+ 589               	/* function LCD_string size 17 (12) */
+ 590               		.size	LCD_string, .-LCD_string
+ 591               	.Lscope10:
+ 592               		.stabs	"",36,0,0,.Lscope10-LCD_string
+ 593               		.stabs	"Beep:F(0,20)",36,0,171,Beep
+ 594               	.global	Beep
+ 595               		.type	Beep, @function
+ 596               	Beep:
+ 168:VFDCON_Sub.h  **** 
+ 169:VFDCON_Sub.h  **** 
+ 170:VFDCON_Sub.h  **** void Beep(void)
+ 171:VFDCON_Sub.h  **** {
+ 597               		.stabn 68,0,171,.LM95-Beep
+ 598               	.LM95:
+ 599               	/* prologue: frame size=0 */
+ 600               	/* prologue end (size=0) */
+ 172:VFDCON_Sub.h  **** 	sbi(PORTG,4);
+ 601               		.stabn 68,0,172,.LM96-Beep
+ 602               	.LM96:
+ 603 01fa 8091 6500 		lds r24,101
+ 604 01fe 8061      		ori r24,lo8(16)
+ 605 0200 8093 6500 		sts 101,r24
+ 173:VFDCON_Sub.h  **** 	Delay_ms(50);
+ 606               		.stabn 68,0,173,.LM97-Beep
+ 607               	.LM97:
+ 608 0204 82E3      		ldi r24,lo8(50)
+ 609 0206 90E0      		ldi r25,hi8(50)
+ 610 0208 0E94 0000 		call Delay_ms
+ 174:VFDCON_Sub.h  **** 	cbi(PORTG,4);
+ 611               		.stabn 68,0,174,.LM98-Beep
+ 612               	.LM98:
+ 613 020c 8091 6500 		lds r24,101
+ 614 0210 8F7E      		andi r24,lo8(-17)
+ 615 0212 8093 6500 		sts 101,r24
+ 175:VFDCON_Sub.h  **** }
+ 616               		.stabn 68,0,175,.LM99-Beep
+ 617               	.LM99:
+ 618               	/* epilogue: frame size=0 */
+ 619 0216 0895      		ret
+ 620               	/* epilogue end (size=1) */
+ 621               	/* function Beep size 15 (14) */
+ 622               		.size	Beep, .-Beep
+ 623               	.Lscope11:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 15
+
+
+ 624               		.stabs	"",36,0,0,.Lscope11-Beep
+ 625               		.stabs	"Beep_Long:F(0,20)",36,0,178,Beep_Long
+ 626               	.global	Beep_Long
+ 627               		.type	Beep_Long, @function
+ 628               	Beep_Long:
+ 176:VFDCON_Sub.h  **** 
+ 177:VFDCON_Sub.h  **** void Beep_Long(void)
+ 178:VFDCON_Sub.h  **** {
+ 629               		.stabn 68,0,178,.LM100-Beep_Long
+ 630               	.LM100:
+ 631               	/* prologue: frame size=0 */
+ 632               	/* prologue end (size=0) */
+ 179:VFDCON_Sub.h  **** 	sbi(PORTG,4);
+ 633               		.stabn 68,0,179,.LM101-Beep_Long
+ 634               	.LM101:
+ 635 0218 8091 6500 		lds r24,101
+ 636 021c 8061      		ori r24,lo8(16)
+ 637 021e 8093 6500 		sts 101,r24
+ 180:VFDCON_Sub.h  **** 	Delay_ms(100);
+ 638               		.stabn 68,0,180,.LM102-Beep_Long
+ 639               	.LM102:
+ 640 0222 84E6      		ldi r24,lo8(100)
+ 641 0224 90E0      		ldi r25,hi8(100)
+ 642 0226 0E94 0000 		call Delay_ms
+ 181:VFDCON_Sub.h  **** 	cbi(PORTG,4);
+ 643               		.stabn 68,0,181,.LM103-Beep_Long
+ 644               	.LM103:
+ 645 022a 8091 6500 		lds r24,101
+ 646 022e 8F7E      		andi r24,lo8(-17)
+ 647 0230 8093 6500 		sts 101,r24
+ 182:VFDCON_Sub.h  **** }
+ 648               		.stabn 68,0,182,.LM104-Beep_Long
+ 649               	.LM104:
+ 650               	/* epilogue: frame size=0 */
+ 651 0234 0895      		ret
+ 652               	/* epilogue end (size=1) */
+ 653               	/* function Beep_Long size 15 (14) */
+ 654               		.size	Beep_Long, .-Beep_Long
+ 655               	.Lscope12:
+ 656               		.stabs	"",36,0,0,.Lscope12-Beep_Long
+ 657               		.stabs	"EEPROM_read:F(0,11)",36,0,186,EEPROM_read
+ 658               		.stabs	"address:P(0,4)",64,0,185,24
+ 659               	.global	EEPROM_read
+ 660               		.type	EEPROM_read, @function
+ 661               	EEPROM_read:
+ 183:VFDCON_Sub.h  **** 
+ 184:VFDCON_Sub.h  **** 
+ 185:VFDCON_Sub.h  **** unsigned char EEPROM_read(unsigned int address) /* read from EEPROM */
+ 186:VFDCON_Sub.h  **** {
+ 662               		.stabn 68,0,186,.LM105-EEPROM_read
+ 663               	.LM105:
+ 664               	/* prologue: frame size=0 */
+ 665               	/* prologue end (size=0) */
+ 187:VFDCON_Sub.h  ****   while(EECR & (1<<EEWE));                      // if EEWE = 1, wait
+ 666               		.stabn 68,0,187,.LM106-EEPROM_read
+ 667               	.LM106:
+ 668               	.L58:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 16
+
+
+ 669 0236 E199      		sbic 60-0x20,1
+ 670 0238 FECF      		rjmp .L58
+ 188:VFDCON_Sub.h  ****   EEAR = address;                               // if EEWE = 0, read
+ 671               		.stabn 68,0,188,.LM107-EEPROM_read
+ 672               	.LM107:
+ 673 023a 9FBB      		out (62)+1-0x20,r25
+ 674 023c 8EBB      		out 62-0x20,r24
+ 189:VFDCON_Sub.h  ****   EECR |= (1<<EERE);                            // EERE = 1
+ 675               		.stabn 68,0,189,.LM108-EEPROM_read
+ 676               	.LM108:
+ 677 023e E09A      		sbi 60-0x20,0
+ 190:VFDCON_Sub.h  ****   return EEDR;                                  // return data
+ 678               		.stabn 68,0,190,.LM109-EEPROM_read
+ 679               	.LM109:
+ 680 0240 8DB3      		in r24,61-0x20
+ 681 0242 9927      		clr r25
+ 191:VFDCON_Sub.h  **** }
+ 682               		.stabn 68,0,191,.LM110-EEPROM_read
+ 683               	.LM110:
+ 684               	/* epilogue: frame size=0 */
+ 685 0244 0895      		ret
+ 686               	/* epilogue end (size=1) */
+ 687               	/* function EEPROM_read size 8 (7) */
+ 688               		.size	EEPROM_read, .-EEPROM_read
+ 689               	.Lscope13:
+ 690               		.stabs	"",36,0,0,.Lscope13-EEPROM_read
+ 691               		.stabs	"EEPROM_write:F(0,20)",36,0,194,EEPROM_write
+ 692               		.stabs	"address:P(0,4)",64,0,193,24
+ 693               		.stabs	"byte:P(0,11)",64,0,193,22
+ 694               	.global	EEPROM_write
+ 695               		.type	EEPROM_write, @function
+ 696               	EEPROM_write:
+ 192:VFDCON_Sub.h  **** 
+ 193:VFDCON_Sub.h  **** void EEPROM_write(unsigned int address, unsigned char byte) /* write to EEPROM */
+ 194:VFDCON_Sub.h  **** {
+ 697               		.stabn 68,0,194,.LM111-EEPROM_write
+ 698               	.LM111:
+ 699               	/* prologue: frame size=0 */
+ 700               	/* prologue end (size=0) */
+ 195:VFDCON_Sub.h  ****   while(EECR & (1<<EEWE));                      // if EEWE = 1, wait
+ 701               		.stabn 68,0,195,.LM112-EEPROM_write
+ 702               	.LM112:
+ 703               	.L62:
+ 704 0246 E199      		sbic 60-0x20,1
+ 705 0248 FECF      		rjmp .L62
+ 196:VFDCON_Sub.h  ****   EEAR = address;                               // if EEWE = 0, write
+ 706               		.stabn 68,0,196,.LM113-EEPROM_write
+ 707               	.LM113:
+ 708 024a 9FBB      		out (62)+1-0x20,r25
+ 709 024c 8EBB      		out 62-0x20,r24
+ 197:VFDCON_Sub.h  ****   EEDR = byte;
+ 710               		.stabn 68,0,197,.LM114-EEPROM_write
+ 711               	.LM114:
+ 712 024e 6DBB      		out 61-0x20,r22
+ 198:VFDCON_Sub.h  ****   EECR |= (1<<EEMWE);                           // EEMWE = 1
+ 713               		.stabn 68,0,198,.LM115-EEPROM_write
+ 714               	.LM115:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 17
+
+
+ 715 0250 E29A      		sbi 60-0x20,2
+ 199:VFDCON_Sub.h  ****   EECR |= (1<<EEWE);                            // EEWE = 1
+ 716               		.stabn 68,0,199,.LM116-EEPROM_write
+ 717               	.LM116:
+ 718 0252 E19A      		sbi 60-0x20,1
+ 200:VFDCON_Sub.h  **** }
+ 719               		.stabn 68,0,200,.LM117-EEPROM_write
+ 720               	.LM117:
+ 721               	/* epilogue: frame size=0 */
+ 722 0254 0895      		ret
+ 723               	/* epilogue end (size=1) */
+ 724               	/* function EEPROM_write size 8 (7) */
+ 725               		.size	EEPROM_write, .-EEPROM_write
+ 726               	.Lscope14:
+ 727               		.stabs	"",36,0,0,.Lscope14-EEPROM_write
+ 728               		.stabn	162,0,0,0
+ 729               		.stabs	"C:/AvrEdit/WinAVR/avr/include/avr/interrupt.h",130,0,0,0
+ 730               		.stabn	162,0,0,0
+ 731               		.stabs	"C:/AvrEdit/WinAVR/avr/include/avr/math.h",130,0,0,0
+ 732               		.stabn	162,0,0,0
+ 733               		.stabs	"C:/AvrEdit/WinAVR/avr/include/avr/signal.h",130,0,0,0
+ 734               		.stabn	162,0,0,0
+ 735               		.stabs	"C:/AvrEdit/WinAVR/avr/include/string.h",130,0,0,0
+ 736               		.stabs	"C:/AvrEdit/WinAVR/lib/gcc-lib/avr/3.3.1/include/stddef.h",130,0,0,0
+ 737               		.stabs	"size_t:t(10,1)=(0,4)",128,0,213,0
+ 738               		.stabn	162,0,0,0
+ 739               		.stabn	162,0,0,0
+ 740               		.stabs	"C:/AvrEdit/WinAVR/avr/include/stdlib.h",130,0,0,0
+ 741               		.stabs	"C:/AvrEdit/WinAVR/lib/gcc-lib/avr/3.3.1/include/stddef.h",130,0,0,0
+ 742               		.stabs	"wchar_t:t(12,1)=(0,1)",128,0,325,0
+ 743               		.stabn	162,0,0,0
+ 744               		.stabs	"div_t:t(11,1)=(11,2)=s4quot:(0,1),0,16;rem:(0,1),16,16;;",128,0,63,0
+ 745               		.stabs	"ldiv_t:t(11,3)=(11,4)=s8quot:(0,3),0,32;rem:(0,3),32,32;;",128,0,69,0
+ 746               		.stabs	"__compar_fn_t:t(11,5)=(11,6)=*(11,7)=f(0,1)",128,0,72,0
+ 747               		.stabn	162,0,0,0
+ 748               	.global	Time_Count
+ 749               		.data
+ 750               		.type	Time_Count, @object
+ 751               		.size	Time_Count, 2
+ 752               	Time_Count:
+ 753 0000 0A00      		.word	10
+ 754               	.global	Key_Flag
+ 755               	.global	Key_Flag
+ 756               		.section .bss
+ 757               		.type	Key_Flag, @object
+ 758               		.size	Key_Flag, 1
+ 759               	Key_Flag:
+ 760 0000 00        		.skip 1,0
+ 761               		.text
+ 762               		.stabs	"__vector_18:F(0,20)",36,0,71,__vector_18
+ 763               	.global	__vector_18
+ 764               		.type	__vector_18, @function
+ 765               	__vector_18:
+ 766               		.stabs	"VFDCON.c",132,0,0,.Ltext2
+ 767               	.Ltext2:
+   1:VFDCON.c      **** /*
+   2:VFDCON.c      **** ***************************************************************************************************
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 18
+
+
+   3:VFDCON.c      **** *                            VFD-CON R2 Controller Main Functions
+   4:VFDCON.c      **** *
+   5:VFDCON.c      **** *                          (c) Copyright 2016, MARUENG co., ltd., Daejeon, South Korea
+   6:VFDCON.c      **** *                                           All Rights Reserved
+   7:VFDCON.c      **** *
+   8:VFDCON.c      **** * File : VFDCON.C
+   9:VFDCON.c      **** * By   : DongHyun Kwon
+  10:VFDCON.c      **** ***************************************************************************************************
+  11:VFDCON.c      **** 
+  12:VFDCON.c      **** ***************************************************************************************************
+  13:VFDCON.c      ****   ATMEGA128 Fuse Bits
+  14:VFDCON.c      ****   /BootLock12 /BootLock11  /BootLock02  /BootLock01  /Lock2 /Lock1
+  15:VFDCON.c      ****                        /M103C  /WDTON
+  16:VFDCON.c      ****   /OCDEN  /JTAGEN *CKOPT  *EESAVE /BOOTSZ1  /BOOTSZ0  /BOOTRST
+  17:VFDCON.c      ****   *BODLEVEL /BODEN  *SUT1 /SUT0 /CKSEL3 /CKSEL2 /CKSEL1 /CKSEL0
+  18:VFDCON.c      **** ***************************************************************************************************
+  19:VFDCON.c      **** */
+  20:VFDCON.c      **** 
+  21:VFDCON.c      **** // External 11.0592MHz
+  22:VFDCON.c      **** 
+  23:VFDCON.c      **** 
+  24:VFDCON.c      **** #define Led_Delay	1
+  25:VFDCON.c      **** #define Serial_Max	1000
+  26:VFDCON.c      **** 
+  27:VFDCON.c      **** 
+  28:VFDCON.c      **** 
+  29:VFDCON.c      **** #include <avr/io.h>
+  30:VFDCON.c      **** #include <VFDCON_Sub.h>
+  31:VFDCON.c      **** #include <avr/interrupt.h>
+  32:VFDCON.c      **** #include <avr/math.h>
+  33:VFDCON.c      **** #include <avr/signal.h>
+  34:VFDCON.c      **** #include <string.h>
+  35:VFDCON.c      **** #include <stdlib.h>
+  36:VFDCON.c      **** 
+  37:VFDCON.c      **** 
+  38:VFDCON.c      **** unsigned int  i,j,Time_Count=10;
+  39:VFDCON.c      **** unsigned char Key_Input,Key_Flag=0;
+  40:VFDCON.c      **** 
+  41:VFDCON.c      **** unsigned int Key_Count;
+  42:VFDCON.c      **** unsigned char Time_Flag,Led_Count,Led_Delay_Count;
+  43:VFDCON.c      **** unsigned char Key_Toggle;
+  44:VFDCON.c      **** 
+  45:VFDCON.c      **** unsigned char KEY_BUF[14],Check_Sum,Key_Data;
+  46:VFDCON.c      **** 
+  47:VFDCON.c      **** 
+  48:VFDCON.c      **** unsigned int 	i_count,j_count,Buf_Start_Count,Read_Length,Head_Count,Serial_Count1,Buf_Start_Count;
+  49:VFDCON.c      **** //unsigned char RxD_BUF1[Serial_Max],RxD_Info_BUF[54],Serial_Flag,Serial_OK_Flag1,Ser_Check_Sum;
+  50:VFDCON.c      **** unsigned char RxD_BUF1[Serial_Max],RxD_Info_BUF[94],Serial_Flag,Serial_OK_Flag1,Ser_Check_Sum;
+  51:VFDCON.c      **** unsigned char Serial_Reset_Count1;
+  52:VFDCON.c      **** unsigned char LED_Data;
+  53:VFDCON.c      **** unsigned char LCD_LINE1_BUF[20],LCD_LINE2_BUF[20],LCD_LINE3_BUF[20],LCD_LINE4_BUF[20];
+  54:VFDCON.c      **** 
+  55:VFDCON.c      **** unsigned char Key_Push_Count,UHD_Enable,UHD_Key_Flag,Reset_Key_Count;
+  56:VFDCON.c      **** 
+  57:VFDCON.c      **** 
+  58:VFDCON.c      **** unsigned char LCD_LINE1_TEMP[20],LCD_LINE2_TEMP[20],LCD_LINE3_TEMP[20],LCD_LINE4_TEMP[20];
+  59:VFDCON.c      **** unsigned char LCD_Serial_Time_Count,Temp_Buf_Count;
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 19
+
+
+  60:VFDCON.c      **** 
+  61:VFDCON.c      **** unsigned char Flow_Count;
+  62:VFDCON.c      **** 
+  63:VFDCON.c      **** unsigned char System_Fault_Count,System_Run_Okay;
+  64:VFDCON.c      **** 
+  65:VFDCON.c      **** unsigned char LCD_Replay_Count;
+  66:VFDCON.c      **** 
+  67:VFDCON.c      **** 
+  68:VFDCON.c      **** 
+  69:VFDCON.c      **** 
+  70:VFDCON.c      **** SIGNAL(SIG_UART0_RECV)
+  71:VFDCON.c      **** {
+ 768               		.stabn 68,0,71,.LM118-__vector_18
+ 769               	.LM118:
+ 770               	/* prologue: frame size=0 */
+ 771 0256 1F92      		push __zero_reg__
+ 772 0258 0F92      		push __tmp_reg__
+ 773 025a 0FB6      		in __tmp_reg__,__SREG__
+ 774 025c 0F92      		push __tmp_reg__
+ 775 025e 1124      		clr __zero_reg__
+ 776               	/* prologue end (size=5) */
+ 777               		.stabn 68,0,71,.LM119-__vector_18
+ 778               	.LM119:
+ 779               	/* epilogue: frame size=0 */
+ 780 0260 0F90      		pop __tmp_reg__
+ 781 0262 0FBE      		out __SREG__,__tmp_reg__
+ 782 0264 0F90      		pop __tmp_reg__
+ 783 0266 1F90      		pop __zero_reg__
+ 784 0268 1895      		reti
+ 785               	/* epilogue end (size=5) */
+ 786               	/* function __vector_18 size 10 (0) */
+ 787               		.size	__vector_18, .-__vector_18
+ 788               	.Lscope15:
+ 789               		.stabs	"",36,0,0,.Lscope15-__vector_18
+ 790               		.stabs	"__vector_30:F(0,20)",36,0,78,__vector_30
+ 791               	.global	__vector_30
+ 792               		.type	__vector_30, @function
+ 793               	__vector_30:
+  72:VFDCON.c      **** 
+  73:VFDCON.c      **** }	// end of SIGNAL(SIG_UART0_RECV)
+  74:VFDCON.c      **** 
+  75:VFDCON.c      **** 
+  76:VFDCON.c      **** 
+  77:VFDCON.c      **** SIGNAL(SIG_UART1_RECV)
+  78:VFDCON.c      **** {
+ 794               		.stabn 68,0,78,.LM120-__vector_30
+ 795               	.LM120:
+ 796               	/* prologue: frame size=0 */
+ 797 026a 1F92      		push __zero_reg__
+ 798 026c 0F92      		push __tmp_reg__
+ 799 026e 0FB6      		in __tmp_reg__,__SREG__
+ 800 0270 0F92      		push __tmp_reg__
+ 801 0272 1124      		clr __zero_reg__
+ 802 0274 2F93      		push r18
+ 803 0276 3F93      		push r19
+ 804 0278 8F93      		push r24
+ 805 027a 9F93      		push r25
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 20
+
+
+ 806 027c EF93      		push r30
+ 807 027e FF93      		push r31
+ 808               	/* prologue end (size=11) */
+  79:VFDCON.c      **** 	RxD_BUF1[Serial_Count1]=UDR1;
+ 809               		.stabn 68,0,79,.LM121-__vector_30
+ 810               	.LM121:
+ 811 0280 2091 0000 		lds r18,Serial_Count1
+ 812 0284 3091 0000 		lds r19,(Serial_Count1)+1
+ 813 0288 F901      		movw r30,r18
+ 814 028a E050      		subi r30,lo8(-(RxD_BUF1))
+ 815 028c F040      		sbci r31,hi8(-(RxD_BUF1))
+ 816 028e 8091 9C00 		lds r24,156
+ 817 0292 8083      		st Z,r24
+  80:VFDCON.c      **** //	TX0_char(UDR1);
+  81:VFDCON.c      **** 	Serial_Count1++;
+ 818               		.stabn 68,0,81,.LM122-__vector_30
+ 819               	.LM122:
+ 820 0294 C901      		movw r24,r18
+ 821 0296 0196      		adiw r24,1
+ 822 0298 9093 0000 		sts (Serial_Count1)+1,r25
+ 823 029c 8093 0000 		sts Serial_Count1,r24
+  82:VFDCON.c      **** 	if(Serial_Count1 > Serial_Max)
+ 824               		.stabn 68,0,82,.LM123-__vector_30
+ 825               	.LM123:
+ 826 02a0 895E      		subi r24,lo8(1001)
+ 827 02a2 9340      		sbci r25,hi8(1001)
+ 828 02a4 20F0      		brlo .L67
+  83:VFDCON.c      **** 	{
+  84:VFDCON.c      **** 		Serial_Count1=0;
+ 829               		.stabn 68,0,84,.LM124-__vector_30
+ 830               	.LM124:
+ 831 02a6 1092 0000 		sts (Serial_Count1)+1,__zero_reg__
+ 832 02aa 1092 0000 		sts Serial_Count1,__zero_reg__
+ 833               	.L67:
+  85:VFDCON.c      **** 	}
+  86:VFDCON.c      **** 	Serial_Reset_Count1=0;
+ 834               		.stabn 68,0,86,.LM125-__vector_30
+ 835               	.LM125:
+ 836 02ae 1092 0000 		sts Serial_Reset_Count1,__zero_reg__
+  87:VFDCON.c      **** 	Serial_Flag=1;
+ 837               		.stabn 68,0,87,.LM126-__vector_30
+ 838               	.LM126:
+ 839 02b2 81E0      		ldi r24,lo8(1)
+ 840 02b4 8093 0000 		sts Serial_Flag,r24
+  88:VFDCON.c      **** 	
+  89:VFDCON.c      **** 	//LCD_Serial_Time_Count=0;
+  90:VFDCON.c      **** 
+  91:VFDCON.c      **** }	// end of SIGNAL(SIG_UART1_RECV)
+ 841               		.stabn 68,0,91,.LM127-__vector_30
+ 842               	.LM127:
+ 843               	/* epilogue: frame size=0 */
+ 844 02b8 FF91      		pop r31
+ 845 02ba EF91      		pop r30
+ 846 02bc 9F91      		pop r25
+ 847 02be 8F91      		pop r24
+ 848 02c0 3F91      		pop r19
+ 849 02c2 2F91      		pop r18
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 21
+
+
+ 850 02c4 0F90      		pop __tmp_reg__
+ 851 02c6 0FBE      		out __SREG__,__tmp_reg__
+ 852 02c8 0F90      		pop __tmp_reg__
+ 853 02ca 1F90      		pop __zero_reg__
+ 854 02cc 1895      		reti
+ 855               	/* epilogue end (size=11) */
+ 856               	/* function __vector_30 size 51 (29) */
+ 857               		.size	__vector_30, .-__vector_30
+ 858               	.Lscope16:
+ 859               		.stabs	"",36,0,0,.Lscope16-__vector_30
+ 860               		.stabs	"__vector_12:F(0,20)",36,0,96,__vector_12
+ 861               	.global	__vector_12
+ 862               		.type	__vector_12, @function
+ 863               	__vector_12:
+  92:VFDCON.c      **** 
+  93:VFDCON.c      **** 
+  94:VFDCON.c      **** 
+  95:VFDCON.c      **** SIGNAL(SIG_OUTPUT_COMPARE1A)            //OC1A interrupt function 
+  96:VFDCON.c      **** {
+ 864               		.stabn 68,0,96,.LM128-__vector_12
+ 865               	.LM128:
+ 866               	/* prologue: frame size=0 */
+ 867 02ce 1F92      		push __zero_reg__
+ 868 02d0 0F92      		push __tmp_reg__
+ 869 02d2 0FB6      		in __tmp_reg__,__SREG__
+ 870 02d4 0F92      		push __tmp_reg__
+ 871 02d6 1124      		clr __zero_reg__
+ 872 02d8 8F93      		push r24
+ 873 02da 9F93      		push r25
+ 874               	/* prologue end (size=7) */
+  97:VFDCON.c      ****   Time_Flag=1;
+ 875               		.stabn 68,0,97,.LM129-__vector_12
+ 876               	.LM129:
+ 877 02dc 81E0      		ldi r24,lo8(1)
+ 878 02de 8093 0000 		sts Time_Flag,r24
+  98:VFDCON.c      **** 	PORTE=PORTE^0x08;
+ 879               		.stabn 68,0,98,.LM130-__vector_12
+ 880               	.LM130:
+ 881 02e2 83B1      		in r24,35-0x20
+ 882 02e4 98E0      		ldi r25,lo8(8)
+ 883 02e6 8927      		eor r24,r25
+ 884 02e8 83B9      		out 35-0x20,r24
+  99:VFDCON.c      **** 	//Serial_Reset_Count1 ++;
+ 100:VFDCON.c      **** 	LCD_Serial_Time_Count ++;
+ 885               		.stabn 68,0,100,.LM131-__vector_12
+ 886               	.LM131:
+ 887 02ea 9091 0000 		lds r25,LCD_Serial_Time_Count
+ 888 02ee 9F5F      		subi r25,lo8(-(1))
+ 889 02f0 9093 0000 		sts LCD_Serial_Time_Count,r25
+ 101:VFDCON.c      **** 	
+ 102:VFDCON.c      **** 	if(System_Run_Okay ==1)
+ 890               		.stabn 68,0,102,.LM132-__vector_12
+ 891               	.LM132:
+ 892 02f4 8091 0000 		lds r24,System_Run_Okay
+ 893 02f8 8130      		cpi r24,lo8(1)
+ 894 02fa 29F4      		brne .L69
+ 103:VFDCON.c      **** 	{
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 22
+
+
+ 104:VFDCON.c      **** 		System_Fault_Count++;
+ 895               		.stabn 68,0,104,.LM133-__vector_12
+ 896               	.LM133:
+ 897 02fc 8091 0000 		lds r24,System_Fault_Count
+ 898 0300 8F5F      		subi r24,lo8(-(1))
+ 899 0302 8093 0000 		sts System_Fault_Count,r24
+ 900               	.L69:
+ 105:VFDCON.c      **** 	}
+ 106:VFDCON.c      **** 	
+ 107:VFDCON.c      **** 	if(Serial_Reset_Count1 >= 20){	Serial_Reset_Count1=20; }
+ 901               		.stabn 68,0,107,.LM134-__vector_12
+ 902               	.LM134:
+ 903 0306 8091 0000 		lds r24,Serial_Reset_Count1
+ 904 030a 8431      		cpi r24,lo8(20)
+ 905 030c 18F0      		brlo .L70
+ 906 030e 84E1      		ldi r24,lo8(20)
+ 907 0310 8093 0000 		sts Serial_Reset_Count1,r24
+ 908               	.L70:
+ 108:VFDCON.c      **** 	if(LCD_Serial_Time_Count >= 250){	LCD_Serial_Time_Count= 250; }
+ 909               		.stabn 68,0,108,.LM135-__vector_12
+ 910               	.LM135:
+ 911 0314 9A3F      		cpi r25,lo8(-6)
+ 912 0316 18F0      		brlo .L71
+ 913 0318 8AEF      		ldi r24,lo8(-6)
+ 914 031a 8093 0000 		sts LCD_Serial_Time_Count,r24
+ 915               	.L71:
+ 109:VFDCON.c      **** 	if(System_Fault_Count >= 200){	System_Fault_Count= 200; }
+ 916               		.stabn 68,0,109,.LM136-__vector_12
+ 917               	.LM136:
+ 918 031e 8091 0000 		lds r24,System_Fault_Count
+ 919 0322 883C      		cpi r24,lo8(-56)
+ 920 0324 18F0      		brlo .L68
+ 921 0326 88EC      		ldi r24,lo8(-56)
+ 922 0328 8093 0000 		sts System_Fault_Count,r24
+ 110:VFDCON.c      **** 
+ 111:VFDCON.c      **** 
+ 112:VFDCON.c      **** }	// end of SIGNAL(SIG_OUTPUT_COMPARE1A)
+ 923               		.stabn 68,0,112,.LM137-__vector_12
+ 924               	.LM137:
+ 925               	.L68:
+ 926               	/* epilogue: frame size=0 */
+ 927 032c 9F91      		pop r25
+ 928 032e 8F91      		pop r24
+ 929 0330 0F90      		pop __tmp_reg__
+ 930 0332 0FBE      		out __SREG__,__tmp_reg__
+ 931 0334 0F90      		pop __tmp_reg__
+ 932 0336 1F90      		pop __zero_reg__
+ 933 0338 1895      		reti
+ 934               	/* epilogue end (size=7) */
+ 935               	/* function __vector_12 size 54 (40) */
+ 936               		.size	__vector_12, .-__vector_12
+ 937               	.Lscope17:
+ 938               		.stabs	"",36,0,0,.Lscope17-__vector_12
+ 939               		.stabs	"Serial1_Buf_Processing:F(0,20)",36,0,118,Serial1_Buf_Processing
+ 940               	.global	Serial1_Buf_Processing
+ 941               		.type	Serial1_Buf_Processing, @function
+ 942               	Serial1_Buf_Processing:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 23
+
+
+ 113:VFDCON.c      **** 
+ 114:VFDCON.c      **** 
+ 115:VFDCON.c      **** 
+ 116:VFDCON.c      **** 
+ 117:VFDCON.c      **** void Serial1_Buf_Processing(void)
+ 118:VFDCON.c      **** {
+ 943               		.stabn 68,0,118,.LM138-Serial1_Buf_Processing
+ 944               	.LM138:
+ 945               	/* prologue: frame size=0 */
+ 946 033a 0F93      		push r16
+ 947 033c 1F93      		push r17
+ 948 033e CF93      		push r28
+ 949 0340 DF93      		push r29
+ 950               	/* prologue end (size=4) */
+ 119:VFDCON.c      **** 	if((Serial_Flag ==1)&& (Serial_Count1 >= 94))
+ 951               		.stabn 68,0,119,.LM139-Serial1_Buf_Processing
+ 952               	.LM139:
+ 953 0342 8091 0000 		lds r24,Serial_Flag
+ 954 0346 8130      		cpi r24,lo8(1)
+ 955 0348 09F0      		breq .+2
+ 956 034a 5CC0      		rjmp .L73
+ 957 034c 2091 0000 		lds r18,Serial_Count1
+ 958 0350 3091 0000 		lds r19,(Serial_Count1)+1
+ 959 0354 2E35      		cpi r18,94
+ 960 0356 3105      		cpc r19,__zero_reg__
+ 961 0358 08F4      		brsh .+2
+ 962 035a 54C0      		rjmp .L73
+ 120:VFDCON.c      **** 	{
+ 121:VFDCON.c      **** 		for(Head_Count=Buf_Start_Count;Head_Count<Serial_Count1;Head_Count++)
+ 963               		.stabn 68,0,121,.LM140-Serial1_Buf_Processing
+ 964               	.LM140:
+ 965 035c 8091 0000 		lds r24,Buf_Start_Count
+ 966 0360 9091 0000 		lds r25,(Buf_Start_Count)+1
+ 967 0364 9093 0000 		sts (Head_Count)+1,r25
+ 968 0368 8093 0000 		sts Head_Count,r24
+ 969 036c 8217      		cp r24,r18
+ 970 036e 9307      		cpc r25,r19
+ 971 0370 08F0      		brlo .+2
+ 972 0372 48C0      		rjmp .L73
+ 973 0374 AC01      		movw r20,r24
+ 974 0376 E901      		movw r28,r18
+ 975 0378 6091 0000 		lds r22,j_count
+ 976 037c 7091 0000 		lds r23,(j_count)+1
+ 977 0380 9091 0000 		lds r25,Serial_OK_Flag1
+ 978 0384 9A01      		movw r18,r20
+ 979               	.L86:
+ 122:VFDCON.c      **** 		{
+ 123:VFDCON.c      **** 			if((RxD_BUF1[Head_Count] == 0x3A) && (RxD_BUF1[Head_Count+1] == 'T') && (RxD_BUF1[Head_Count+2] 
+ 980               		.stabn 68,0,123,.LM141-Serial1_Buf_Processing
+ 981               	.LM141:
+ 982 0386 8A01      		movw r16,r20
+ 983 0388 FA01      		movw r30,r20
+ 984 038a E050      		subi r30,lo8(-(RxD_BUF1))
+ 985 038c F040      		sbci r31,hi8(-(RxD_BUF1))
+ 986 038e 8081      		ld r24,Z
+ 987 0390 8A33      		cpi r24,lo8(58)
+ 988 0392 29F5      		brne .L77
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 24
+
+
+ 989 0394 8181      		ldd r24,Z+1
+ 990 0396 8435      		cpi r24,lo8(84)
+ 991 0398 11F5      		brne .L77
+ 992 039a 8281      		ldd r24,Z+2
+ 993 039c 8334      		cpi r24,lo8(67)
+ 994 039e F9F4      		brne .L77
+ 995 03a0 8381      		ldd r24,Z+3
+ 996 03a2 8335      		cpi r24,lo8(83)
+ 997 03a4 E1F4      		brne .L77
+ 998 03a6 84A9      		ldd r24,Z+52
+ 999 03a8 8D30      		cpi r24,lo8(13)
+ 1000 03aa C9F4      		brne .L77
+ 1001 03ac 85A9      		ldd r24,Z+53
+ 1002 03ae 8A30      		cpi r24,lo8(10)
+ 1003 03b0 B1F4      		brne .L77
+ 1004 03b2 CE35      		cpi r28,94
+ 1005 03b4 D105      		cpc r29,__zero_reg__
+ 1006 03b6 98F0      		brlo .L77
+ 124:VFDCON.c      **** 			{
+ 125:VFDCON.c      **** 				for(j_count=0;j_count<94;j_count++)
+ 1007               		.stabn 68,0,125,.LM142-Serial1_Buf_Processing
+ 1008               	.LM142:
+ 1009 03b8 A0E0      		ldi r26,lo8(RxD_Info_BUF)
+ 1010 03ba B0E0      		ldi r27,hi8(RxD_Info_BUF)
+ 1011 03bc 9D01      		movw r18,r26
+ 1012 03be 235A      		subi r18,lo8(-(93))
+ 1013 03c0 3F4F      		sbci r19,hi8(-(93))
+ 1014               	.L84:
+ 126:VFDCON.c      **** 				{
+ 127:VFDCON.c      **** 					RxD_Info_BUF[j_count]=RxD_BUF1[Head_Count+j_count];
+ 1015               		.stabn 68,0,127,.LM143-Serial1_Buf_Processing
+ 1016               	.LM143:
+ 1017 03c2 8081      		ld r24,Z
+ 1018 03c4 8D93      		st X+,r24
+ 128:VFDCON.c      **** 					RxD_BUF1[Head_Count+j_count]=0x00;
+ 1019               		.stabn 68,0,128,.LM144-Serial1_Buf_Processing
+ 1020               	.LM144:
+ 1021 03c6 1192      		st Z+,__zero_reg__
+ 1022               		.stabn 68,0,125,.LM145-Serial1_Buf_Processing
+ 1023               	.LM145:
+ 1024 03c8 2A17      		cp r18,r26
+ 1025 03ca 3B07      		cpc r19,r27
+ 1026 03cc D0F7      		brsh .L84
+ 1027 03ce 6EE5      		ldi r22,lo8(94)
+ 1028 03d0 70E0      		ldi r23,hi8(94)
+ 129:VFDCON.c      **** 				}
+ 130:VFDCON.c      **** 				Serial_OK_Flag1 =1;
+ 1029               		.stabn 68,0,130,.LM146-Serial1_Buf_Processing
+ 1030               	.LM146:
+ 1031 03d2 91E0      		ldi r25,lo8(1)
+ 131:VFDCON.c      **** 				Buf_Start_Count = Head_Count + 94;
+ 1032               		.stabn 68,0,131,.LM147-Serial1_Buf_Processing
+ 1033               	.LM147:
+ 1034 03d4 9801      		movw r18,r16
+ 1035 03d6 260F      		add r18,r22
+ 1036 03d8 371F      		adc r19,r23
+ 132:VFDCON.c      **** 				Head_Count =Serial_Max;
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 25
+
+
+ 1037               		.stabn 68,0,132,.LM148-Serial1_Buf_Processing
+ 1038               	.LM148:
+ 1039 03da 48EE      		ldi r20,lo8(1000)
+ 1040 03dc 53E0      		ldi r21,hi8(1000)
+ 1041               		.stabn 68,0,121,.LM149-Serial1_Buf_Processing
+ 1042               	.LM149:
+ 1043               	.L77:
+ 1044 03de 4F5F      		subi r20,lo8(-(1))
+ 1045 03e0 5F4F      		sbci r21,hi8(-(1))
+ 1046 03e2 4C17      		cp r20,r28
+ 1047 03e4 5D07      		cpc r21,r29
+ 1048 03e6 78F2      		brlo .L86
+ 1049 03e8 3093 0000 		sts (Buf_Start_Count)+1,r19
+ 1050 03ec 2093 0000 		sts Buf_Start_Count,r18
+ 1051 03f0 9093 0000 		sts Serial_OK_Flag1,r25
+ 1052 03f4 7093 0000 		sts (j_count)+1,r23
+ 1053 03f8 6093 0000 		sts j_count,r22
+ 1054 03fc 5093 0000 		sts (Head_Count)+1,r21
+ 1055 0400 4093 0000 		sts Head_Count,r20
+ 133:VFDCON.c      **** 				
+ 134:VFDCON.c      **** 			}else{
+ 135:VFDCON.c      **** 				
+ 136:VFDCON.c      **** 				//Serial_Count1 =0;
+ 137:VFDCON.c      **** 				
+ 138:VFDCON.c      **** 			}
+ 139:VFDCON.c      **** 		}
+ 140:VFDCON.c      **** 
+ 141:VFDCON.c      **** 	}//if(Serial_Flag ==1)
+ 142:VFDCON.c      **** }//void Serial1_Buf_Processing(void)
+ 1056               		.stabn 68,0,142,.LM150-Serial1_Buf_Processing
+ 1057               	.LM150:
+ 1058               	.L73:
+ 1059               	/* epilogue: frame size=0 */
+ 1060 0404 DF91      		pop r29
+ 1061 0406 CF91      		pop r28
+ 1062 0408 1F91      		pop r17
+ 1063 040a 0F91      		pop r16
+ 1064 040c 0895      		ret
+ 1065               	/* epilogue end (size=5) */
+ 1066               	/* function Serial1_Buf_Processing size 106 (97) */
+ 1067               		.size	Serial1_Buf_Processing, .-Serial1_Buf_Processing
+ 1068               	.Lscope18:
+ 1069               		.stabs	"",36,0,0,.Lscope18-Serial1_Buf_Processing
+ 1070               		.stabs	"Serial1_Check:F(0,20)",36,0,146,Serial1_Check
+ 1071               	.global	Serial1_Check
+ 1072               		.type	Serial1_Check, @function
+ 1073               	Serial1_Check:
+ 143:VFDCON.c      **** 
+ 144:VFDCON.c      **** 
+ 145:VFDCON.c      **** void Serial1_Check(void)
+ 146:VFDCON.c      **** {
+ 1074               		.stabn 68,0,146,.LM151-Serial1_Check
+ 1075               	.LM151:
+ 1076               	/* prologue: frame size=0 */
+ 1077 040e 0F93      		push r16
+ 1078 0410 1F93      		push r17
+ 1079 0412 CF93      		push r28
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 26
+
+
+ 1080 0414 DF93      		push r29
+ 1081               	/* prologue end (size=4) */
+ 147:VFDCON.c      **** 	if(Serial_OK_Flag1 ==1)
+ 1082               		.stabn 68,0,147,.LM152-Serial1_Check
+ 1083               	.LM152:
+ 1084 0416 9091 0000 		lds r25,Serial_OK_Flag1
+ 1085 041a 9130      		cpi r25,lo8(1)
+ 1086 041c 09F0      		breq .+2
+ 1087 041e 0EC1      		rjmp .L92
+ 148:VFDCON.c      **** 	{
+ 149:VFDCON.c      **** 		Serial_OK_Flag1=0;		
+ 1088               		.stabn 68,0,149,.LM153-Serial1_Check
+ 1089               	.LM153:
+ 1090 0420 1092 0000 		sts Serial_OK_Flag1,__zero_reg__
+ 150:VFDCON.c      **** 
+ 151:VFDCON.c      **** 		if((RxD_Info_BUF[0] == 0x3A)&&(RxD_Info_BUF[1] == 'T')&&(RxD_Info_BUF[2] =='C')&&(RxD_Info_BUF[3]
+ 1091               		.stabn 68,0,151,.LM154-Serial1_Check
+ 1092               	.LM154:
+ 1093 0424 8091 0000 		lds r24,RxD_Info_BUF
+ 1094 0428 8A33      		cpi r24,lo8(58)
+ 1095 042a 09F0      		breq .+2
+ 1096 042c F2C0      		rjmp .L94
+ 1097 042e 8091 0000 		lds r24,RxD_Info_BUF+1
+ 1098 0432 8435      		cpi r24,lo8(84)
+ 1099 0434 09F0      		breq .+2
+ 1100 0436 EDC0      		rjmp .L94
+ 1101 0438 8091 0000 		lds r24,RxD_Info_BUF+2
+ 1102 043c 8334      		cpi r24,lo8(67)
+ 1103 043e 09F0      		breq .+2
+ 1104 0440 E8C0      		rjmp .L94
+ 1105 0442 8091 0000 		lds r24,RxD_Info_BUF+3
+ 1106 0446 8335      		cpi r24,lo8(83)
+ 1107 0448 09F0      		breq .+2
+ 1108 044a E3C0      		rjmp .L94
+ 152:VFDCON.c      **** 		{
+ 153:VFDCON.c      **** 			sbi(PORTE,2);
+ 1109               		.stabn 68,0,153,.LM155-Serial1_Check
+ 1110               	.LM155:
+ 1111 044c 1A9A      		sbi 35-0x20,2
+ 154:VFDCON.c      **** 			
+ 155:VFDCON.c      **** 			Serial_Reset_Count1=0;
+ 1112               		.stabn 68,0,155,.LM156-Serial1_Check
+ 1113               	.LM156:
+ 1114 044e 1092 0000 		sts Serial_Reset_Count1,__zero_reg__
+ 156:VFDCON.c      **** 			System_Fault_Count =0;
+ 1115               		.stabn 68,0,156,.LM157-Serial1_Check
+ 1116               	.LM157:
+ 1117 0452 1092 0000 		sts System_Fault_Count,__zero_reg__
+ 157:VFDCON.c      **** 			System_Run_Okay =1;
+ 1118               		.stabn 68,0,157,.LM158-Serial1_Check
+ 1119               	.LM158:
+ 1120 0456 9093 0000 		sts System_Run_Okay,r25
+ 158:VFDCON.c      **** 			
+ 159:VFDCON.c      **** 			
+ 160:VFDCON.c      **** 			LCD_Serial_Time_Count =0;
+ 1121               		.stabn 68,0,160,.LM159-Serial1_Check
+ 1122               	.LM159:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 27
+
+
+ 1123 045a 1092 0000 		sts LCD_Serial_Time_Count,__zero_reg__
+ 161:VFDCON.c      **** 			Temp_Buf_Count =0;
+ 1124               		.stabn 68,0,161,.LM160-Serial1_Check
+ 1125               	.LM160:
+ 1126 045e 1092 0000 		sts Temp_Buf_Count,__zero_reg__
+ 162:VFDCON.c      **** 			
+ 163:VFDCON.c      **** 			Ser_Check_Sum=0;
+ 1127               		.stabn 68,0,163,.LM161-Serial1_Check
+ 1128               	.LM161:
+ 1129 0462 1092 0000 		sts Ser_Check_Sum,__zero_reg__
+ 164:VFDCON.c      **** 			
+ 165:VFDCON.c      **** 			for(i=0;i<91;i++)
+ 1130               		.stabn 68,0,165,.LM162-Serial1_Check
+ 1131               	.LM162:
+ 1132 0466 1092 0000 		sts (i)+1,__zero_reg__
+ 1133 046a 1092 0000 		sts i,__zero_reg__
+ 1134 046e 40E0      		ldi r20,lo8(0)
+ 1135 0470 E0E0      		ldi r30,lo8(RxD_Info_BUF)
+ 1136 0472 F0E0      		ldi r31,hi8(RxD_Info_BUF)
+ 1137 0474 9F01      		movw r18,r30
+ 1138 0476 265A      		subi r18,lo8(-(90))
+ 1139 0478 3F4F      		sbci r19,hi8(-(90))
+ 1140               	.L99:
+ 166:VFDCON.c      **** 			{
+ 167:VFDCON.c      **** 				Ser_Check_Sum = Ser_Check_Sum+RxD_Info_BUF[i];
+ 1141               		.stabn 68,0,167,.LM163-Serial1_Check
+ 1142               	.LM163:
+ 1143 047a 8191      		ld r24,Z+
+ 1144 047c 480F      		add r20,r24
+ 1145               		.stabn 68,0,165,.LM164-Serial1_Check
+ 1146               	.LM164:
+ 1147 047e 2E17      		cp r18,r30
+ 1148 0480 3F07      		cpc r19,r31
+ 1149 0482 D8F7      		brsh .L99
+ 1150 0484 4093 0000 		sts Ser_Check_Sum,r20
+ 1151 0488 8BE5      		ldi r24,lo8(91)
+ 1152 048a 90E0      		ldi r25,hi8(91)
+ 1153 048c 9093 0000 		sts (i)+1,r25
+ 1154 0490 8093 0000 		sts i,r24
+ 168:VFDCON.c      **** 			}
+ 169:VFDCON.c      **** 	
+ 170:VFDCON.c      **** 			if(Ser_Check_Sum == RxD_Info_BUF[91])
+ 1155               		.stabn 68,0,170,.LM165-Serial1_Check
+ 1156               	.LM165:
+ 1157 0494 8091 0000 		lds r24,RxD_Info_BUF+91
+ 1158 0498 4817      		cp r20,r24
+ 1159 049a 09F0      		breq .+2
+ 1160 049c B9C0      		rjmp .L100
+ 171:VFDCON.c      **** 			{
+ 172:VFDCON.c      **** 				//Beep();
+ 173:VFDCON.c      **** 				LED_Data = RxD_Info_BUF[5];
+ 1161               		.stabn 68,0,173,.LM166-Serial1_Check
+ 1162               	.LM166:
+ 1163 049e 8091 0000 		lds r24,RxD_Info_BUF+5
+ 1164 04a2 8093 0000 		sts LED_Data,r24
+ 174:VFDCON.c      **** 				for(i=0;i<20;i++)
+ 1165               		.stabn 68,0,174,.LM167-Serial1_Check
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 28
+
+
+ 1166               	.LM167:
+ 1167 04a6 1092 0000 		sts (i)+1,__zero_reg__
+ 1168 04aa 1092 0000 		sts i,__zero_reg__
+ 1169 04ae A0E0      		ldi r26,lo8(LCD_LINE4_BUF)
+ 1170 04b0 B0E0      		ldi r27,hi8(LCD_LINE4_BUF)
+ 1171 04b2 40E0      		ldi r20,lo8(LCD_LINE3_BUF)
+ 1172 04b4 50E0      		ldi r21,hi8(LCD_LINE3_BUF)
+ 1173 04b6 20E0      		ldi r18,lo8(LCD_LINE2_BUF)
+ 1174 04b8 30E0      		ldi r19,hi8(LCD_LINE2_BUF)
+ 1175 04ba 00E0      		ldi r16,lo8(LCD_LINE1_BUF)
+ 1176 04bc 10E0      		ldi r17,hi8(LCD_LINE1_BUF)
+ 1177 04be E0E0      		ldi r30,lo8(RxD_Info_BUF+6)
+ 1178 04c0 F0E0      		ldi r31,hi8(RxD_Info_BUF+6)
+ 1179 04c2 BD01      		movw r22,r26
+ 1180 04c4 6D5E      		subi r22,lo8(-(19))
+ 1181 04c6 7F4F      		sbci r23,hi8(-(19))
+ 1182               	.L105:
+ 175:VFDCON.c      **** 				{
+ 176:VFDCON.c      **** 					LCD_LINE1_BUF[i]=RxD_Info_BUF[6+i];
+ 1183               		.stabn 68,0,176,.LM168-Serial1_Check
+ 1184               	.LM168:
+ 1185 04c8 8081      		ld r24,Z
+ 1186 04ca E801      		movw r28,r16
+ 1187 04cc 8993      		st Y+,r24
+ 1188 04ce 8E01      		movw r16,r28
+ 177:VFDCON.c      **** 					LCD_LINE2_BUF[i]=RxD_Info_BUF[26+i];
+ 1189               		.stabn 68,0,177,.LM169-Serial1_Check
+ 1190               	.LM169:
+ 1191 04d0 8489      		ldd r24,Z+20
+ 1192 04d2 E901      		movw r28,r18
+ 1193 04d4 8993      		st Y+,r24
+ 1194 04d6 9E01      		movw r18,r28
+ 178:VFDCON.c      **** 					LCD_LINE3_BUF[i]=RxD_Info_BUF[46+i];
+ 1195               		.stabn 68,0,178,.LM170-Serial1_Check
+ 1196               	.LM170:
+ 1197 04d8 80A5      		ldd r24,Z+40
+ 1198 04da EA01      		movw r28,r20
+ 1199 04dc 8993      		st Y+,r24
+ 1200 04de AE01      		movw r20,r28
+ 179:VFDCON.c      **** 					LCD_LINE4_BUF[i]=RxD_Info_BUF[66+i];
+ 1201               		.stabn 68,0,179,.LM171-Serial1_Check
+ 1202               	.LM171:
+ 1203 04e0 84AD      		ldd r24,Z+60
+ 1204 04e2 8D93      		st X+,r24
+ 1205               		.stabn 68,0,174,.LM172-Serial1_Check
+ 1206               	.LM172:
+ 1207 04e4 3196      		adiw r30,1
+ 1208 04e6 6A17      		cp r22,r26
+ 1209 04e8 7B07      		cpc r23,r27
+ 1210 04ea 70F7      		brsh .L105
+ 1211 04ec 84E1      		ldi r24,lo8(20)
+ 1212 04ee 90E0      		ldi r25,hi8(20)
+ 1213 04f0 9093 0000 		sts (i)+1,r25
+ 1214 04f4 8093 0000 		sts i,r24
+ 180:VFDCON.c      **** 
+ 181:VFDCON.c      **** 				}
+ 182:VFDCON.c      **** 
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 29
+
+
+ 183:VFDCON.c      **** 				if((LED_Data & 0x01) == 0x01){	sbi(PORTB,0);	}else{	cbi(PORTB,0);	}	
+ 1215               		.stabn 68,0,183,.LM173-Serial1_Check
+ 1216               	.LM173:
+ 1217 04f8 8091 0000 		lds r24,LED_Data
+ 1218 04fc 80FF      		sbrs r24,0
+ 1219 04fe 02C0      		rjmp .L106
+ 1220 0500 C09A      		sbi 56-0x20,0
+ 1221 0502 01C0      		rjmp .L107
+ 1222               	.L106:
+ 1223 0504 C098      		cbi 56-0x20,0
+ 1224               	.L107:
+ 184:VFDCON.c      **** 				if((LED_Data & 0x02) == 0x02){	sbi(PORTB,1);	}else{	cbi(PORTB,1);	}	
+ 1225               		.stabn 68,0,184,.LM174-Serial1_Check
+ 1226               	.LM174:
+ 1227 0506 81FF      		sbrs r24,1
+ 1228 0508 02C0      		rjmp .L108
+ 1229 050a C19A      		sbi 56-0x20,1
+ 1230 050c 01C0      		rjmp .L109
+ 1231               	.L108:
+ 1232 050e C198      		cbi 56-0x20,1
+ 1233               	.L109:
+ 185:VFDCON.c      **** 				if((LED_Data & 0x04) == 0x04){	sbi(PORTB,2);	}else{	cbi(PORTB,2);	}	
+ 1234               		.stabn 68,0,185,.LM175-Serial1_Check
+ 1235               	.LM175:
+ 1236 0510 82FF      		sbrs r24,2
+ 1237 0512 02C0      		rjmp .L110
+ 1238 0514 C29A      		sbi 56-0x20,2
+ 1239 0516 01C0      		rjmp .L111
+ 1240               	.L110:
+ 1241 0518 C298      		cbi 56-0x20,2
+ 1242               	.L111:
+ 186:VFDCON.c      **** 				if((LED_Data & 0x08) == 0x08){	sbi(PORTB,3);	}else{	cbi(PORTB,3);	}	
+ 1243               		.stabn 68,0,186,.LM176-Serial1_Check
+ 1244               	.LM176:
+ 1245 051a 83FF      		sbrs r24,3
+ 1246 051c 02C0      		rjmp .L112
+ 1247 051e C39A      		sbi 56-0x20,3
+ 1248 0520 01C0      		rjmp .L113
+ 1249               	.L112:
+ 1250 0522 C398      		cbi 56-0x20,3
+ 1251               	.L113:
+ 187:VFDCON.c      **** 				if((LED_Data & 0x10) == 0x10){	sbi(PORTB,4);	}else{	cbi(PORTB,4);	}	
+ 1252               		.stabn 68,0,187,.LM177-Serial1_Check
+ 1253               	.LM177:
+ 1254 0524 84FF      		sbrs r24,4
+ 1255 0526 02C0      		rjmp .L114
+ 1256 0528 C49A      		sbi 56-0x20,4
+ 1257 052a 01C0      		rjmp .L115
+ 1258               	.L114:
+ 1259 052c C498      		cbi 56-0x20,4
+ 1260               	.L115:
+ 188:VFDCON.c      **** 				if((LED_Data & 0x20) == 0x20){	sbi(PORTB,5);	}else{	cbi(PORTB,5);	}	
+ 1261               		.stabn 68,0,188,.LM178-Serial1_Check
+ 1262               	.LM178:
+ 1263 052e 85FF      		sbrs r24,5
+ 1264 0530 02C0      		rjmp .L116
+ 1265 0532 C59A      		sbi 56-0x20,5
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 30
+
+
+ 1266 0534 01C0      		rjmp .L117
+ 1267               	.L116:
+ 1268 0536 C598      		cbi 56-0x20,5
+ 1269               	.L117:
+ 189:VFDCON.c      **** 
+ 190:VFDCON.c      **** 	
+ 191:VFDCON.c      **** 				//LCD Line 1 Display
+ 192:VFDCON.c      **** 				LCD_Position(0x00);				// start position of string
+ 1270               		.stabn 68,0,192,.LM179-Serial1_Check
+ 1271               	.LM179:
+ 1272 0538 80E0      		ldi r24,lo8(0)
+ 1273 053a 0E94 0000 		call LCD_Position
+ 193:VFDCON.c      **** 				for(i=0;i<20;i++)
+ 1274               		.stabn 68,0,193,.LM180-Serial1_Check
+ 1275               	.LM180:
+ 1276 053e 1092 0000 		sts (i)+1,__zero_reg__
+ 1277 0542 1092 0000 		sts i,__zero_reg__
+ 1278               	.L122:
+ 194:VFDCON.c      **** 				{
+ 195:VFDCON.c      **** 					LCD_data(LCD_LINE1_BUF[i]);
+ 1279               		.stabn 68,0,195,.LM181-Serial1_Check
+ 1280               	.LM181:
+ 1281 0546 E091 0000 		lds r30,i
+ 1282 054a F091 0000 		lds r31,(i)+1
+ 1283 054e E050      		subi r30,lo8(-(LCD_LINE1_BUF))
+ 1284 0550 F040      		sbci r31,hi8(-(LCD_LINE1_BUF))
+ 1285 0552 8081      		ld r24,Z
+ 1286 0554 0E94 0000 		call LCD_data
+ 1287               		.stabn 68,0,193,.LM182-Serial1_Check
+ 1288               	.LM182:
+ 1289 0558 8091 0000 		lds r24,i
+ 1290 055c 9091 0000 		lds r25,(i)+1
+ 1291 0560 0196      		adiw r24,1
+ 1292 0562 9093 0000 		sts (i)+1,r25
+ 1293 0566 8093 0000 		sts i,r24
+ 1294 056a 4497      		sbiw r24,20
+ 1295 056c 60F3      		brlo .L122
+ 196:VFDCON.c      **** 				}
+ 197:VFDCON.c      **** 	
+ 198:VFDCON.c      **** 				//LCD Line 2 Display
+ 199:VFDCON.c      **** 				LCD_Position(0x14);				// start position of string
+ 1296               		.stabn 68,0,199,.LM183-Serial1_Check
+ 1297               	.LM183:
+ 1298 056e 84E1      		ldi r24,lo8(20)
+ 1299 0570 0E94 0000 		call LCD_Position
+ 200:VFDCON.c      **** 				for(i=0;i<20;i++)
+ 1300               		.stabn 68,0,200,.LM184-Serial1_Check
+ 1301               	.LM184:
+ 1302 0574 1092 0000 		sts (i)+1,__zero_reg__
+ 1303 0578 1092 0000 		sts i,__zero_reg__
+ 1304               	.L127:
+ 201:VFDCON.c      **** 				{
+ 202:VFDCON.c      **** 					LCD_data(LCD_LINE2_BUF[i]);
+ 1305               		.stabn 68,0,202,.LM185-Serial1_Check
+ 1306               	.LM185:
+ 1307 057c E091 0000 		lds r30,i
+ 1308 0580 F091 0000 		lds r31,(i)+1
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 31
+
+
+ 1309 0584 E050      		subi r30,lo8(-(LCD_LINE2_BUF))
+ 1310 0586 F040      		sbci r31,hi8(-(LCD_LINE2_BUF))
+ 1311 0588 8081      		ld r24,Z
+ 1312 058a 0E94 0000 		call LCD_data
+ 1313               		.stabn 68,0,200,.LM186-Serial1_Check
+ 1314               	.LM186:
+ 1315 058e 8091 0000 		lds r24,i
+ 1316 0592 9091 0000 		lds r25,(i)+1
+ 1317 0596 0196      		adiw r24,1
+ 1318 0598 9093 0000 		sts (i)+1,r25
+ 1319 059c 8093 0000 		sts i,r24
+ 1320 05a0 4497      		sbiw r24,20
+ 1321 05a2 60F3      		brlo .L127
+ 203:VFDCON.c      **** 				}
+ 204:VFDCON.c      **** 
+ 205:VFDCON.c      **** 				//LCD Line 3 Display
+ 206:VFDCON.c      **** 				LCD_Position(0x28);				// start position of string
+ 1322               		.stabn 68,0,206,.LM187-Serial1_Check
+ 1323               	.LM187:
+ 1324 05a4 88E2      		ldi r24,lo8(40)
+ 1325 05a6 0E94 0000 		call LCD_Position
+ 207:VFDCON.c      **** 				for(i=0;i<20;i++)
+ 1326               		.stabn 68,0,207,.LM188-Serial1_Check
+ 1327               	.LM188:
+ 1328 05aa 1092 0000 		sts (i)+1,__zero_reg__
+ 1329 05ae 1092 0000 		sts i,__zero_reg__
+ 1330               	.L132:
+ 208:VFDCON.c      **** 				{
+ 209:VFDCON.c      **** 					LCD_data(LCD_LINE3_BUF[i]);
+ 1331               		.stabn 68,0,209,.LM189-Serial1_Check
+ 1332               	.LM189:
+ 1333 05b2 E091 0000 		lds r30,i
+ 1334 05b6 F091 0000 		lds r31,(i)+1
+ 1335 05ba E050      		subi r30,lo8(-(LCD_LINE3_BUF))
+ 1336 05bc F040      		sbci r31,hi8(-(LCD_LINE3_BUF))
+ 1337 05be 8081      		ld r24,Z
+ 1338 05c0 0E94 0000 		call LCD_data
+ 1339               		.stabn 68,0,207,.LM190-Serial1_Check
+ 1340               	.LM190:
+ 1341 05c4 8091 0000 		lds r24,i
+ 1342 05c8 9091 0000 		lds r25,(i)+1
+ 1343 05cc 0196      		adiw r24,1
+ 1344 05ce 9093 0000 		sts (i)+1,r25
+ 1345 05d2 8093 0000 		sts i,r24
+ 1346 05d6 4497      		sbiw r24,20
+ 1347 05d8 60F3      		brlo .L132
+ 210:VFDCON.c      **** 				}
+ 211:VFDCON.c      **** 	
+ 212:VFDCON.c      **** 				//LCD Line 4 Display
+ 213:VFDCON.c      **** 				LCD_Position(0x3C);				// start position of string
+ 1348               		.stabn 68,0,213,.LM191-Serial1_Check
+ 1349               	.LM191:
+ 1350 05da 8CE3      		ldi r24,lo8(60)
+ 1351 05dc 0E94 0000 		call LCD_Position
+ 214:VFDCON.c      **** 				for(i=0;i<20;i++)
+ 1352               		.stabn 68,0,214,.LM192-Serial1_Check
+ 1353               	.LM192:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 32
+
+
+ 1354 05e0 1092 0000 		sts (i)+1,__zero_reg__
+ 1355 05e4 1092 0000 		sts i,__zero_reg__
+ 1356               	.L137:
+ 215:VFDCON.c      **** 				{
+ 216:VFDCON.c      **** 					LCD_data(LCD_LINE4_BUF[i]);
+ 1357               		.stabn 68,0,216,.LM193-Serial1_Check
+ 1358               	.LM193:
+ 1359 05e8 E091 0000 		lds r30,i
+ 1360 05ec F091 0000 		lds r31,(i)+1
+ 1361 05f0 E050      		subi r30,lo8(-(LCD_LINE4_BUF))
+ 1362 05f2 F040      		sbci r31,hi8(-(LCD_LINE4_BUF))
+ 1363 05f4 8081      		ld r24,Z
+ 1364 05f6 0E94 0000 		call LCD_data
+ 1365               		.stabn 68,0,214,.LM194-Serial1_Check
+ 1366               	.LM194:
+ 1367 05fa 8091 0000 		lds r24,i
+ 1368 05fe 9091 0000 		lds r25,(i)+1
+ 1369 0602 0196      		adiw r24,1
+ 1370 0604 9093 0000 		sts (i)+1,r25
+ 1371 0608 8093 0000 		sts i,r24
+ 1372 060c 4497      		sbiw r24,20
+ 1373 060e 60F3      		brlo .L137
+ 1374               	.L100:
+ 217:VFDCON.c      **** 				}
+ 218:VFDCON.c      **** 	
+ 219:VFDCON.c      **** 			}
+ 220:VFDCON.c      **** 			
+ 221:VFDCON.c      **** 			cbi(PORTE,2);
+ 1375               		.stabn 68,0,221,.LM195-Serial1_Check
+ 1376               	.LM195:
+ 1377 0610 1A98      		cbi 35-0x20,2
+ 1378               	.L94:
+ 222:VFDCON.c      **** 
+ 223:VFDCON.c      **** 			
+ 224:VFDCON.c      **** 
+ 225:VFDCON.c      **** 		}
+ 226:VFDCON.c      **** 
+ 227:VFDCON.c      **** 		//Serial_Count1 =0;
+ 228:VFDCON.c      **** 		for(i=0;i<94;i++){	RxD_Info_BUF[i]=0x00;	}
+ 1379               		.stabn 68,0,228,.LM196-Serial1_Check
+ 1380               	.LM196:
+ 1381 0612 1092 0000 		sts (i)+1,__zero_reg__
+ 1382 0616 1092 0000 		sts i,__zero_reg__
+ 1383 061a E0E0      		ldi r30,lo8(RxD_Info_BUF)
+ 1384 061c F0E0      		ldi r31,hi8(RxD_Info_BUF)
+ 1385 061e CF01      		movw r24,r30
+ 1386 0620 835A      		subi r24,lo8(-(93))
+ 1387 0622 9F4F      		sbci r25,hi8(-(93))
+ 1388               	.L142:
+ 1389 0624 1192      		st Z+,__zero_reg__
+ 1390 0626 8E17      		cp r24,r30
+ 1391 0628 9F07      		cpc r25,r31
+ 1392 062a E0F7      		brsh .L142
+ 1393 062c 8EE5      		ldi r24,lo8(94)
+ 1394 062e 90E0      		ldi r25,hi8(94)
+ 1395 0630 9093 0000 		sts (i)+1,r25
+ 1396 0634 8093 0000 		sts i,r24
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 33
+
+
+ 229:VFDCON.c      **** 		Serial_Reset_Count1=0;
+ 1397               		.stabn 68,0,229,.LM197-Serial1_Check
+ 1398               	.LM197:
+ 1399 0638 1092 0000 		sts Serial_Reset_Count1,__zero_reg__
+ 230:VFDCON.c      **** 		
+ 231:VFDCON.c      **** 	}
+ 232:VFDCON.c      **** 	
+ 233:VFDCON.c      **** }//void Serial1_Check(void)
+ 1400               		.stabn 68,0,233,.LM198-Serial1_Check
+ 1401               	.LM198:
+ 1402               	.L92:
+ 1403               	/* epilogue: frame size=0 */
+ 1404 063c DF91      		pop r29
+ 1405 063e CF91      		pop r28
+ 1406 0640 1F91      		pop r17
+ 1407 0642 0F91      		pop r16
+ 1408 0644 0895      		ret
+ 1409               	/* epilogue end (size=5) */
+ 1410               	/* function Serial1_Check size 288 (279) */
+ 1411               		.size	Serial1_Check, .-Serial1_Check
+ 1412               	.Lscope19:
+ 1413               		.stabs	"",36,0,0,.Lscope19-Serial1_Check
+ 1414               		.data
+ 1415               	.LC0:
+ 1416 0002 2020 5359 		.string	"  SYSTEM START  "
+ 1416      5354 454D 
+ 1416      2053 5441 
+ 1416      5254 2020 
+ 1416      00
+ 1417               	.LC1:
+ 1418 0013 4D6F 6465 		.string	"Model:MDE-80H       "
+ 1418      6C3A 4D44 
+ 1418      452D 3830 
+ 1418      4820 2020 
+ 1418      2020 2020 
+ 1419               	.LC2:
+ 1420 0028 456E 7365 		.string	"Ensemble Multiplexer"
+ 1420      6D62 6C65 
+ 1420      204D 756C 
+ 1420      7469 706C 
+ 1420      6578 6572 
+ 1421               	.LC3:
+ 1422 003d 2020 2020 		.string	"      Ver:2018.05.18"
+ 1422      2020 5665 
+ 1422      723A 3230 
+ 1422      3138 2E30 
+ 1422      352E 3138 
+ 1423               	.LC4:
+ 1424 0052 2D2D 2D2D 		.string	"--------------------"
+ 1424      2D2D 2D2D 
+ 1424      2D2D 2D2D 
+ 1424      2D2D 2D2D 
+ 1424      2D2D 2D2D 
+ 1425               		.text
+ 1426               		.stabs	"main:F(0,1)",36,0,237,main
+ 1427               	.global	main
+ 1428               		.type	main, @function
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 34
+
+
+ 1429               	main:
+ 234:VFDCON.c      **** 
+ 235:VFDCON.c      **** 
+ 236:VFDCON.c      **** int main(void)
+ 237:VFDCON.c      **** { 
+ 1430               		.stabn 68,0,237,.LM199-main
+ 1431               	.LM199:
+ 1432               	/* prologue: frame size=0 */
+ 1433 0646 C0E0      		ldi r28,lo8(__stack - 0)
+ 1434 0648 D0E0      		ldi r29,hi8(__stack - 0)
+ 1435 064a DEBF      		out __SP_H__,r29
+ 1436 064c CDBF      		out __SP_L__,r28
+ 1437               	/* prologue end (size=4) */
+ 238:VFDCON.c      **** 
+ 239:VFDCON.c      ****   MCU_initialize(); // initialize MCU
+ 1438               		.stabn 68,0,239,.LM200-main
+ 1439               	.LM200:
+ 1440 064e 0E94 0000 		call MCU_initialize
+ 240:VFDCON.c      ****   Delay_ms(500);
+ 1441               		.stabn 68,0,240,.LM201-main
+ 1442               	.LM201:
+ 1443 0652 84EF      		ldi r24,lo8(500)
+ 1444 0654 91E0      		ldi r25,hi8(500)
+ 1445 0656 0E94 0000 		call Delay_ms
+ 241:VFDCON.c      **** 
+ 242:VFDCON.c      ****   sbi(PORTE,1);//sbi(C2-disable),cbi(C2-enable)
+ 1446               		.stabn 68,0,242,.LM202-main
+ 1447               	.LM202:
+ 1448 065a 199A      		sbi 35-0x20,1
+ 243:VFDCON.c      ****   Delay_ms(100);
+ 1449               		.stabn 68,0,243,.LM203-main
+ 1450               	.LM203:
+ 1451 065c 84E6      		ldi r24,lo8(100)
+ 1452 065e 90E0      		ldi r25,hi8(100)
+ 1453 0660 0E94 0000 		call Delay_ms
+ 244:VFDCON.c      ****   cbi(PORTE,1);//sbi(C2-disable),cbi(C2-enable)
+ 1454               		.stabn 68,0,244,.LM204-main
+ 1455               	.LM204:
+ 1456 0664 1998      		cbi 35-0x20,1
+ 245:VFDCON.c      ****   
+ 246:VFDCON.c      ****   PORTD	= 0x00;
+ 1457               		.stabn 68,0,246,.LM205-main
+ 1458               	.LM205:
+ 1459 0666 12BA      		out 50-0x20,__zero_reg__
+ 247:VFDCON.c      **** 	PORTB	= 0xFF;
+ 1460               		.stabn 68,0,247,.LM206-main
+ 1461               	.LM206:
+ 1462 0668 8FEF      		ldi r24,lo8(-1)
+ 1463 066a 88BB      		out 56-0x20,r24
+ 248:VFDCON.c      **** 	
+ 249:VFDCON.c      **** 	Beep();
+ 1464               		.stabn 68,0,249,.LM207-main
+ 1465               	.LM207:
+ 1466 066c 0E94 0000 		call Beep
+ 250:VFDCON.c      **** 	
+ 251:VFDCON.c      **** 	
+ 252:VFDCON.c      **** 	LCD_Reset();
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 35
+
+
+ 1467               		.stabn 68,0,252,.LM208-main
+ 1468               	.LM208:
+ 1469 0670 0E94 0000 		call LCD_Reset
+ 253:VFDCON.c      **** 	Delay_ms(10);
+ 1470               		.stabn 68,0,253,.LM209-main
+ 1471               	.LM209:
+ 1472 0674 8AE0      		ldi r24,lo8(10)
+ 1473 0676 90E0      		ldi r25,hi8(10)
+ 1474 0678 0E94 0000 		call Delay_ms
+ 254:VFDCON.c      **** 	
+ 255:VFDCON.c      **** 
+ 256:VFDCON.c      **** 	LCD_Position(0x00);
+ 1475               		.stabn 68,0,256,.LM210-main
+ 1476               	.LM210:
+ 1477 067c 80E0      		ldi r24,lo8(0)
+ 1478 067e 0E94 0000 		call LCD_Position
+ 257:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);	LCD_da
+ 1479               		.stabn 68,0,257,.LM211-main
+ 1480               	.LM211:
+ 1481 0682 8FE7      		ldi r24,lo8(127)
+ 1482 0684 0E94 0000 		call LCD_data
+ 1483 0688 8FE7      		ldi r24,lo8(127)
+ 1484 068a 0E94 0000 		call LCD_data
+ 1485 068e 8FE7      		ldi r24,lo8(127)
+ 1486 0690 0E94 0000 		call LCD_data
+ 1487 0694 8FE7      		ldi r24,lo8(127)
+ 1488 0696 0E94 0000 		call LCD_data
+ 1489 069a 8FE7      		ldi r24,lo8(127)
+ 1490 069c 0E94 0000 		call LCD_data
+ 1491 06a0 8FE7      		ldi r24,lo8(127)
+ 1492 06a2 0E94 0000 		call LCD_data
+ 1493 06a6 8FE7      		ldi r24,lo8(127)
+ 1494 06a8 0E94 0000 		call LCD_data
+ 1495 06ac 8FE7      		ldi r24,lo8(127)
+ 1496 06ae 0E94 0000 		call LCD_data
+ 1497 06b2 8FE7      		ldi r24,lo8(127)
+ 1498 06b4 0E94 0000 		call LCD_data
+ 1499 06b8 8FE7      		ldi r24,lo8(127)
+ 1500 06ba 0E94 0000 		call LCD_data
+ 258:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);	LCD_da
+ 1501               		.stabn 68,0,258,.LM212-main
+ 1502               	.LM212:
+ 1503 06be 8FE7      		ldi r24,lo8(127)
+ 1504 06c0 0E94 0000 		call LCD_data
+ 1505 06c4 8FE7      		ldi r24,lo8(127)
+ 1506 06c6 0E94 0000 		call LCD_data
+ 1507 06ca 8FE7      		ldi r24,lo8(127)
+ 1508 06cc 0E94 0000 		call LCD_data
+ 1509 06d0 8FE7      		ldi r24,lo8(127)
+ 1510 06d2 0E94 0000 		call LCD_data
+ 1511 06d6 8FE7      		ldi r24,lo8(127)
+ 1512 06d8 0E94 0000 		call LCD_data
+ 1513 06dc 8FE7      		ldi r24,lo8(127)
+ 1514 06de 0E94 0000 		call LCD_data
+ 1515 06e2 8FE7      		ldi r24,lo8(127)
+ 1516 06e4 0E94 0000 		call LCD_data
+ 1517 06e8 8FE7      		ldi r24,lo8(127)
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 36
+
+
+ 1518 06ea 0E94 0000 		call LCD_data
+ 1519 06ee 8FE7      		ldi r24,lo8(127)
+ 1520 06f0 0E94 0000 		call LCD_data
+ 1521 06f4 8FE7      		ldi r24,lo8(127)
+ 1522 06f6 0E94 0000 		call LCD_data
+ 259:VFDCON.c      **** 	
+ 260:VFDCON.c      **** 	LCD_Position(0x14);
+ 1523               		.stabn 68,0,260,.LM213-main
+ 1524               	.LM213:
+ 1525 06fa 84E1      		ldi r24,lo8(20)
+ 1526 06fc 0E94 0000 		call LCD_Position
+ 261:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);
+ 1527               		.stabn 68,0,261,.LM214-main
+ 1528               	.LM214:
+ 1529 0700 8FE7      		ldi r24,lo8(127)
+ 1530 0702 0E94 0000 		call LCD_data
+ 1531 0706 8FE7      		ldi r24,lo8(127)
+ 1532 0708 0E94 0000 		call LCD_data
+ 262:VFDCON.c      **** 	LCD_string(0x16,"  SYSTEM START  ");
+ 1533               		.stabn 68,0,262,.LM215-main
+ 1534               	.LM215:
+ 1535 070c 60E0      		ldi r22,lo8(.LC0)
+ 1536 070e 70E0      		ldi r23,hi8(.LC0)
+ 1537 0710 86E1      		ldi r24,lo8(22)
+ 1538 0712 0E94 0000 		call LCD_string
+ 263:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);
+ 1539               		.stabn 68,0,263,.LM216-main
+ 1540               	.LM216:
+ 1541 0716 8FE7      		ldi r24,lo8(127)
+ 1542 0718 0E94 0000 		call LCD_data
+ 1543 071c 8FE7      		ldi r24,lo8(127)
+ 1544 071e 0E94 0000 		call LCD_data
+ 264:VFDCON.c      **** 
+ 265:VFDCON.c      **** 	LCD_Position(0x28);
+ 1545               		.stabn 68,0,265,.LM217-main
+ 1546               	.LM217:
+ 1547 0722 88E2      		ldi r24,lo8(40)
+ 1548 0724 0E94 0000 		call LCD_Position
+ 266:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);LCD_data(' ');LCD_data(' ');
+ 1549               		.stabn 68,0,266,.LM218-main
+ 1550               	.LM218:
+ 1551 0728 8FE7      		ldi r24,lo8(127)
+ 1552 072a 0E94 0000 		call LCD_data
+ 1553 072e 8FE7      		ldi r24,lo8(127)
+ 1554 0730 0E94 0000 		call LCD_data
+ 1555 0734 8FE7      		ldi r24,lo8(127)
+ 1556 0736 0E94 0000 		call LCD_data
+ 1557 073a 80E2      		ldi r24,lo8(32)
+ 1558 073c 0E94 0000 		call LCD_data
+ 1559 0740 80E2      		ldi r24,lo8(32)
+ 1560 0742 0E94 0000 		call LCD_data
+ 267:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);LCD_data
+ 1561               		.stabn 68,0,267,.LM219-main
+ 1562               	.LM219:
+ 1563 0746 8FE7      		ldi r24,lo8(127)
+ 1564 0748 0E94 0000 		call LCD_data
+ 1565 074c 8FE7      		ldi r24,lo8(127)
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 37
+
+
+ 1566 074e 0E94 0000 		call LCD_data
+ 1567 0752 8FE7      		ldi r24,lo8(127)
+ 1568 0754 0E94 0000 		call LCD_data
+ 1569 0758 8FE7      		ldi r24,lo8(127)
+ 1570 075a 0E94 0000 		call LCD_data
+ 1571 075e 8FE7      		ldi r24,lo8(127)
+ 1572 0760 0E94 0000 		call LCD_data
+ 1573 0764 8FE7      		ldi r24,lo8(127)
+ 1574 0766 0E94 0000 		call LCD_data
+ 1575 076a 8FE7      		ldi r24,lo8(127)
+ 1576 076c 0E94 0000 		call LCD_data
+ 1577 0770 8FE7      		ldi r24,lo8(127)
+ 1578 0772 0E94 0000 		call LCD_data
+ 1579 0776 8FE7      		ldi r24,lo8(127)
+ 1580 0778 0E94 0000 		call LCD_data
+ 1581 077c 8FE7      		ldi r24,lo8(127)
+ 1582 077e 0E94 0000 		call LCD_data
+ 268:VFDCON.c      **** 	LCD_data(' ');LCD_data(' ');LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);
+ 1583               		.stabn 68,0,268,.LM220-main
+ 1584               	.LM220:
+ 1585 0782 80E2      		ldi r24,lo8(32)
+ 1586 0784 0E94 0000 		call LCD_data
+ 1587 0788 80E2      		ldi r24,lo8(32)
+ 1588 078a 0E94 0000 		call LCD_data
+ 1589 078e 8FE7      		ldi r24,lo8(127)
+ 1590 0790 0E94 0000 		call LCD_data
+ 1591 0794 8FE7      		ldi r24,lo8(127)
+ 1592 0796 0E94 0000 		call LCD_data
+ 1593 079a 8FE7      		ldi r24,lo8(127)
+ 1594 079c 0E94 0000 		call LCD_data
+ 269:VFDCON.c      **** 	
+ 270:VFDCON.c      **** 	LCD_Position(0x3C);
+ 1595               		.stabn 68,0,270,.LM221-main
+ 1596               	.LM221:
+ 1597 07a0 8CE3      		ldi r24,lo8(60)
+ 1598 07a2 0E94 0000 		call LCD_Position
+ 271:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);
+ 1599               		.stabn 68,0,271,.LM222-main
+ 1600               	.LM222:
+ 1601 07a6 8FE7      		ldi r24,lo8(127)
+ 1602 07a8 0E94 0000 		call LCD_data
+ 1603 07ac 8FE7      		ldi r24,lo8(127)
+ 1604 07ae 0E94 0000 		call LCD_data
+ 1605 07b2 8FE7      		ldi r24,lo8(127)
+ 1606 07b4 0E94 0000 		call LCD_data
+ 272:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);
+ 1607               		.stabn 68,0,272,.LM223-main
+ 1608               	.LM223:
+ 1609 07b8 8FE7      		ldi r24,lo8(127)
+ 1610 07ba 0E94 0000 		call LCD_data
+ 1611 07be 8FE7      		ldi r24,lo8(127)
+ 1612 07c0 0E94 0000 		call LCD_data
+ 1613 07c4 8FE7      		ldi r24,lo8(127)
+ 1614 07c6 0E94 0000 		call LCD_data
+ 273:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);
+ 1615               		.stabn 68,0,273,.LM224-main
+ 1616               	.LM224:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 38
+
+
+ 1617 07ca 8FE7      		ldi r24,lo8(127)
+ 1618 07cc 0E94 0000 		call LCD_data
+ 1619 07d0 8FE7      		ldi r24,lo8(127)
+ 1620 07d2 0E94 0000 		call LCD_data
+ 1621 07d6 8FE7      		ldi r24,lo8(127)
+ 1622 07d8 0E94 0000 		call LCD_data
+ 274:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);
+ 1623               		.stabn 68,0,274,.LM225-main
+ 1624               	.LM225:
+ 1625 07dc 8FE7      		ldi r24,lo8(127)
+ 1626 07de 0E94 0000 		call LCD_data
+ 1627 07e2 8FE7      		ldi r24,lo8(127)
+ 1628 07e4 0E94 0000 		call LCD_data
+ 1629 07e8 8FE7      		ldi r24,lo8(127)
+ 1630 07ea 0E94 0000 		call LCD_data
+ 275:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);
+ 1631               		.stabn 68,0,275,.LM226-main
+ 1632               	.LM226:
+ 1633 07ee 8FE7      		ldi r24,lo8(127)
+ 1634 07f0 0E94 0000 		call LCD_data
+ 1635 07f4 8FE7      		ldi r24,lo8(127)
+ 1636 07f6 0E94 0000 		call LCD_data
+ 1637 07fa 8FE7      		ldi r24,lo8(127)
+ 1638 07fc 0E94 0000 		call LCD_data
+ 276:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);LCD_data(0x7F);
+ 1639               		.stabn 68,0,276,.LM227-main
+ 1640               	.LM227:
+ 1641 0800 8FE7      		ldi r24,lo8(127)
+ 1642 0802 0E94 0000 		call LCD_data
+ 1643 0806 8FE7      		ldi r24,lo8(127)
+ 1644 0808 0E94 0000 		call LCD_data
+ 1645 080c 8FE7      		ldi r24,lo8(127)
+ 1646 080e 0E94 0000 		call LCD_data
+ 277:VFDCON.c      **** 	LCD_data(0x7F);LCD_data(0x7F);
+ 1647               		.stabn 68,0,277,.LM228-main
+ 1648               	.LM228:
+ 1649 0812 8FE7      		ldi r24,lo8(127)
+ 1650 0814 0E94 0000 		call LCD_data
+ 1651 0818 8FE7      		ldi r24,lo8(127)
+ 1652 081a 0E94 0000 		call LCD_data
+ 278:VFDCON.c      **** 
+ 279:VFDCON.c      ****  	PORTD	= 0xF3;
+ 1653               		.stabn 68,0,279,.LM229-main
+ 1654               	.LM229:
+ 1655 081e 83EF      		ldi r24,lo8(-13)
+ 1656 0820 82BB      		out 50-0x20,r24
+ 280:VFDCON.c      ****  	Delay_ms(500);
+ 1657               		.stabn 68,0,280,.LM230-main
+ 1658               	.LM230:
+ 1659 0822 84EF      		ldi r24,lo8(500)
+ 1660 0824 91E0      		ldi r25,hi8(500)
+ 1661 0826 0E94 0000 		call Delay_ms
+ 281:VFDCON.c      ****   PORTD	= 0x00;	
+ 1662               		.stabn 68,0,281,.LM231-main
+ 1663               	.LM231:
+ 1664 082a 12BA      		out 50-0x20,__zero_reg__
+ 282:VFDCON.c      **** 
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 39
+
+
+ 283:VFDCON.c      **** // Timer 1 setting
+ 284:VFDCON.c      ****   TCCR1A = 0x00;                                // CTC mode(4)
+ 1665               		.stabn 68,0,284,.LM232-main
+ 1666               	.LM232:
+ 1667 082c 1FBC      		out 79-0x20,__zero_reg__
+ 285:VFDCON.c      ****   TCCR1B = 0x0C;                                // 11.0592MHz/256/(1+21599) = 2Hz       4319 = 10Hz
+ 1668               		.stabn 68,0,285,.LM233-main
+ 1669               	.LM233:
+ 1670 082e 0CE0      		ldi r16,lo8(12)
+ 1671 0830 0EBD      		out 78-0x20,r16
+ 286:VFDCON.c      ****   OCR1AH = (4319  >> 8);
+ 1672               		.stabn 68,0,286,.LM234-main
+ 1673               	.LM234:
+ 1674 0832 90E1      		ldi r25,lo8(16)
+ 1675 0834 9BBD      		out 75-0x20,r25
+ 287:VFDCON.c      ****   OCR1AL = 4319 & 0xFF;
+ 1676               		.stabn 68,0,287,.LM235-main
+ 1677               	.LM235:
+ 1678 0836 8FED      		ldi r24,lo8(-33)
+ 1679 0838 8ABD      		out 74-0x20,r24
+ 288:VFDCON.c      ****   TCNT1H = 0x00;                                // clear Timer/Counter1
+ 1680               		.stabn 68,0,288,.LM236-main
+ 1681               	.LM236:
+ 1682 083a 1DBC      		out 77-0x20,__zero_reg__
+ 289:VFDCON.c      ****   TCNT1L = 0x00;
+ 1683               		.stabn 68,0,289,.LM237-main
+ 1684               	.LM237:
+ 1685 083c 1CBC      		out 76-0x20,__zero_reg__
+ 290:VFDCON.c      ****   TIMSK	 = 0x10;                                 // enable OC1A interrupt
+ 1686               		.stabn 68,0,290,.LM238-main
+ 1687               	.LM238:
+ 1688 083e 97BF      		out 87-0x20,r25
+ 291:VFDCON.c      ****   TIFR	 = 0x00;                                  // clear all interrupt flags
+ 1689               		.stabn 68,0,291,.LM239-main
+ 1690               	.LM239:
+ 1691 0840 16BE      		out 86-0x20,__zero_reg__
+ 292:VFDCON.c      **** 
+ 293:VFDCON.c      **** /*
+ 294:VFDCON.c      **** // USART0 Setting 
+ 295:VFDCON.c      ****   UCSR0A = 0x00;
+ 296:VFDCON.c      ****   UCSR0B = 0x98;
+ 297:VFDCON.c      ****   UCSR0C = 0x06;				// 8data, no parity, 1 stop
+ 298:VFDCON.c      ****   UBRR0H = (5 >> 8);				// 19200(35) 115200(5)baud rate
+ 299:VFDCON.c      ****   UBRR0L = 5 & 0xFF;
+ 300:VFDCON.c      **** */
+ 301:VFDCON.c      **** 
+ 302:VFDCON.c      **** 
+ 303:VFDCON.c      **** // USART1 Setting 
+ 304:VFDCON.c      ****   UCSR1A = 0x00;
+ 1692               		.stabn 68,0,304,.LM240-main
+ 1693               	.LM240:
+ 1694 0842 1092 9B00 		sts 155,__zero_reg__
+ 305:VFDCON.c      ****   UCSR1B = 0x98;
+ 1695               		.stabn 68,0,305,.LM241-main
+ 1696               	.LM241:
+ 1697 0846 88E9      		ldi r24,lo8(-104)
+ 1698 0848 8093 9A00 		sts 154,r24
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 40
+
+
+ 306:VFDCON.c      ****   UCSR1C = 0x06;				// 8data, no parity, 1 stop
+ 1699               		.stabn 68,0,306,.LM242-main
+ 1700               	.LM242:
+ 1701 084c 16E0      		ldi r17,lo8(6)
+ 1702 084e 1093 9D00 		sts 157,r17
+ 307:VFDCON.c      ****   UBRR1H = (5 >> 8);				// 19200(35) 115200(5)baud rate
+ 1703               		.stabn 68,0,307,.LM243-main
+ 1704               	.LM243:
+ 1705 0852 1092 9800 		sts 152,__zero_reg__
+ 308:VFDCON.c      ****   UBRR1L = 5 & 0xFF;
+ 1706               		.stabn 68,0,308,.LM244-main
+ 1707               	.LM244:
+ 1708 0856 85E0      		ldi r24,lo8(5)
+ 1709 0858 8093 9900 		sts 153,r24
+ 309:VFDCON.c      **** 
+ 310:VFDCON.c      **** 
+ 311:VFDCON.c      **** 	Led_Count=0;
+ 1710               		.stabn 68,0,311,.LM245-main
+ 1711               	.LM245:
+ 1712 085c 1092 0000 		sts Led_Count,__zero_reg__
+ 312:VFDCON.c      **** 
+ 313:VFDCON.c      **** 	Beep();
+ 1713               		.stabn 68,0,313,.LM246-main
+ 1714               	.LM246:
+ 1715 0860 0E94 0000 		call Beep
+ 314:VFDCON.c      **** 	Beep();
+ 1716               		.stabn 68,0,314,.LM247-main
+ 1717               	.LM247:
+ 1718 0864 0E94 0000 		call Beep
+ 315:VFDCON.c      **** 
+ 316:VFDCON.c      ****  	Key_Toggle=0;
+ 1719               		.stabn 68,0,316,.LM248-main
+ 1720               	.LM248:
+ 1721 0868 1092 0000 		sts Key_Toggle,__zero_reg__
+ 317:VFDCON.c      ****  	Reset_Key_Count=0;
+ 1722               		.stabn 68,0,317,.LM249-main
+ 1723               	.LM249:
+ 1724 086c 1092 0000 		sts Reset_Key_Count,__zero_reg__
+ 318:VFDCON.c      ****  	System_Fault_Count =0;
+ 1725               		.stabn 68,0,318,.LM250-main
+ 1726               	.LM250:
+ 1727 0870 1092 0000 		sts System_Fault_Count,__zero_reg__
+ 319:VFDCON.c      ****  	System_Run_Okay =0;
+ 1728               		.stabn 68,0,319,.LM251-main
+ 1729               	.LM251:
+ 1730 0874 1092 0000 		sts System_Run_Okay,__zero_reg__
+ 320:VFDCON.c      ****  	
+ 321:VFDCON.c      ****  	
+ 322:VFDCON.c      ****  	PORTB=0x00;
+ 1731               		.stabn 68,0,322,.LM252-main
+ 1732               	.LM252:
+ 1733 0878 18BA      		out 56-0x20,__zero_reg__
+ 323:VFDCON.c      **** 	PORTE=0x0C;
+ 1734               		.stabn 68,0,323,.LM253-main
+ 1735               	.LM253:
+ 1736 087a 03B9      		out 35-0x20,r16
+ 324:VFDCON.c      **** 
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 41
+
+
+ 325:VFDCON.c      **** 	Key_Data=0x30;
+ 1737               		.stabn 68,0,325,.LM254-main
+ 1738               	.LM254:
+ 1739 087c 90E3      		ldi r25,lo8(48)
+ 1740 087e 9093 0000 		sts Key_Data,r25
+ 326:VFDCON.c      **** 
+ 327:VFDCON.c      **** ///KEY_BUF
+ 328:VFDCON.c      **** 	KEY_BUF[0]=0x3A;KEY_BUF[1]=0x4B;KEY_BUF[2]=0x45;KEY_BUF[3]=0x59;KEY_BUF[4]=0x06;
+ 1741               		.stabn 68,0,328,.LM255-main
+ 1742               	.LM255:
+ 1743 0882 8AE3      		ldi r24,lo8(58)
+ 1744 0884 8093 0000 		sts KEY_BUF,r24
+ 1745 0888 8BE4      		ldi r24,lo8(75)
+ 1746 088a 8093 0000 		sts KEY_BUF+1,r24
+ 1747 088e 85E4      		ldi r24,lo8(69)
+ 1748 0890 8093 0000 		sts KEY_BUF+2,r24
+ 1749 0894 89E5      		ldi r24,lo8(89)
+ 1750 0896 8093 0000 		sts KEY_BUF+3,r24
+ 1751 089a 1093 0000 		sts KEY_BUF+4,r17
+ 329:VFDCON.c      **** 	KEY_BUF[5]=Key_Data;
+ 1752               		.stabn 68,0,329,.LM256-main
+ 1753               	.LM256:
+ 1754 089e 9093 0000 		sts KEY_BUF+5,r25
+ 330:VFDCON.c      **** 	KEY_BUF[6]=0x00;KEY_BUF[7]=0x00;KEY_BUF[8]=0x00;KEY_BUF[9]=0x00;KEY_BUF[10]=0x00;
+ 1755               		.stabn 68,0,330,.LM257-main
+ 1756               	.LM257:
+ 1757 08a2 1092 0000 		sts KEY_BUF+6,__zero_reg__
+ 1758 08a6 1092 0000 		sts KEY_BUF+7,__zero_reg__
+ 1759 08aa 1092 0000 		sts KEY_BUF+8,__zero_reg__
+ 1760 08ae 1092 0000 		sts KEY_BUF+9,__zero_reg__
+ 1761 08b2 1092 0000 		sts KEY_BUF+10,__zero_reg__
+ 331:VFDCON.c      **** 
+ 332:VFDCON.c      **** 	Check_Sum =0;
+ 1762               		.stabn 68,0,332,.LM258-main
+ 1763               	.LM258:
+ 1764 08b6 1092 0000 		sts Check_Sum,__zero_reg__
+ 333:VFDCON.c      **** 	for(i=0;i<11;i++)
+ 1765               		.stabn 68,0,333,.LM259-main
+ 1766               	.LM259:
+ 1767 08ba 1092 0000 		sts (i)+1,__zero_reg__
+ 1768 08be 1092 0000 		sts i,__zero_reg__
+ 1769 08c2 2091 0000 		lds r18,KEY_BUF+6
+ 1770 08c6 E0E0      		ldi r30,lo8(KEY_BUF)
+ 1771 08c8 F0E0      		ldi r31,hi8(KEY_BUF)
+ 1772 08ca AF01      		movw r20,r30
+ 1773 08cc 465F      		subi r20,lo8(-(10))
+ 1774 08ce 5F4F      		sbci r21,hi8(-(10))
+ 1775               	.L164:
+ 334:VFDCON.c      **** 	{
+ 335:VFDCON.c      **** 		Check_Sum = Check_Sum+KEY_BUF[i];
+ 1776               		.stabn 68,0,335,.LM260-main
+ 1777               	.LM260:
+ 1778 08d0 8191      		ld r24,Z+
+ 1779 08d2 280F      		add r18,r24
+ 1780               		.stabn 68,0,333,.LM261-main
+ 1781               	.LM261:
+ 1782 08d4 4E17      		cp r20,r30
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 42
+
+
+ 1783 08d6 5F07      		cpc r21,r31
+ 1784 08d8 D8F7      		brsh .L164
+ 1785 08da 2093 0000 		sts Check_Sum,r18
+ 1786 08de 8BE0      		ldi r24,lo8(11)
+ 1787 08e0 90E0      		ldi r25,hi8(11)
+ 1788 08e2 9093 0000 		sts (i)+1,r25
+ 1789 08e6 8093 0000 		sts i,r24
+ 336:VFDCON.c      **** 	}
+ 337:VFDCON.c      **** 	
+ 338:VFDCON.c      **** 	KEY_BUF[11]=Check_Sum;// Check Sum
+ 1790               		.stabn 68,0,338,.LM262-main
+ 1791               	.LM262:
+ 1792 08ea 2093 0000 		sts KEY_BUF+11,r18
+ 339:VFDCON.c      **** 	KEY_BUF[12]=0x0D;KEY_BUF[13]=0x0A;
+ 1793               		.stabn 68,0,339,.LM263-main
+ 1794               	.LM263:
+ 1795 08ee 8DE0      		ldi r24,lo8(13)
+ 1796 08f0 8093 0000 		sts KEY_BUF+12,r24
+ 1797 08f4 8AE0      		ldi r24,lo8(10)
+ 1798 08f6 8093 0000 		sts KEY_BUF+13,r24
+ 340:VFDCON.c      **** 	
+ 341:VFDCON.c      **** 	//for(i=0;i<14;i++){		TX1_char(KEY_BUF[i]);}
+ 342:VFDCON.c      **** 	
+ 343:VFDCON.c      **** ///KEY_BUF
+ 344:VFDCON.c      **** 
+ 345:VFDCON.c      **** 	LCD_string(0x00,"Model:MDE-80H       ");
+ 1799               		.stabn 68,0,345,.LM264-main
+ 1800               	.LM264:
+ 1801 08fa 60E0      		ldi r22,lo8(.LC1)
+ 1802 08fc 70E0      		ldi r23,hi8(.LC1)
+ 1803 08fe 80E0      		ldi r24,lo8(0)
+ 1804 0900 0E94 0000 		call LCD_string
+ 346:VFDCON.c      **** 	LCD_string(0x14,"Ensemble Multiplexer");
+ 1805               		.stabn 68,0,346,.LM265-main
+ 1806               	.LM265:
+ 1807 0904 60E0      		ldi r22,lo8(.LC2)
+ 1808 0906 70E0      		ldi r23,hi8(.LC2)
+ 1809 0908 84E1      		ldi r24,lo8(20)
+ 1810 090a 0E94 0000 		call LCD_string
+ 347:VFDCON.c      **** 	LCD_string(0x28,"      Ver:2018.05.18");
+ 1811               		.stabn 68,0,347,.LM266-main
+ 1812               	.LM266:
+ 1813 090e 60E0      		ldi r22,lo8(.LC3)
+ 1814 0910 70E0      		ldi r23,hi8(.LC3)
+ 1815 0912 88E2      		ldi r24,lo8(40)
+ 1816 0914 0E94 0000 		call LCD_string
+ 348:VFDCON.c      **** 	LCD_string(0x3C,"--------------------");
+ 1817               		.stabn 68,0,348,.LM267-main
+ 1818               	.LM267:
+ 1819 0918 60E0      		ldi r22,lo8(.LC4)
+ 1820 091a 70E0      		ldi r23,hi8(.LC4)
+ 1821 091c 8CE3      		ldi r24,lo8(60)
+ 1822 091e 0E94 0000 		call LCD_string
+ 349:VFDCON.c      **** 
+ 350:VFDCON.c      **** 
+ 351:VFDCON.c      **** 
+ 352:VFDCON.c      ****   sei();
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 43
+
+
+ 1823               		.stabn 68,0,352,.LM268-main
+ 1824               	.LM268:
+ 1825               	/* #APP */
+ 1826 0922 7894      		sei
+ 1827               	/* #NOAPP */
+ 1828               	.L275:
+ 353:VFDCON.c      **** 	
+ 354:VFDCON.c      **** while(1)
+ 355:VFDCON.c      **** 	{
+ 356:VFDCON.c      **** 
+ 357:VFDCON.c      **** 	Delay_ms(5);
+ 1829               		.stabn 68,0,357,.LM269-main
+ 1830               	.LM269:
+ 1831 0924 85E0      		ldi r24,lo8(5)
+ 1832 0926 90E0      		ldi r25,hi8(5)
+ 1833 0928 0E94 0000 		call Delay_ms
+ 358:VFDCON.c      **** 	// 0x1D-Up, 0x17-Down, 0x1E-Left, 0x1B-Right, 0x0F-Enter
+ 359:VFDCON.c      **** 	Key_Input= inp(PINF) & 0x1F;
+ 1834               		.stabn 68,0,359,.LM270-main
+ 1835               	.LM270:
+ 1836 092c 80B1      		in r24,32-0x20
+ 1837 092e 8F71      		andi r24,lo8(31)
+ 1838 0930 8093 0000 		sts Key_Input,r24
+ 360:VFDCON.c      **** 
+ 361:VFDCON.c      **** 	if(Key_Input != 0x1E)//Enter(1RU)
+ 1839               		.stabn 68,0,361,.LM271-main
+ 1840               	.LM271:
+ 1841 0934 8E31      		cpi r24,lo8(30)
+ 1842 0936 11F0      		breq .L168
+ 362:VFDCON.c      **** 	{
+ 363:VFDCON.c      **** 		Key_Push_Count=0;
+ 1843               		.stabn 68,0,363,.LM272-main
+ 1844               	.LM272:
+ 1845 0938 1092 0000 		sts Key_Push_Count,__zero_reg__
+ 1846               	.L168:
+ 364:VFDCON.c      **** 	}
+ 365:VFDCON.c      **** 
+ 366:VFDCON.c      **** 	if(Key_Input != 0x0B)//Left+Right(1RU)
+ 1847               		.stabn 68,0,366,.LM273-main
+ 1848               	.LM273:
+ 1849 093c 8B30      		cpi r24,lo8(11)
+ 1850 093e 19F0      		breq .L268
+ 367:VFDCON.c      **** 	{
+ 368:VFDCON.c      **** 		Reset_Key_Count=0;
+ 1851               		.stabn 68,0,368,.LM274-main
+ 1852               	.LM274:
+ 1853 0940 1092 0000 		sts Reset_Key_Count,__zero_reg__
+ 1854 0944 05C0      		rjmp .L170
+ 369:VFDCON.c      **** 		
+ 370:VFDCON.c      **** 	}else if(Key_Input == 0x0B){//Left+Right(1RU)
+ 371:VFDCON.c      **** 
+ 372:VFDCON.c      **** 		sbi(PORTD,1);
+ 1855               		.stabn 68,0,372,.LM275-main
+ 1856               	.LM275:
+ 1857               	.L268:
+ 1858 0946 919A      		sbi 50-0x20,1
+ 373:VFDCON.c      **** 		sbi(PORTD,4);
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 44
+
+
+ 1859               		.stabn 68,0,373,.LM276-main
+ 1860               	.LM276:
+ 1861 0948 949A      		sbi 50-0x20,4
+ 374:VFDCON.c      **** 		cbi(PORTD,5);
+ 1862               		.stabn 68,0,374,.LM277-main
+ 1863               	.LM277:
+ 1864 094a 9598      		cbi 50-0x20,5
+ 375:VFDCON.c      **** 		sbi(PORTD,6);
+ 1865               		.stabn 68,0,375,.LM278-main
+ 1866               	.LM278:
+ 1867 094c 969A      		sbi 50-0x20,6
+ 376:VFDCON.c      **** 		cbi(PORTD,7);
+ 1868               		.stabn 68,0,376,.LM279-main
+ 1869               	.LM279:
+ 1870 094e 9798      		cbi 50-0x20,7
+ 1871               	.L170:
+ 377:VFDCON.c      **** 	}
+ 378:VFDCON.c      **** 
+ 379:VFDCON.c      **** 	if(Key_Input == 0x1F)
+ 1872               		.stabn 68,0,379,.LM280-main
+ 1873               	.LM280:
+ 1874 0950 8091 0000 		lds r24,Key_Input
+ 1875 0954 8F31      		cpi r24,lo8(31)
+ 1876 0956 41F4      		brne .L172
+ 380:VFDCON.c      **** 	{
+ 381:VFDCON.c      **** 		Key_Flag=0;
+ 1877               		.stabn 68,0,381,.LM281-main
+ 1878               	.LM281:
+ 1879 0958 1092 0000 		sts Key_Flag,__zero_reg__
+ 382:VFDCON.c      **** 		//Key_Push_Count=0;
+ 383:VFDCON.c      **** 		cbi(PORTD,1);
+ 1880               		.stabn 68,0,383,.LM282-main
+ 1881               	.LM282:
+ 1882 095c 9198      		cbi 50-0x20,1
+ 384:VFDCON.c      **** 		cbi(PORTD,4);
+ 1883               		.stabn 68,0,384,.LM283-main
+ 1884               	.LM283:
+ 1885 095e 9498      		cbi 50-0x20,4
+ 385:VFDCON.c      **** 		cbi(PORTD,5);
+ 1886               		.stabn 68,0,385,.LM284-main
+ 1887               	.LM284:
+ 1888 0960 9598      		cbi 50-0x20,5
+ 386:VFDCON.c      **** 		cbi(PORTD,6);
+ 1889               		.stabn 68,0,386,.LM285-main
+ 1890               	.LM285:
+ 1891 0962 9698      		cbi 50-0x20,6
+ 387:VFDCON.c      **** 		cbi(PORTD,7);
+ 1892               		.stabn 68,0,387,.LM286-main
+ 1893               	.LM286:
+ 1894 0964 9798      		cbi 50-0x20,7
+ 1895 0966 15C2      		rjmp .L173
+ 1896               	.L172:
+ 388:VFDCON.c      **** 		
+ 389:VFDCON.c      **** 	}else{
+ 390:VFDCON.c      **** 
+ 391:VFDCON.c      **** 		if(Key_Flag ==0)
+ 1897               		.stabn 68,0,391,.LM287-main
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 45
+
+
+ 1898               	.LM287:
+ 1899 0968 1091 0000 		lds r17,Key_Flag
+ 1900 096c 1123      		tst r17
+ 1901 096e 09F0      		breq .+2
+ 1902 0970 10C2      		rjmp .L173
+ 392:VFDCON.c      **** 		{
+ 393:VFDCON.c      **** 
+ 394:VFDCON.c      **** 				LCD_Reset();
+ 1903               		.stabn 68,0,394,.LM288-main
+ 1904               	.LM288:
+ 1905 0972 0E94 0000 		call LCD_Reset
+ 395:VFDCON.c      **** 				Delay_ms(1);
+ 1906               		.stabn 68,0,395,.LM289-main
+ 1907               	.LM289:
+ 1908 0976 81E0      		ldi r24,lo8(1)
+ 1909 0978 90E0      		ldi r25,hi8(1)
+ 1910 097a 0E94 0000 		call Delay_ms
+ 396:VFDCON.c      **** 				
+ 397:VFDCON.c      **** 				LCD_string(0x00,"Model:MDE-80H       ");
+ 1911               		.stabn 68,0,397,.LM290-main
+ 1912               	.LM290:
+ 1913 097e 60E0      		ldi r22,lo8(.LC1)
+ 1914 0980 70E0      		ldi r23,hi8(.LC1)
+ 1915 0982 812F      		mov r24,r17
+ 1916 0984 0E94 0000 		call LCD_string
+ 398:VFDCON.c      **** 				LCD_string(0x14,"Ensemble Multiplexer");
+ 1917               		.stabn 68,0,398,.LM291-main
+ 1918               	.LM291:
+ 1919 0988 60E0      		ldi r22,lo8(.LC2)
+ 1920 098a 70E0      		ldi r23,hi8(.LC2)
+ 1921 098c 84E1      		ldi r24,lo8(20)
+ 1922 098e 0E94 0000 		call LCD_string
+ 399:VFDCON.c      **** 				LCD_string(0x28,"      Ver:2018.05.18");
+ 1923               		.stabn 68,0,399,.LM292-main
+ 1924               	.LM292:
+ 1925 0992 60E0      		ldi r22,lo8(.LC3)
+ 1926 0994 70E0      		ldi r23,hi8(.LC3)
+ 1927 0996 88E2      		ldi r24,lo8(40)
+ 1928 0998 0E94 0000 		call LCD_string
+ 400:VFDCON.c      **** 				LCD_string(0x3C,"--------------------");
+ 1929               		.stabn 68,0,400,.LM293-main
+ 1930               	.LM293:
+ 1931 099c 60E0      		ldi r22,lo8(.LC4)
+ 1932 099e 70E0      		ldi r23,hi8(.LC4)
+ 1933 09a0 8CE3      		ldi r24,lo8(60)
+ 1934 09a2 0E94 0000 		call LCD_string
+ 401:VFDCON.c      **** 
+ 402:VFDCON.c      **** 			if(Key_Input == 0x1E)//Enter(1RU)
+ 1935               		.stabn 68,0,402,.LM294-main
+ 1936               	.LM294:
+ 1937 09a6 8091 0000 		lds r24,Key_Input
+ 1938 09aa 8E31      		cpi r24,lo8(30)
+ 1939 09ac 09F0      		breq .+2
+ 1940 09ae 62C0      		rjmp .L175
+ 403:VFDCON.c      **** 			{
+ 404:VFDCON.c      **** 				
+ 405:VFDCON.c      **** 				cbi(PORTD,1);
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 46
+
+
+ 1941               		.stabn 68,0,405,.LM295-main
+ 1942               	.LM295:
+ 1943 09b0 9198      		cbi 50-0x20,1
+ 406:VFDCON.c      **** 				sbi(PORTD,4);
+ 1944               		.stabn 68,0,406,.LM296-main
+ 1945               	.LM296:
+ 1946 09b2 949A      		sbi 50-0x20,4
+ 407:VFDCON.c      **** 				sbi(PORTD,5);
+ 1947               		.stabn 68,0,407,.LM297-main
+ 1948               	.LM297:
+ 1949 09b4 959A      		sbi 50-0x20,5
+ 408:VFDCON.c      **** 				sbi(PORTD,6);
+ 1950               		.stabn 68,0,408,.LM298-main
+ 1951               	.LM298:
+ 1952 09b6 969A      		sbi 50-0x20,6
+ 409:VFDCON.c      **** 				sbi(PORTD,7);
+ 1953               		.stabn 68,0,409,.LM299-main
+ 1954               	.LM299:
+ 1955 09b8 979A      		sbi 50-0x20,7
+ 410:VFDCON.c      **** 
+ 411:VFDCON.c      **** 				//Beep();
+ 412:VFDCON.c      **** 				Key_Push_Count=0;
+ 1956               		.stabn 68,0,412,.LM300-main
+ 1957               	.LM300:
+ 1958 09ba 1093 0000 		sts Key_Push_Count,r17
+ 413:VFDCON.c      **** 				Key_Count=0;
+ 1959               		.stabn 68,0,413,.LM301-main
+ 1960               	.LM301:
+ 1961 09be 1092 0000 		sts (Key_Count)+1,__zero_reg__
+ 1962 09c2 1092 0000 		sts Key_Count,__zero_reg__
+ 414:VFDCON.c      **** 				Led_Count=0;
+ 1963               		.stabn 68,0,414,.LM302-main
+ 1964               	.LM302:
+ 1965 09c6 1093 0000 		sts Led_Count,r17
+ 415:VFDCON.c      **** 				Key_Flag=1;
+ 1966               		.stabn 68,0,415,.LM303-main
+ 1967               	.LM303:
+ 1968 09ca 81E0      		ldi r24,lo8(1)
+ 1969 09cc 8093 0000 		sts Key_Flag,r24
+ 416:VFDCON.c      **** 				
+ 417:VFDCON.c      **** 				Key_Data =0x31;
+ 1970               		.stabn 68,0,417,.LM304-main
+ 1971               	.LM304:
+ 1972 09d0 91E3      		ldi r25,lo8(49)
+ 1973 09d2 9093 0000 		sts Key_Data,r25
+ 418:VFDCON.c      **** 				
+ 419:VFDCON.c      **** 				///KEY_BUF
+ 420:VFDCON.c      **** 				KEY_BUF[0]=0x3A;KEY_BUF[1]=0x4B;KEY_BUF[2]=0x45;KEY_BUF[3]=0x59;KEY_BUF[4]=0x06;
+ 1974               		.stabn 68,0,420,.LM305-main
+ 1975               	.LM305:
+ 1976 09d6 8AE3      		ldi r24,lo8(58)
+ 1977 09d8 8093 0000 		sts KEY_BUF,r24
+ 1978 09dc 8BE4      		ldi r24,lo8(75)
+ 1979 09de 8093 0000 		sts KEY_BUF+1,r24
+ 1980 09e2 85E4      		ldi r24,lo8(69)
+ 1981 09e4 8093 0000 		sts KEY_BUF+2,r24
+ 1982 09e8 89E5      		ldi r24,lo8(89)
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 47
+
+
+ 1983 09ea 8093 0000 		sts KEY_BUF+3,r24
+ 1984 09ee 86E0      		ldi r24,lo8(6)
+ 1985 09f0 8093 0000 		sts KEY_BUF+4,r24
+ 421:VFDCON.c      **** 				KEY_BUF[5]=Key_Data;
+ 1986               		.stabn 68,0,421,.LM306-main
+ 1987               	.LM306:
+ 1988 09f4 9093 0000 		sts KEY_BUF+5,r25
+ 422:VFDCON.c      **** 				KEY_BUF[6]=0x00;KEY_BUF[7]=0x00;KEY_BUF[8]=0x00;KEY_BUF[9]=0x00;KEY_BUF[10]=0x00;
+ 1989               		.stabn 68,0,422,.LM307-main
+ 1990               	.LM307:
+ 1991 09f8 1093 0000 		sts KEY_BUF+6,r17
+ 1992 09fc 1093 0000 		sts KEY_BUF+7,r17
+ 1993 0a00 1093 0000 		sts KEY_BUF+8,r17
+ 1994 0a04 1093 0000 		sts KEY_BUF+9,r17
+ 1995 0a08 1093 0000 		sts KEY_BUF+10,r17
+ 423:VFDCON.c      **** 			
+ 424:VFDCON.c      **** 				Check_Sum =0;
+ 1996               		.stabn 68,0,424,.LM308-main
+ 1997               	.LM308:
+ 1998 0a0c 1093 0000 		sts Check_Sum,r17
+ 425:VFDCON.c      **** 				for(i=0;i<11;i++)
+ 1999               		.stabn 68,0,425,.LM309-main
+ 2000               	.LM309:
+ 2001 0a10 1092 0000 		sts (i)+1,__zero_reg__
+ 2002 0a14 1092 0000 		sts i,__zero_reg__
+ 2003 0a18 912F      		mov r25,r17
+ 2004 0a1a E0E0      		ldi r30,lo8(KEY_BUF)
+ 2005 0a1c F0E0      		ldi r31,hi8(KEY_BUF)
+ 2006 0a1e 9F01      		movw r18,r30
+ 2007 0a20 265F      		subi r18,lo8(-(10))
+ 2008 0a22 3F4F      		sbci r19,hi8(-(10))
+ 2009               	.L180:
+ 426:VFDCON.c      **** 				{
+ 427:VFDCON.c      **** 					Check_Sum = Check_Sum+KEY_BUF[i];
+ 2010               		.stabn 68,0,427,.LM310-main
+ 2011               	.LM310:
+ 2012 0a24 8191      		ld r24,Z+
+ 2013 0a26 980F      		add r25,r24
+ 2014               		.stabn 68,0,425,.LM311-main
+ 2015               	.LM311:
+ 2016 0a28 2E17      		cp r18,r30
+ 2017 0a2a 3F07      		cpc r19,r31
+ 2018 0a2c D8F7      		brsh .L180
+ 2019 0a2e 9093 0000 		sts Check_Sum,r25
+ 428:VFDCON.c      **** 				}
+ 429:VFDCON.c      **** 				
+ 430:VFDCON.c      **** 				KEY_BUF[11]=Check_Sum;// Check Sum
+ 2020               		.stabn 68,0,430,.LM312-main
+ 2021               	.LM312:
+ 2022 0a32 9093 0000 		sts KEY_BUF+11,r25
+ 431:VFDCON.c      **** 				KEY_BUF[12]=0x0D;KEY_BUF[13]=0x0A;
+ 2023               		.stabn 68,0,431,.LM313-main
+ 2024               	.LM313:
+ 2025 0a36 8DE0      		ldi r24,lo8(13)
+ 2026 0a38 8093 0000 		sts KEY_BUF+12,r24
+ 2027 0a3c 8AE0      		ldi r24,lo8(10)
+ 2028 0a3e 8093 0000 		sts KEY_BUF+13,r24
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 48
+
+
+ 432:VFDCON.c      **** 				
+ 433:VFDCON.c      **** 				for(i=0;i<14;i++){		TX1_char(KEY_BUF[i]);}
+ 2029               		.stabn 68,0,433,.LM314-main
+ 2030               	.LM314:
+ 2031 0a42 1092 0000 		sts (i)+1,__zero_reg__
+ 2032 0a46 1092 0000 		sts i,__zero_reg__
+ 2033               	.L185:
+ 2034 0a4a E091 0000 		lds r30,i
+ 2035 0a4e F091 0000 		lds r31,(i)+1
+ 2036 0a52 E050      		subi r30,lo8(-(KEY_BUF))
+ 2037 0a54 F040      		sbci r31,hi8(-(KEY_BUF))
+ 2038 0a56 8081      		ld r24,Z
+ 2039 0a58 0E94 0000 		call TX1_char
+ 2040 0a5c 8091 0000 		lds r24,i
+ 2041 0a60 9091 0000 		lds r25,(i)+1
+ 2042 0a64 0196      		adiw r24,1
+ 2043 0a66 9093 0000 		sts (i)+1,r25
+ 2044 0a6a 8093 0000 		sts i,r24
+ 2045 0a6e 0E97      		sbiw r24,14
+ 2046 0a70 60F3      		brlo .L185
+ 434:VFDCON.c      **** 				
+ 435:VFDCON.c      **** 				LCD_Serial_Time_Count =0;
+ 2047               		.stabn 68,0,435,.LM315-main
+ 2048               	.LM315:
+ 2049 0a72 8BC1      		rjmp .L276
+ 2050               	.L175:
+ 436:VFDCON.c      **** 				Temp_Buf_Count =0;
+ 437:VFDCON.c      **** 				
+ 438:VFDCON.c      **** 				///KEY_BUF
+ 439:VFDCON.c      **** 				
+ 440:VFDCON.c      **** 			}else if(Key_Input == 0x1D){//Up(1RU)
+ 2051               		.stabn 68,0,440,.LM316-main
+ 2052               	.LM316:
+ 2053 0a74 8D31      		cpi r24,lo8(29)
+ 2054 0a76 09F0      		breq .+2
+ 2055 0a78 60C0      		rjmp .L187
+ 441:VFDCON.c      **** 
+ 442:VFDCON.c      **** 				sbi(PORTD,1);
+ 2056               		.stabn 68,0,442,.LM317-main
+ 2057               	.LM317:
+ 2058 0a7a 919A      		sbi 50-0x20,1
+ 443:VFDCON.c      **** 				cbi(PORTD,4);
+ 2059               		.stabn 68,0,443,.LM318-main
+ 2060               	.LM318:
+ 2061 0a7c 9498      		cbi 50-0x20,4
+ 444:VFDCON.c      **** 				sbi(PORTD,5);
+ 2062               		.stabn 68,0,444,.LM319-main
+ 2063               	.LM319:
+ 2064 0a7e 959A      		sbi 50-0x20,5
+ 445:VFDCON.c      **** 				sbi(PORTD,6);
+ 2065               		.stabn 68,0,445,.LM320-main
+ 2066               	.LM320:
+ 2067 0a80 969A      		sbi 50-0x20,6
+ 446:VFDCON.c      **** 				sbi(PORTD,7);
+ 2068               		.stabn 68,0,446,.LM321-main
+ 2069               	.LM321:
+ 2070 0a82 979A      		sbi 50-0x20,7
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 49
+
+
+ 447:VFDCON.c      **** 	
+ 448:VFDCON.c      **** 				//Beep();
+ 449:VFDCON.c      **** 				Key_Count=0;
+ 2071               		.stabn 68,0,449,.LM322-main
+ 2072               	.LM322:
+ 2073 0a84 1092 0000 		sts (Key_Count)+1,__zero_reg__
+ 2074 0a88 1092 0000 		sts Key_Count,__zero_reg__
+ 450:VFDCON.c      **** 				Led_Count=0;
+ 2075               		.stabn 68,0,450,.LM323-main
+ 2076               	.LM323:
+ 2077 0a8c 1093 0000 		sts Led_Count,r17
+ 451:VFDCON.c      **** 				Key_Flag=1;
+ 2078               		.stabn 68,0,451,.LM324-main
+ 2079               	.LM324:
+ 2080 0a90 81E0      		ldi r24,lo8(1)
+ 2081 0a92 8093 0000 		sts Key_Flag,r24
+ 452:VFDCON.c      **** 				Key_Data =0x32;
+ 2082               		.stabn 68,0,452,.LM325-main
+ 2083               	.LM325:
+ 2084 0a96 92E3      		ldi r25,lo8(50)
+ 2085 0a98 9093 0000 		sts Key_Data,r25
+ 453:VFDCON.c      **** 				
+ 454:VFDCON.c      **** 				///KEY_BUF
+ 455:VFDCON.c      **** 				KEY_BUF[0]=0x3A;KEY_BUF[1]=0x4B;KEY_BUF[2]=0x45;KEY_BUF[3]=0x59;KEY_BUF[4]=0x06;
+ 2086               		.stabn 68,0,455,.LM326-main
+ 2087               	.LM326:
+ 2088 0a9c 8AE3      		ldi r24,lo8(58)
+ 2089 0a9e 8093 0000 		sts KEY_BUF,r24
+ 2090 0aa2 8BE4      		ldi r24,lo8(75)
+ 2091 0aa4 8093 0000 		sts KEY_BUF+1,r24
+ 2092 0aa8 85E4      		ldi r24,lo8(69)
+ 2093 0aaa 8093 0000 		sts KEY_BUF+2,r24
+ 2094 0aae 89E5      		ldi r24,lo8(89)
+ 2095 0ab0 8093 0000 		sts KEY_BUF+3,r24
+ 2096 0ab4 86E0      		ldi r24,lo8(6)
+ 2097 0ab6 8093 0000 		sts KEY_BUF+4,r24
+ 456:VFDCON.c      **** 				KEY_BUF[5]=Key_Data;
+ 2098               		.stabn 68,0,456,.LM327-main
+ 2099               	.LM327:
+ 2100 0aba 9093 0000 		sts KEY_BUF+5,r25
+ 457:VFDCON.c      **** 				KEY_BUF[6]=0x00;KEY_BUF[7]=0x00;KEY_BUF[8]=0x00;KEY_BUF[9]=0x00;KEY_BUF[10]=0x00;
+ 2101               		.stabn 68,0,457,.LM328-main
+ 2102               	.LM328:
+ 2103 0abe 1093 0000 		sts KEY_BUF+6,r17
+ 2104 0ac2 1093 0000 		sts KEY_BUF+7,r17
+ 2105 0ac6 1093 0000 		sts KEY_BUF+8,r17
+ 2106 0aca 1093 0000 		sts KEY_BUF+9,r17
+ 2107 0ace 1093 0000 		sts KEY_BUF+10,r17
+ 458:VFDCON.c      **** 			
+ 459:VFDCON.c      **** 				Check_Sum =0;
+ 2108               		.stabn 68,0,459,.LM329-main
+ 2109               	.LM329:
+ 2110 0ad2 1093 0000 		sts Check_Sum,r17
+ 460:VFDCON.c      **** 				for(i=0;i<11;i++)
+ 2111               		.stabn 68,0,460,.LM330-main
+ 2112               	.LM330:
+ 2113 0ad6 1092 0000 		sts (i)+1,__zero_reg__
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 50
+
+
+ 2114 0ada 1092 0000 		sts i,__zero_reg__
+ 2115 0ade 912F      		mov r25,r17
+ 2116 0ae0 E0E0      		ldi r30,lo8(KEY_BUF)
+ 2117 0ae2 F0E0      		ldi r31,hi8(KEY_BUF)
+ 2118 0ae4 9F01      		movw r18,r30
+ 2119 0ae6 265F      		subi r18,lo8(-(10))
+ 2120 0ae8 3F4F      		sbci r19,hi8(-(10))
+ 2121               	.L192:
+ 461:VFDCON.c      **** 				{
+ 462:VFDCON.c      **** 					Check_Sum = Check_Sum+KEY_BUF[i];
+ 2122               		.stabn 68,0,462,.LM331-main
+ 2123               	.LM331:
+ 2124 0aea 8191      		ld r24,Z+
+ 2125 0aec 980F      		add r25,r24
+ 2126               		.stabn 68,0,460,.LM332-main
+ 2127               	.LM332:
+ 2128 0aee 2E17      		cp r18,r30
+ 2129 0af0 3F07      		cpc r19,r31
+ 2130 0af2 D8F7      		brsh .L192
+ 2131 0af4 9093 0000 		sts Check_Sum,r25
+ 463:VFDCON.c      **** 				}
+ 464:VFDCON.c      **** 				
+ 465:VFDCON.c      **** 				KEY_BUF[11]=Check_Sum;// Check Sum
+ 2132               		.stabn 68,0,465,.LM333-main
+ 2133               	.LM333:
+ 2134 0af8 9093 0000 		sts KEY_BUF+11,r25
+ 466:VFDCON.c      **** 				KEY_BUF[12]=0x0D;KEY_BUF[13]=0x0A;
+ 2135               		.stabn 68,0,466,.LM334-main
+ 2136               	.LM334:
+ 2137 0afc 8DE0      		ldi r24,lo8(13)
+ 2138 0afe 8093 0000 		sts KEY_BUF+12,r24
+ 2139 0b02 8AE0      		ldi r24,lo8(10)
+ 2140 0b04 8093 0000 		sts KEY_BUF+13,r24
+ 467:VFDCON.c      **** 				
+ 468:VFDCON.c      **** 				for(i=0;i<14;i++){		TX1_char(KEY_BUF[i]);}
+ 2141               		.stabn 68,0,468,.LM335-main
+ 2142               	.LM335:
+ 2143 0b08 1092 0000 		sts (i)+1,__zero_reg__
+ 2144 0b0c 1092 0000 		sts i,__zero_reg__
+ 2145               	.L197:
+ 2146 0b10 E091 0000 		lds r30,i
+ 2147 0b14 F091 0000 		lds r31,(i)+1
+ 2148 0b18 E050      		subi r30,lo8(-(KEY_BUF))
+ 2149 0b1a F040      		sbci r31,hi8(-(KEY_BUF))
+ 2150 0b1c 8081      		ld r24,Z
+ 2151 0b1e 0E94 0000 		call TX1_char
+ 2152 0b22 8091 0000 		lds r24,i
+ 2153 0b26 9091 0000 		lds r25,(i)+1
+ 2154 0b2a 0196      		adiw r24,1
+ 2155 0b2c 9093 0000 		sts (i)+1,r25
+ 2156 0b30 8093 0000 		sts i,r24
+ 2157 0b34 0E97      		sbiw r24,14
+ 2158 0b36 60F3      		brlo .L197
+ 469:VFDCON.c      **** 				
+ 470:VFDCON.c      **** 				LCD_Serial_Time_Count =0;
+ 2159               		.stabn 68,0,470,.LM336-main
+ 2160               	.LM336:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 51
+
+
+ 2161 0b38 28C1      		rjmp .L276
+ 2162               	.L187:
+ 471:VFDCON.c      **** 				Temp_Buf_Count =0;
+ 472:VFDCON.c      **** 				///KEY_BUF
+ 473:VFDCON.c      **** 
+ 474:VFDCON.c      **** 			
+ 475:VFDCON.c      **** 			}else if(Key_Input == 0x1B){//Left(1RU)
+ 2163               		.stabn 68,0,475,.LM337-main
+ 2164               	.LM337:
+ 2165 0b3a 8B31      		cpi r24,lo8(27)
+ 2166 0b3c 09F0      		breq .+2
+ 2167 0b3e 60C0      		rjmp .L199
+ 476:VFDCON.c      **** 
+ 477:VFDCON.c      **** 				sbi(PORTD,1);
+ 2168               		.stabn 68,0,477,.LM338-main
+ 2169               	.LM338:
+ 2170 0b40 919A      		sbi 50-0x20,1
+ 478:VFDCON.c      **** 				sbi(PORTD,4);
+ 2171               		.stabn 68,0,478,.LM339-main
+ 2172               	.LM339:
+ 2173 0b42 949A      		sbi 50-0x20,4
+ 479:VFDCON.c      **** 				cbi(PORTD,5);
+ 2174               		.stabn 68,0,479,.LM340-main
+ 2175               	.LM340:
+ 2176 0b44 9598      		cbi 50-0x20,5
+ 480:VFDCON.c      **** 				sbi(PORTD,6);
+ 2177               		.stabn 68,0,480,.LM341-main
+ 2178               	.LM341:
+ 2179 0b46 969A      		sbi 50-0x20,6
+ 481:VFDCON.c      **** 				sbi(PORTD,7);
+ 2180               		.stabn 68,0,481,.LM342-main
+ 2181               	.LM342:
+ 2182 0b48 979A      		sbi 50-0x20,7
+ 482:VFDCON.c      **** 	
+ 483:VFDCON.c      **** 				//Beep();
+ 484:VFDCON.c      **** 				Key_Count=0;
+ 2183               		.stabn 68,0,484,.LM343-main
+ 2184               	.LM343:
+ 2185 0b4a 1092 0000 		sts (Key_Count)+1,__zero_reg__
+ 2186 0b4e 1092 0000 		sts Key_Count,__zero_reg__
+ 485:VFDCON.c      **** 				Led_Count=0;
+ 2187               		.stabn 68,0,485,.LM344-main
+ 2188               	.LM344:
+ 2189 0b52 1093 0000 		sts Led_Count,r17
+ 486:VFDCON.c      **** 				Key_Flag=1;
+ 2190               		.stabn 68,0,486,.LM345-main
+ 2191               	.LM345:
+ 2192 0b56 81E0      		ldi r24,lo8(1)
+ 2193 0b58 8093 0000 		sts Key_Flag,r24
+ 487:VFDCON.c      **** 				Key_Data =0x33;
+ 2194               		.stabn 68,0,487,.LM346-main
+ 2195               	.LM346:
+ 2196 0b5c 93E3      		ldi r25,lo8(51)
+ 2197 0b5e 9093 0000 		sts Key_Data,r25
+ 488:VFDCON.c      **** 				
+ 489:VFDCON.c      **** 				///KEY_BUF
+ 490:VFDCON.c      **** 				KEY_BUF[0]=0x3A;KEY_BUF[1]=0x4B;KEY_BUF[2]=0x45;KEY_BUF[3]=0x59;KEY_BUF[4]=0x06;
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 52
+
+
+ 2198               		.stabn 68,0,490,.LM347-main
+ 2199               	.LM347:
+ 2200 0b62 8AE3      		ldi r24,lo8(58)
+ 2201 0b64 8093 0000 		sts KEY_BUF,r24
+ 2202 0b68 8BE4      		ldi r24,lo8(75)
+ 2203 0b6a 8093 0000 		sts KEY_BUF+1,r24
+ 2204 0b6e 85E4      		ldi r24,lo8(69)
+ 2205 0b70 8093 0000 		sts KEY_BUF+2,r24
+ 2206 0b74 89E5      		ldi r24,lo8(89)
+ 2207 0b76 8093 0000 		sts KEY_BUF+3,r24
+ 2208 0b7a 86E0      		ldi r24,lo8(6)
+ 2209 0b7c 8093 0000 		sts KEY_BUF+4,r24
+ 491:VFDCON.c      **** 				KEY_BUF[5]=Key_Data;
+ 2210               		.stabn 68,0,491,.LM348-main
+ 2211               	.LM348:
+ 2212 0b80 9093 0000 		sts KEY_BUF+5,r25
+ 492:VFDCON.c      **** 				KEY_BUF[6]=0x00;KEY_BUF[7]=0x00;KEY_BUF[8]=0x00;KEY_BUF[9]=0x00;KEY_BUF[10]=0x00;
+ 2213               		.stabn 68,0,492,.LM349-main
+ 2214               	.LM349:
+ 2215 0b84 1093 0000 		sts KEY_BUF+6,r17
+ 2216 0b88 1093 0000 		sts KEY_BUF+7,r17
+ 2217 0b8c 1093 0000 		sts KEY_BUF+8,r17
+ 2218 0b90 1093 0000 		sts KEY_BUF+9,r17
+ 2219 0b94 1093 0000 		sts KEY_BUF+10,r17
+ 493:VFDCON.c      **** 			
+ 494:VFDCON.c      **** 				Check_Sum =0;
+ 2220               		.stabn 68,0,494,.LM350-main
+ 2221               	.LM350:
+ 2222 0b98 1093 0000 		sts Check_Sum,r17
+ 495:VFDCON.c      **** 				for(i=0;i<11;i++)
+ 2223               		.stabn 68,0,495,.LM351-main
+ 2224               	.LM351:
+ 2225 0b9c 1092 0000 		sts (i)+1,__zero_reg__
+ 2226 0ba0 1092 0000 		sts i,__zero_reg__
+ 2227 0ba4 912F      		mov r25,r17
+ 2228 0ba6 E0E0      		ldi r30,lo8(KEY_BUF)
+ 2229 0ba8 F0E0      		ldi r31,hi8(KEY_BUF)
+ 2230 0baa 9F01      		movw r18,r30
+ 2231 0bac 265F      		subi r18,lo8(-(10))
+ 2232 0bae 3F4F      		sbci r19,hi8(-(10))
+ 2233               	.L204:
+ 496:VFDCON.c      **** 				{
+ 497:VFDCON.c      **** 					Check_Sum = Check_Sum+KEY_BUF[i];
+ 2234               		.stabn 68,0,497,.LM352-main
+ 2235               	.LM352:
+ 2236 0bb0 8191      		ld r24,Z+
+ 2237 0bb2 980F      		add r25,r24
+ 2238               		.stabn 68,0,495,.LM353-main
+ 2239               	.LM353:
+ 2240 0bb4 2E17      		cp r18,r30
+ 2241 0bb6 3F07      		cpc r19,r31
+ 2242 0bb8 D8F7      		brsh .L204
+ 2243 0bba 9093 0000 		sts Check_Sum,r25
+ 498:VFDCON.c      **** 				}
+ 499:VFDCON.c      **** 				
+ 500:VFDCON.c      **** 				KEY_BUF[11]=Check_Sum;// Check Sum
+ 2244               		.stabn 68,0,500,.LM354-main
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 53
+
+
+ 2245               	.LM354:
+ 2246 0bbe 9093 0000 		sts KEY_BUF+11,r25
+ 501:VFDCON.c      **** 				KEY_BUF[12]=0x0D;KEY_BUF[13]=0x0A;
+ 2247               		.stabn 68,0,501,.LM355-main
+ 2248               	.LM355:
+ 2249 0bc2 8DE0      		ldi r24,lo8(13)
+ 2250 0bc4 8093 0000 		sts KEY_BUF+12,r24
+ 2251 0bc8 8AE0      		ldi r24,lo8(10)
+ 2252 0bca 8093 0000 		sts KEY_BUF+13,r24
+ 502:VFDCON.c      **** 				
+ 503:VFDCON.c      **** 				for(i=0;i<14;i++){		TX1_char(KEY_BUF[i]);}
+ 2253               		.stabn 68,0,503,.LM356-main
+ 2254               	.LM356:
+ 2255 0bce 1092 0000 		sts (i)+1,__zero_reg__
+ 2256 0bd2 1092 0000 		sts i,__zero_reg__
+ 2257               	.L209:
+ 2258 0bd6 E091 0000 		lds r30,i
+ 2259 0bda F091 0000 		lds r31,(i)+1
+ 2260 0bde E050      		subi r30,lo8(-(KEY_BUF))
+ 2261 0be0 F040      		sbci r31,hi8(-(KEY_BUF))
+ 2262 0be2 8081      		ld r24,Z
+ 2263 0be4 0E94 0000 		call TX1_char
+ 2264 0be8 8091 0000 		lds r24,i
+ 2265 0bec 9091 0000 		lds r25,(i)+1
+ 2266 0bf0 0196      		adiw r24,1
+ 2267 0bf2 9093 0000 		sts (i)+1,r25
+ 2268 0bf6 8093 0000 		sts i,r24
+ 2269 0bfa 0E97      		sbiw r24,14
+ 2270 0bfc 60F3      		brlo .L209
+ 504:VFDCON.c      **** 				
+ 505:VFDCON.c      **** 				LCD_Serial_Time_Count =0;
+ 2271               		.stabn 68,0,505,.LM357-main
+ 2272               	.LM357:
+ 2273 0bfe C5C0      		rjmp .L276
+ 2274               	.L199:
+ 506:VFDCON.c      **** 				Temp_Buf_Count =0;
+ 507:VFDCON.c      **** 				///KEY_BUF
+ 508:VFDCON.c      **** 								
+ 509:VFDCON.c      **** 			}else if(Key_Input == 0x17){//Down(1RU)
+ 2275               		.stabn 68,0,509,.LM358-main
+ 2276               	.LM358:
+ 2277 0c00 8731      		cpi r24,lo8(23)
+ 2278 0c02 09F0      		breq .+2
+ 2279 0c04 60C0      		rjmp .L211
+ 510:VFDCON.c      **** 
+ 511:VFDCON.c      **** 				sbi(PORTD,1);
+ 2280               		.stabn 68,0,511,.LM359-main
+ 2281               	.LM359:
+ 2282 0c06 919A      		sbi 50-0x20,1
+ 512:VFDCON.c      **** 				sbi(PORTD,4);
+ 2283               		.stabn 68,0,512,.LM360-main
+ 2284               	.LM360:
+ 2285 0c08 949A      		sbi 50-0x20,4
+ 513:VFDCON.c      **** 				sbi(PORTD,5);
+ 2286               		.stabn 68,0,513,.LM361-main
+ 2287               	.LM361:
+ 2288 0c0a 959A      		sbi 50-0x20,5
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 54
+
+
+ 514:VFDCON.c      **** 				cbi(PORTD,6);
+ 2289               		.stabn 68,0,514,.LM362-main
+ 2290               	.LM362:
+ 2291 0c0c 9698      		cbi 50-0x20,6
+ 515:VFDCON.c      **** 				sbi(PORTD,7);
+ 2292               		.stabn 68,0,515,.LM363-main
+ 2293               	.LM363:
+ 2294 0c0e 979A      		sbi 50-0x20,7
+ 516:VFDCON.c      **** 	
+ 517:VFDCON.c      **** 				//Beep();
+ 518:VFDCON.c      **** 				Key_Count=0;
+ 2295               		.stabn 68,0,518,.LM364-main
+ 2296               	.LM364:
+ 2297 0c10 1092 0000 		sts (Key_Count)+1,__zero_reg__
+ 2298 0c14 1092 0000 		sts Key_Count,__zero_reg__
+ 519:VFDCON.c      **** 				Led_Count=0;
+ 2299               		.stabn 68,0,519,.LM365-main
+ 2300               	.LM365:
+ 2301 0c18 1093 0000 		sts Led_Count,r17
+ 520:VFDCON.c      **** 				Key_Flag=1;
+ 2302               		.stabn 68,0,520,.LM366-main
+ 2303               	.LM366:
+ 2304 0c1c 81E0      		ldi r24,lo8(1)
+ 2305 0c1e 8093 0000 		sts Key_Flag,r24
+ 521:VFDCON.c      **** 				Key_Data =0x34;
+ 2306               		.stabn 68,0,521,.LM367-main
+ 2307               	.LM367:
+ 2308 0c22 94E3      		ldi r25,lo8(52)
+ 2309 0c24 9093 0000 		sts Key_Data,r25
+ 522:VFDCON.c      **** 				
+ 523:VFDCON.c      **** 				///KEY_BUF
+ 524:VFDCON.c      **** 				KEY_BUF[0]=0x3A;KEY_BUF[1]=0x4B;KEY_BUF[2]=0x45;KEY_BUF[3]=0x59;KEY_BUF[4]=0x06;
+ 2310               		.stabn 68,0,524,.LM368-main
+ 2311               	.LM368:
+ 2312 0c28 8AE3      		ldi r24,lo8(58)
+ 2313 0c2a 8093 0000 		sts KEY_BUF,r24
+ 2314 0c2e 8BE4      		ldi r24,lo8(75)
+ 2315 0c30 8093 0000 		sts KEY_BUF+1,r24
+ 2316 0c34 85E4      		ldi r24,lo8(69)
+ 2317 0c36 8093 0000 		sts KEY_BUF+2,r24
+ 2318 0c3a 89E5      		ldi r24,lo8(89)
+ 2319 0c3c 8093 0000 		sts KEY_BUF+3,r24
+ 2320 0c40 86E0      		ldi r24,lo8(6)
+ 2321 0c42 8093 0000 		sts KEY_BUF+4,r24
+ 525:VFDCON.c      **** 				KEY_BUF[5]=Key_Data;
+ 2322               		.stabn 68,0,525,.LM369-main
+ 2323               	.LM369:
+ 2324 0c46 9093 0000 		sts KEY_BUF+5,r25
+ 526:VFDCON.c      **** 				KEY_BUF[6]=0x00;KEY_BUF[7]=0x00;KEY_BUF[8]=0x00;KEY_BUF[9]=0x00;KEY_BUF[10]=0x00;
+ 2325               		.stabn 68,0,526,.LM370-main
+ 2326               	.LM370:
+ 2327 0c4a 1093 0000 		sts KEY_BUF+6,r17
+ 2328 0c4e 1093 0000 		sts KEY_BUF+7,r17
+ 2329 0c52 1093 0000 		sts KEY_BUF+8,r17
+ 2330 0c56 1093 0000 		sts KEY_BUF+9,r17
+ 2331 0c5a 1093 0000 		sts KEY_BUF+10,r17
+ 527:VFDCON.c      **** 			
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 55
+
+
+ 528:VFDCON.c      **** 				Check_Sum =0;
+ 2332               		.stabn 68,0,528,.LM371-main
+ 2333               	.LM371:
+ 2334 0c5e 1093 0000 		sts Check_Sum,r17
+ 529:VFDCON.c      **** 				for(i=0;i<11;i++)
+ 2335               		.stabn 68,0,529,.LM372-main
+ 2336               	.LM372:
+ 2337 0c62 1092 0000 		sts (i)+1,__zero_reg__
+ 2338 0c66 1092 0000 		sts i,__zero_reg__
+ 2339 0c6a 912F      		mov r25,r17
+ 2340 0c6c E0E0      		ldi r30,lo8(KEY_BUF)
+ 2341 0c6e F0E0      		ldi r31,hi8(KEY_BUF)
+ 2342 0c70 9F01      		movw r18,r30
+ 2343 0c72 265F      		subi r18,lo8(-(10))
+ 2344 0c74 3F4F      		sbci r19,hi8(-(10))
+ 2345               	.L216:
+ 530:VFDCON.c      **** 				{
+ 531:VFDCON.c      **** 					Check_Sum = Check_Sum+KEY_BUF[i];
+ 2346               		.stabn 68,0,531,.LM373-main
+ 2347               	.LM373:
+ 2348 0c76 8191      		ld r24,Z+
+ 2349 0c78 980F      		add r25,r24
+ 2350               		.stabn 68,0,529,.LM374-main
+ 2351               	.LM374:
+ 2352 0c7a 2E17      		cp r18,r30
+ 2353 0c7c 3F07      		cpc r19,r31
+ 2354 0c7e D8F7      		brsh .L216
+ 2355 0c80 9093 0000 		sts Check_Sum,r25
+ 532:VFDCON.c      **** 				}
+ 533:VFDCON.c      **** 				
+ 534:VFDCON.c      **** 				KEY_BUF[11]=Check_Sum;// Check Sum
+ 2356               		.stabn 68,0,534,.LM375-main
+ 2357               	.LM375:
+ 2358 0c84 9093 0000 		sts KEY_BUF+11,r25
+ 535:VFDCON.c      **** 				KEY_BUF[12]=0x0D;KEY_BUF[13]=0x0A;
+ 2359               		.stabn 68,0,535,.LM376-main
+ 2360               	.LM376:
+ 2361 0c88 8DE0      		ldi r24,lo8(13)
+ 2362 0c8a 8093 0000 		sts KEY_BUF+12,r24
+ 2363 0c8e 8AE0      		ldi r24,lo8(10)
+ 2364 0c90 8093 0000 		sts KEY_BUF+13,r24
+ 536:VFDCON.c      **** 				
+ 537:VFDCON.c      **** 				for(i=0;i<14;i++){		TX1_char(KEY_BUF[i]);}
+ 2365               		.stabn 68,0,537,.LM377-main
+ 2366               	.LM377:
+ 2367 0c94 1092 0000 		sts (i)+1,__zero_reg__
+ 2368 0c98 1092 0000 		sts i,__zero_reg__
+ 2369               	.L221:
+ 2370 0c9c E091 0000 		lds r30,i
+ 2371 0ca0 F091 0000 		lds r31,(i)+1
+ 2372 0ca4 E050      		subi r30,lo8(-(KEY_BUF))
+ 2373 0ca6 F040      		sbci r31,hi8(-(KEY_BUF))
+ 2374 0ca8 8081      		ld r24,Z
+ 2375 0caa 0E94 0000 		call TX1_char
+ 2376 0cae 8091 0000 		lds r24,i
+ 2377 0cb2 9091 0000 		lds r25,(i)+1
+ 2378 0cb6 0196      		adiw r24,1
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 56
+
+
+ 2379 0cb8 9093 0000 		sts (i)+1,r25
+ 2380 0cbc 8093 0000 		sts i,r24
+ 2381 0cc0 0E97      		sbiw r24,14
+ 2382 0cc2 60F3      		brlo .L221
+ 538:VFDCON.c      **** 				LCD_Serial_Time_Count =0;
+ 2383               		.stabn 68,0,538,.LM378-main
+ 2384               	.LM378:
+ 2385 0cc4 62C0      		rjmp .L276
+ 2386               	.L211:
+ 539:VFDCON.c      **** 				Temp_Buf_Count =0;
+ 540:VFDCON.c      **** 				///KEY_BUF
+ 541:VFDCON.c      **** 
+ 542:VFDCON.c      **** 			}else if(Key_Input == 0x0F){//Right(1RU)
+ 2387               		.stabn 68,0,542,.LM379-main
+ 2388               	.LM379:
+ 2389 0cc6 8F30      		cpi r24,lo8(15)
+ 2390 0cc8 09F0      		breq .+2
+ 2391 0cca 63C0      		rjmp .L173
+ 543:VFDCON.c      **** 
+ 544:VFDCON.c      **** 				sbi(PORTD,1);
+ 2392               		.stabn 68,0,544,.LM380-main
+ 2393               	.LM380:
+ 2394 0ccc 919A      		sbi 50-0x20,1
+ 545:VFDCON.c      **** 				sbi(PORTD,4);
+ 2395               		.stabn 68,0,545,.LM381-main
+ 2396               	.LM381:
+ 2397 0cce 949A      		sbi 50-0x20,4
+ 546:VFDCON.c      **** 				sbi(PORTD,5);
+ 2398               		.stabn 68,0,546,.LM382-main
+ 2399               	.LM382:
+ 2400 0cd0 959A      		sbi 50-0x20,5
+ 547:VFDCON.c      **** 				sbi(PORTD,6);
+ 2401               		.stabn 68,0,547,.LM383-main
+ 2402               	.LM383:
+ 2403 0cd2 969A      		sbi 50-0x20,6
+ 548:VFDCON.c      **** 				cbi(PORTD,7);
+ 2404               		.stabn 68,0,548,.LM384-main
+ 2405               	.LM384:
+ 2406 0cd4 9798      		cbi 50-0x20,7
+ 549:VFDCON.c      **** 	
+ 550:VFDCON.c      **** 				//Beep();
+ 551:VFDCON.c      **** 				Key_Count=0;
+ 2407               		.stabn 68,0,551,.LM385-main
+ 2408               	.LM385:
+ 2409 0cd6 1092 0000 		sts (Key_Count)+1,__zero_reg__
+ 2410 0cda 1092 0000 		sts Key_Count,__zero_reg__
+ 552:VFDCON.c      **** 				Led_Count=0;
+ 2411               		.stabn 68,0,552,.LM386-main
+ 2412               	.LM386:
+ 2413 0cde 1093 0000 		sts Led_Count,r17
+ 553:VFDCON.c      **** 				Key_Flag=1;
+ 2414               		.stabn 68,0,553,.LM387-main
+ 2415               	.LM387:
+ 2416 0ce2 81E0      		ldi r24,lo8(1)
+ 2417 0ce4 8093 0000 		sts Key_Flag,r24
+ 554:VFDCON.c      **** 				Key_Data =0x35;
+ 2418               		.stabn 68,0,554,.LM388-main
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 57
+
+
+ 2419               	.LM388:
+ 2420 0ce8 95E3      		ldi r25,lo8(53)
+ 2421 0cea 9093 0000 		sts Key_Data,r25
+ 555:VFDCON.c      **** 				
+ 556:VFDCON.c      **** 				///KEY_BUF
+ 557:VFDCON.c      **** 				KEY_BUF[0]=0x3A;KEY_BUF[1]=0x4B;KEY_BUF[2]=0x45;KEY_BUF[3]=0x59;KEY_BUF[4]=0x06;
+ 2422               		.stabn 68,0,557,.LM389-main
+ 2423               	.LM389:
+ 2424 0cee 8AE3      		ldi r24,lo8(58)
+ 2425 0cf0 8093 0000 		sts KEY_BUF,r24
+ 2426 0cf4 8BE4      		ldi r24,lo8(75)
+ 2427 0cf6 8093 0000 		sts KEY_BUF+1,r24
+ 2428 0cfa 85E4      		ldi r24,lo8(69)
+ 2429 0cfc 8093 0000 		sts KEY_BUF+2,r24
+ 2430 0d00 89E5      		ldi r24,lo8(89)
+ 2431 0d02 8093 0000 		sts KEY_BUF+3,r24
+ 2432 0d06 86E0      		ldi r24,lo8(6)
+ 2433 0d08 8093 0000 		sts KEY_BUF+4,r24
+ 558:VFDCON.c      **** 				KEY_BUF[5]=Key_Data;
+ 2434               		.stabn 68,0,558,.LM390-main
+ 2435               	.LM390:
+ 2436 0d0c 9093 0000 		sts KEY_BUF+5,r25
+ 559:VFDCON.c      **** 				KEY_BUF[6]=0x00;KEY_BUF[7]=0x00;KEY_BUF[8]=0x00;KEY_BUF[9]=0x00;KEY_BUF[10]=0x00;
+ 2437               		.stabn 68,0,559,.LM391-main
+ 2438               	.LM391:
+ 2439 0d10 1093 0000 		sts KEY_BUF+6,r17
+ 2440 0d14 1093 0000 		sts KEY_BUF+7,r17
+ 2441 0d18 1093 0000 		sts KEY_BUF+8,r17
+ 2442 0d1c 1093 0000 		sts KEY_BUF+9,r17
+ 2443 0d20 1093 0000 		sts KEY_BUF+10,r17
+ 560:VFDCON.c      **** 			
+ 561:VFDCON.c      **** 				Check_Sum =0;
+ 2444               		.stabn 68,0,561,.LM392-main
+ 2445               	.LM392:
+ 2446 0d24 1093 0000 		sts Check_Sum,r17
+ 562:VFDCON.c      **** 				for(i=0;i<11;i++)
+ 2447               		.stabn 68,0,562,.LM393-main
+ 2448               	.LM393:
+ 2449 0d28 1092 0000 		sts (i)+1,__zero_reg__
+ 2450 0d2c 1092 0000 		sts i,__zero_reg__
+ 2451 0d30 912F      		mov r25,r17
+ 2452 0d32 E0E0      		ldi r30,lo8(KEY_BUF)
+ 2453 0d34 F0E0      		ldi r31,hi8(KEY_BUF)
+ 2454 0d36 9F01      		movw r18,r30
+ 2455 0d38 265F      		subi r18,lo8(-(10))
+ 2456 0d3a 3F4F      		sbci r19,hi8(-(10))
+ 2457               	.L228:
+ 563:VFDCON.c      **** 				{
+ 564:VFDCON.c      **** 					Check_Sum = Check_Sum+KEY_BUF[i];
+ 2458               		.stabn 68,0,564,.LM394-main
+ 2459               	.LM394:
+ 2460 0d3c 8191      		ld r24,Z+
+ 2461 0d3e 980F      		add r25,r24
+ 2462               		.stabn 68,0,562,.LM395-main
+ 2463               	.LM395:
+ 2464 0d40 2E17      		cp r18,r30
+ 2465 0d42 3F07      		cpc r19,r31
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 58
+
+
+ 2466 0d44 D8F7      		brsh .L228
+ 2467 0d46 9093 0000 		sts Check_Sum,r25
+ 565:VFDCON.c      **** 				}
+ 566:VFDCON.c      **** 				
+ 567:VFDCON.c      **** 				KEY_BUF[11]=Check_Sum;// Check Sum
+ 2468               		.stabn 68,0,567,.LM396-main
+ 2469               	.LM396:
+ 2470 0d4a 9093 0000 		sts KEY_BUF+11,r25
+ 568:VFDCON.c      **** 				KEY_BUF[12]=0x0D;KEY_BUF[13]=0x0A;
+ 2471               		.stabn 68,0,568,.LM397-main
+ 2472               	.LM397:
+ 2473 0d4e 8DE0      		ldi r24,lo8(13)
+ 2474 0d50 8093 0000 		sts KEY_BUF+12,r24
+ 2475 0d54 8AE0      		ldi r24,lo8(10)
+ 2476 0d56 8093 0000 		sts KEY_BUF+13,r24
+ 569:VFDCON.c      **** 				
+ 570:VFDCON.c      **** 				for(i=0;i<14;i++){		TX1_char(KEY_BUF[i]);}
+ 2477               		.stabn 68,0,570,.LM398-main
+ 2478               	.LM398:
+ 2479 0d5a 1092 0000 		sts (i)+1,__zero_reg__
+ 2480 0d5e 1092 0000 		sts i,__zero_reg__
+ 2481               	.L233:
+ 2482 0d62 E091 0000 		lds r30,i
+ 2483 0d66 F091 0000 		lds r31,(i)+1
+ 2484 0d6a E050      		subi r30,lo8(-(KEY_BUF))
+ 2485 0d6c F040      		sbci r31,hi8(-(KEY_BUF))
+ 2486 0d6e 8081      		ld r24,Z
+ 2487 0d70 0E94 0000 		call TX1_char
+ 2488 0d74 8091 0000 		lds r24,i
+ 2489 0d78 9091 0000 		lds r25,(i)+1
+ 2490 0d7c 0196      		adiw r24,1
+ 2491 0d7e 9093 0000 		sts (i)+1,r25
+ 2492 0d82 8093 0000 		sts i,r24
+ 2493 0d86 0E97      		sbiw r24,14
+ 2494 0d88 60F3      		brlo .L233
+ 571:VFDCON.c      **** 				LCD_Serial_Time_Count =0;
+ 2495               		.stabn 68,0,571,.LM399-main
+ 2496               	.LM399:
+ 2497               	.L276:
+ 2498 0d8a 1092 0000 		sts LCD_Serial_Time_Count,__zero_reg__
+ 572:VFDCON.c      **** 				Temp_Buf_Count =0;
+ 2499               		.stabn 68,0,572,.LM400-main
+ 2500               	.LM400:
+ 2501 0d8e 1092 0000 		sts Temp_Buf_Count,__zero_reg__
+ 2502               	.L173:
+ 573:VFDCON.c      **** 				///KEY_BUF
+ 574:VFDCON.c      **** 				
+ 575:VFDCON.c      **** 			}
+ 576:VFDCON.c      **** 							
+ 577:VFDCON.c      **** 		}
+ 578:VFDCON.c      ****   }
+ 579:VFDCON.c      **** 
+ 580:VFDCON.c      **** 	if(Time_Flag ==1)
+ 2503               		.stabn 68,0,580,.LM401-main
+ 2504               	.LM401:
+ 2505 0d92 8091 0000 		lds r24,Time_Flag
+ 2506 0d96 8130      		cpi r24,lo8(1)
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 59
+
+
+ 2507 0d98 09F0      		breq .+2
+ 2508 0d9a 81C0      		rjmp .L234
+ 581:VFDCON.c      **** 	{
+ 582:VFDCON.c      **** 		Time_Flag=0;
+ 2509               		.stabn 68,0,582,.LM402-main
+ 2510               	.LM402:
+ 2511 0d9c 1092 0000 		sts Time_Flag,__zero_reg__
+ 583:VFDCON.c      **** 		Time_Count++;
+ 2512               		.stabn 68,0,583,.LM403-main
+ 2513               	.LM403:
+ 2514 0da0 8091 0000 		lds r24,Time_Count
+ 2515 0da4 9091 0000 		lds r25,(Time_Count)+1
+ 2516 0da8 0196      		adiw r24,1
+ 2517 0daa 9093 0000 		sts (Time_Count)+1,r25
+ 2518 0dae 8093 0000 		sts Time_Count,r24
+ 584:VFDCON.c      **** 		Key_Push_Count++;
+ 2519               		.stabn 68,0,584,.LM404-main
+ 2520               	.LM404:
+ 2521 0db2 2091 0000 		lds r18,Key_Push_Count
+ 2522 0db6 2F5F      		subi r18,lo8(-(1))
+ 2523 0db8 2093 0000 		sts Key_Push_Count,r18
+ 585:VFDCON.c      **** 		Reset_Key_Count++;
+ 2524               		.stabn 68,0,585,.LM405-main
+ 2525               	.LM405:
+ 2526 0dbc 8091 0000 		lds r24,Reset_Key_Count
+ 2527 0dc0 8F5F      		subi r24,lo8(-(1))
+ 2528 0dc2 8093 0000 		sts Reset_Key_Count,r24
+ 586:VFDCON.c      ****  		Key_Count++;
+ 2529               		.stabn 68,0,586,.LM406-main
+ 2530               	.LM406:
+ 2531 0dc6 8091 0000 		lds r24,Key_Count
+ 2532 0dca 9091 0000 		lds r25,(Key_Count)+1
+ 2533 0dce 0196      		adiw r24,1
+ 2534 0dd0 9093 0000 		sts (Key_Count)+1,r25
+ 2535 0dd4 8093 0000 		sts Key_Count,r24
+ 587:VFDCON.c      ****  		Serial_Reset_Count1 ++;
+ 2536               		.stabn 68,0,587,.LM407-main
+ 2537               	.LM407:
+ 2538 0dd8 8091 0000 		lds r24,Serial_Reset_Count1
+ 2539 0ddc 8F5F      		subi r24,lo8(-(1))
+ 2540 0dde 8093 0000 		sts Serial_Reset_Count1,r24
+ 588:VFDCON.c      ****  		LCD_Replay_Count++;
+ 2541               		.stabn 68,0,588,.LM408-main
+ 2542               	.LM408:
+ 2543 0de2 8091 0000 		lds r24,LCD_Replay_Count
+ 2544 0de6 8F5F      		subi r24,lo8(-(1))
+ 2545 0de8 8093 0000 		sts LCD_Replay_Count,r24
+ 589:VFDCON.c      ****  		
+ 590:VFDCON.c      ****  		
+ 591:VFDCON.c      ****  		if(Key_Push_Count == 30)
+ 2546               		.stabn 68,0,591,.LM409-main
+ 2547               	.LM409:
+ 2548 0dec 2E31      		cpi r18,lo8(30)
+ 2549 0dee 31F4      		brne .L235
+ 592:VFDCON.c      ****  		{
+ 593:VFDCON.c      **** 			Beep_Long();
+ 2550               		.stabn 68,0,593,.LM410-main
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 60
+
+
+ 2551               	.LM410:
+ 2552 0df0 0E94 0000 		call Beep_Long
+ 594:VFDCON.c      **** 			System_Run_Okay =0;
+ 2553               		.stabn 68,0,594,.LM411-main
+ 2554               	.LM411:
+ 2555 0df4 1092 0000 		sts System_Run_Okay,__zero_reg__
+ 595:VFDCON.c      **** 			System_Fault_Count=0;
+ 2556               		.stabn 68,0,595,.LM412-main
+ 2557               	.LM412:
+ 2558 0df8 1092 0000 		sts System_Fault_Count,__zero_reg__
+ 2559               	.L235:
+ 596:VFDCON.c      ****  	
+ 597:VFDCON.c      ****  		}
+ 598:VFDCON.c      **** 
+ 599:VFDCON.c      ****  		if(LCD_Replay_Count == 50)
+ 2560               		.stabn 68,0,599,.LM413-main
+ 2561               	.LM413:
+ 2562 0dfc 8091 0000 		lds r24,LCD_Replay_Count
+ 2563 0e00 8233      		cpi r24,lo8(50)
+ 2564 0e02 B1F4      		brne .L236
+ 600:VFDCON.c      ****  		{
+ 601:VFDCON.c      **** 			LCD_Replay_Count=0;
+ 2565               		.stabn 68,0,601,.LM414-main
+ 2566               	.LM414:
+ 2567 0e04 1092 0000 		sts LCD_Replay_Count,__zero_reg__
+ 602:VFDCON.c      **** 			//LCD_Reset();
+ 603:VFDCON.c      **** 			//Delay_ms(1);
+ 604:VFDCON.c      **** 			
+ 605:VFDCON.c      **** 			LCD_string(0x00,"Model:MDE-80H       ");
+ 2568               		.stabn 68,0,605,.LM415-main
+ 2569               	.LM415:
+ 2570 0e08 60E0      		ldi r22,lo8(.LC1)
+ 2571 0e0a 70E0      		ldi r23,hi8(.LC1)
+ 2572 0e0c 80E0      		ldi r24,lo8(0)
+ 2573 0e0e 0E94 0000 		call LCD_string
+ 606:VFDCON.c      **** 			LCD_string(0x14,"Ensemble Multiplexer");
+ 2574               		.stabn 68,0,606,.LM416-main
+ 2575               	.LM416:
+ 2576 0e12 60E0      		ldi r22,lo8(.LC2)
+ 2577 0e14 70E0      		ldi r23,hi8(.LC2)
+ 2578 0e16 84E1      		ldi r24,lo8(20)
+ 2579 0e18 0E94 0000 		call LCD_string
+ 607:VFDCON.c      **** 			LCD_string(0x28,"      Ver:2018.05.18");
+ 2580               		.stabn 68,0,607,.LM417-main
+ 2581               	.LM417:
+ 2582 0e1c 60E0      		ldi r22,lo8(.LC3)
+ 2583 0e1e 70E0      		ldi r23,hi8(.LC3)
+ 2584 0e20 88E2      		ldi r24,lo8(40)
+ 2585 0e22 0E94 0000 		call LCD_string
+ 608:VFDCON.c      **** 			LCD_string(0x3C,"--------------------"); 			
+ 2586               		.stabn 68,0,608,.LM418-main
+ 2587               	.LM418:
+ 2588 0e26 60E0      		ldi r22,lo8(.LC4)
+ 2589 0e28 70E0      		ldi r23,hi8(.LC4)
+ 2590 0e2a 8CE3      		ldi r24,lo8(60)
+ 2591 0e2c 0E94 0000 		call LCD_string
+ 2592               	.L236:
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 61
+
+
+ 609:VFDCON.c      ****  		}
+ 610:VFDCON.c      **** 
+ 611:VFDCON.c      **** 
+ 612:VFDCON.c      **** 		if((Reset_Key_Count == 30))
+ 2593               		.stabn 68,0,612,.LM419-main
+ 2594               	.LM419:
+ 2595 0e30 8091 0000 		lds r24,Reset_Key_Count
+ 2596 0e34 8E31      		cpi r24,lo8(30)
+ 2597 0e36 31F4      		brne .L237
+ 613:VFDCON.c      ****  		{
+ 614:VFDCON.c      **** 			Beep_Long();
+ 2598               		.stabn 68,0,614,.LM420-main
+ 2599               	.LM420:
+ 2600 0e38 0E94 0000 		call Beep_Long
+ 615:VFDCON.c      **** 
+ 616:VFDCON.c      **** 			System_Run_Okay =0;
+ 2601               		.stabn 68,0,616,.LM421-main
+ 2602               	.LM421:
+ 2603 0e3c 1092 0000 		sts System_Run_Okay,__zero_reg__
+ 617:VFDCON.c      **** 			System_Fault_Count=0;
+ 2604               		.stabn 68,0,617,.LM422-main
+ 2605               	.LM422:
+ 2606 0e40 1092 0000 		sts System_Fault_Count,__zero_reg__
+ 2607               	.L237:
+ 618:VFDCON.c      **** 
+ 619:VFDCON.c      ****  		}
+ 620:VFDCON.c      ****  		
+ 621:VFDCON.c      ****  		if(Key_Push_Count > 100)
+ 2608               		.stabn 68,0,621,.LM423-main
+ 2609               	.LM423:
+ 2610 0e44 8091 0000 		lds r24,Key_Push_Count
+ 2611 0e48 8536      		cpi r24,lo8(101)
+ 2612 0e4a 18F0      		brlo .L238
+ 622:VFDCON.c      ****  		{
+ 623:VFDCON.c      **** 				Key_Push_Count =100;
+ 2613               		.stabn 68,0,623,.LM424-main
+ 2614               	.LM424:
+ 2615 0e4c 84E6      		ldi r24,lo8(100)
+ 2616 0e4e 8093 0000 		sts Key_Push_Count,r24
+ 2617               	.L238:
+ 624:VFDCON.c      ****  		}
+ 625:VFDCON.c      ****  
+ 626:VFDCON.c      **** 		if(Reset_Key_Count > 100)
+ 2618               		.stabn 68,0,626,.LM425-main
+ 2619               	.LM425:
+ 2620 0e52 8091 0000 		lds r24,Reset_Key_Count
+ 2621 0e56 8536      		cpi r24,lo8(101)
+ 2622 0e58 18F0      		brlo .L239
+ 627:VFDCON.c      ****  		{
+ 628:VFDCON.c      **** 				Reset_Key_Count =100;
+ 2623               		.stabn 68,0,628,.LM426-main
+ 2624               	.LM426:
+ 2625 0e5a 84E6      		ldi r24,lo8(100)
+ 2626 0e5c 8093 0000 		sts Reset_Key_Count,r24
+ 2627               	.L239:
+ 629:VFDCON.c      ****  		} 		
+ 630:VFDCON.c      ****  		
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 62
+
+
+ 631:VFDCON.c      ****  		if(Key_Count >= 20)
+ 2628               		.stabn 68,0,631,.LM427-main
+ 2629               	.LM427:
+ 2630 0e60 8091 0000 		lds r24,Key_Count
+ 2631 0e64 9091 0000 		lds r25,(Key_Count)+1
+ 2632 0e68 4497      		sbiw r24,20
+ 2633 0e6a 78F0      		brlo .L242
+ 632:VFDCON.c      ****  		{
+ 633:VFDCON.c      **** 	 		Led_Delay_Count++;
+ 2634               		.stabn 68,0,633,.LM428-main
+ 2635               	.LM428:
+ 2636 0e6c 2091 0000 		lds r18,Led_Delay_Count
+ 2637 0e70 2F5F      		subi r18,lo8(-(1))
+ 2638 0e72 2093 0000 		sts Led_Delay_Count,r18
+ 634:VFDCON.c      **** 			Key_Count=20;
+ 2639               		.stabn 68,0,634,.LM429-main
+ 2640               	.LM429:
+ 2641 0e76 84E1      		ldi r24,lo8(20)
+ 2642 0e78 90E0      		ldi r25,hi8(20)
+ 2643 0e7a 9093 0000 		sts (Key_Count)+1,r25
+ 2644 0e7e 8093 0000 		sts Key_Count,r24
+ 635:VFDCON.c      ****  			
+ 636:VFDCON.c      ****  			if(Led_Delay_Count >=2)
+ 2645               		.stabn 68,0,636,.LM430-main
+ 2646               	.LM430:
+ 2647 0e82 2230      		cpi r18,lo8(2)
+ 2648 0e84 10F0      		brlo .L242
+ 637:VFDCON.c      ****  			{			
+ 638:VFDCON.c      **** 	 			Led_Delay_Count=0;
+ 2649               		.stabn 68,0,638,.LM431-main
+ 2650               	.LM431:
+ 2651 0e86 1092 0000 		sts Led_Delay_Count,__zero_reg__
+ 2652               	.L242:
+ 639:VFDCON.c      **** 
+ 640:VFDCON.c      **** 	 		}
+ 641:VFDCON.c      ****  	
+ 642:VFDCON.c      ****  		}else{
+ 643:VFDCON.c      **** 
+ 644:VFDCON.c      ****  		}
+ 645:VFDCON.c      **** 
+ 646:VFDCON.c      **** 
+ 647:VFDCON.c      **** 		if(Time_Count >= 1)
+ 2653               		.stabn 68,0,647,.LM432-main
+ 2654               	.LM432:
+ 2655 0e8a 8091 0000 		lds r24,Time_Count
+ 2656 0e8e 9091 0000 		lds r25,(Time_Count)+1
+ 2657 0e92 892B      		or r24,r25
+ 2658 0e94 21F0      		breq .L234
+ 648:VFDCON.c      **** 		{
+ 649:VFDCON.c      **** 			
+ 650:VFDCON.c      **** 			Time_Count = 0;
+ 2659               		.stabn 68,0,650,.LM433-main
+ 2660               	.LM433:
+ 2661 0e96 1092 0000 		sts (Time_Count)+1,__zero_reg__
+ 2662 0e9a 1092 0000 		sts Time_Count,__zero_reg__
+ 2663               	.L234:
+ 651:VFDCON.c      **** 			
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 63
+
+
+ 652:VFDCON.c      **** 		}
+ 653:VFDCON.c      **** 		
+ 654:VFDCON.c      **** 	}
+ 655:VFDCON.c      **** 
+ 656:VFDCON.c      **** 
+ 657:VFDCON.c      **** 	Serial1_Buf_Processing();
+ 2664               		.stabn 68,0,657,.LM434-main
+ 2665               	.LM434:
+ 2666 0e9e 0E94 0000 		call Serial1_Buf_Processing
+ 658:VFDCON.c      **** 	Serial1_Check();
+ 2667               		.stabn 68,0,658,.LM435-main
+ 2668               	.LM435:
+ 2669 0ea2 0E94 0000 		call Serial1_Check
+ 659:VFDCON.c      **** 
+ 660:VFDCON.c      **** 	if(Serial_Reset_Count1 == 2)
+ 2670               		.stabn 68,0,660,.LM436-main
+ 2671               	.LM436:
+ 2672 0ea6 8091 0000 		lds r24,Serial_Reset_Count1
+ 2673 0eaa 8230      		cpi r24,lo8(2)
+ 2674 0eac 09F0      		breq .+2
+ 2675 0eae 3ACD      		rjmp .L275
+ 661:VFDCON.c      **** 	{
+ 662:VFDCON.c      **** 		//cbi(PORTE,2);
+ 663:VFDCON.c      **** 		Serial_Count1 =0;
+ 2676               		.stabn 68,0,663,.LM437-main
+ 2677               	.LM437:
+ 2678 0eb0 1092 0000 		sts (Serial_Count1)+1,__zero_reg__
+ 2679 0eb4 1092 0000 		sts Serial_Count1,__zero_reg__
+ 664:VFDCON.c      **** 		Buf_Start_Count =0;
+ 2680               		.stabn 68,0,664,.LM438-main
+ 2681               	.LM438:
+ 2682 0eb8 1092 0000 		sts (Buf_Start_Count)+1,__zero_reg__
+ 2683 0ebc 1092 0000 		sts Buf_Start_Count,__zero_reg__
+ 665:VFDCON.c      **** 		Serial_Flag =0;
+ 2684               		.stabn 68,0,665,.LM439-main
+ 2685               	.LM439:
+ 2686 0ec0 1092 0000 		sts Serial_Flag,__zero_reg__
+ 666:VFDCON.c      **** 		Serial_Reset_Count1=10;
+ 2687               		.stabn 68,0,666,.LM440-main
+ 2688               	.LM440:
+ 2689 0ec4 8AE0      		ldi r24,lo8(10)
+ 2690 0ec6 8093 0000 		sts Serial_Reset_Count1,r24
+ 2691 0eca 2CCD      		rjmp .L275
+ 667:VFDCON.c      **** 
+ 668:VFDCON.c      **** 		//for(i_count=0;i_count<Serial_Max;i_count++){	RxD_BUF1[i_count]=0x00;	}	
+ 669:VFDCON.c      **** 		//sbi(PORTE,2);
+ 670:VFDCON.c      **** 	}	
+ 671:VFDCON.c      **** 
+ 672:VFDCON.c      **** 	}		// end of while
+ 673:VFDCON.c      **** }			// end of main
+ 2692               		.stabn 68,0,673,.LM441-main
+ 2693               	.LM441:
+ 2694               	/* epilogue: frame size=0 */
+ 2695               	/* epilogue: noreturn */
+ 2696               	/* epilogue end (size=0) */
+ 2697               	/* function main size 1098 (1094) */
+ 2698               		.size	main, .-main
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 64
+
+
+ 2699               	.Lscope20:
+ 2700               		.stabs	"",36,0,0,.Lscope20-main
+ 2701               		.comm i,2,1
+ 2702               		.comm j,2,1
+ 2703               		.comm Key_Input,1,1
+ 2704               		.comm Key_Count,2,1
+ 2705               		.comm Time_Flag,1,1
+ 2706               		.comm Led_Count,1,1
+ 2707               		.comm Led_Delay_Count,1,1
+ 2708               		.comm Key_Toggle,1,1
+ 2709               		.comm KEY_BUF,14,1
+ 2710               		.comm Check_Sum,1,1
+ 2711               		.comm Key_Data,1,1
+ 2712               		.comm i_count,2,1
+ 2713               		.comm j_count,2,1
+ 2714               		.comm Buf_Start_Count,2,1
+ 2715               		.comm Read_Length,2,1
+ 2716               		.comm Head_Count,2,1
+ 2717               		.comm Serial_Count1,2,1
+ 2718               		.comm RxD_BUF1,1000,1
+ 2719               		.comm RxD_Info_BUF,94,1
+ 2720               		.comm Serial_Flag,1,1
+ 2721               		.comm Serial_OK_Flag1,1,1
+ 2722               		.comm Ser_Check_Sum,1,1
+ 2723               		.comm Serial_Reset_Count1,1,1
+ 2724               		.comm LED_Data,1,1
+ 2725               		.comm LCD_LINE1_BUF,20,1
+ 2726               		.comm LCD_LINE2_BUF,20,1
+ 2727               		.comm LCD_LINE3_BUF,20,1
+ 2728               		.comm LCD_LINE4_BUF,20,1
+ 2729               		.comm Key_Push_Count,1,1
+ 2730               		.comm UHD_Enable,1,1
+ 2731               		.comm UHD_Key_Flag,1,1
+ 2732               		.comm Reset_Key_Count,1,1
+ 2733               		.comm LCD_LINE1_TEMP,20,1
+ 2734               		.comm LCD_LINE2_TEMP,20,1
+ 2735               		.comm LCD_LINE3_TEMP,20,1
+ 2736               		.comm LCD_LINE4_TEMP,20,1
+ 2737               		.comm LCD_Serial_Time_Count,1,1
+ 2738               		.comm Temp_Buf_Count,1,1
+ 2739               		.comm Flow_Count,1,1
+ 2740               		.comm System_Fault_Count,1,1
+ 2741               		.comm System_Run_Okay,1,1
+ 2742               		.comm LCD_Replay_Count,1,1
+ 2743               		.stabs	"i:G(0,4)",32,0,38,0
+ 2744               		.stabs	"j:G(0,4)",32,0,38,0
+ 2745               		.stabs	"Time_Count:G(0,4)",32,0,38,0
+ 2746               		.stabs	"Key_Input:G(0,11)",32,0,39,0
+ 2747               		.stabs	"Key_Flag:G(0,11)",32,0,39,0
+ 2748               		.stabs	"Key_Count:G(0,4)",32,0,41,0
+ 2749               		.stabs	"Time_Flag:G(0,11)",32,0,42,0
+ 2750               		.stabs	"Led_Count:G(0,11)",32,0,42,0
+ 2751               		.stabs	"Led_Delay_Count:G(0,11)",32,0,42,0
+ 2752               		.stabs	"Key_Toggle:G(0,11)",32,0,43,0
+ 2753               		.stabs	"KEY_BUF:G(1,1)=ar(1,2)=r(1,2);0000000000000;0000000177777;;0;13;(0,11)",32,0,45,0
+ 2754               		.stabs	"Check_Sum:G(0,11)",32,0,45,0
+ 2755               		.stabs	"Key_Data:G(0,11)",32,0,45,0
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 65
+
+
+ 2756               		.stabs	"i_count:G(0,4)",32,0,48,0
+ 2757               		.stabs	"j_count:G(0,4)",32,0,48,0
+ 2758               		.stabs	"Buf_Start_Count:G(0,4)",32,0,48,0
+ 2759               		.stabs	"Read_Length:G(0,4)",32,0,48,0
+ 2760               		.stabs	"Head_Count:G(0,4)",32,0,48,0
+ 2761               		.stabs	"Serial_Count1:G(0,4)",32,0,48,0
+ 2762               		.stabs	"RxD_BUF1:G(1,3)=ar(1,2);0;999;(0,11)",32,0,50,0
+ 2763               		.stabs	"RxD_Info_BUF:G(1,4)=ar(1,2);0;93;(0,11)",32,0,50,0
+ 2764               		.stabs	"Serial_Flag:G(0,11)",32,0,50,0
+ 2765               		.stabs	"Serial_OK_Flag1:G(0,11)",32,0,50,0
+ 2766               		.stabs	"Ser_Check_Sum:G(0,11)",32,0,50,0
+ 2767               		.stabs	"Serial_Reset_Count1:G(0,11)",32,0,51,0
+ 2768               		.stabs	"LED_Data:G(0,11)",32,0,52,0
+ 2769               		.stabs	"LCD_LINE1_BUF:G(1,5)=ar(1,2);0;19;(0,11)",32,0,53,0
+ 2770               		.stabs	"LCD_LINE2_BUF:G(1,5)",32,0,53,0
+ 2771               		.stabs	"LCD_LINE3_BUF:G(1,5)",32,0,53,0
+ 2772               		.stabs	"LCD_LINE4_BUF:G(1,5)",32,0,53,0
+ 2773               		.stabs	"Key_Push_Count:G(0,11)",32,0,55,0
+ 2774               		.stabs	"UHD_Enable:G(0,11)",32,0,55,0
+ 2775               		.stabs	"UHD_Key_Flag:G(0,11)",32,0,55,0
+ 2776               		.stabs	"Reset_Key_Count:G(0,11)",32,0,55,0
+ 2777               		.stabs	"LCD_LINE1_TEMP:G(1,5)",32,0,58,0
+ 2778               		.stabs	"LCD_LINE2_TEMP:G(1,5)",32,0,58,0
+ 2779               		.stabs	"LCD_LINE3_TEMP:G(1,5)",32,0,58,0
+ 2780               		.stabs	"LCD_LINE4_TEMP:G(1,5)",32,0,58,0
+ 2781               		.stabs	"LCD_Serial_Time_Count:G(0,11)",32,0,59,0
+ 2782               		.stabs	"Temp_Buf_Count:G(0,11)",32,0,59,0
+ 2783               		.stabs	"Flow_Count:G(0,11)",32,0,61,0
+ 2784               		.stabs	"System_Fault_Count:G(0,11)",32,0,63,0
+ 2785               		.stabs	"System_Run_Okay:G(0,11)",32,0,63,0
+ 2786               		.stabs	"LCD_Replay_Count:G(0,11)",32,0,65,0
+ 2787               		.text
+ 2788               		.stabs "",100,0,0,Letext
+ 2789               	Letext:
+ 2790               	/* File "VFDCON.c": code 1910 = 0x0776 (1814), prologues  42, epilogues  54 */
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 66
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 VFDCON.c
+                            *ABS*:0000003f __SREG__
+                            *ABS*:0000003e __SP_H__
+                            *ABS*:0000003d __SP_L__
+                            *ABS*:00000000 __tmp_reg__
+                            *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:46     .text:00000000 MCU_initialize
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:112    .text:00000030 Delay_nop
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:130    .text:00000032 Delay_us
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:180    .text:00000048 Delay_ms
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:243    .text:00000086 TX0_char
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:269    .text:0000008e TX1_char
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:296    .text:0000009e LCD_Reset
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:351    .text:000000dc LCD_Position
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:439    .text:00000156 LCD_command
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:491    .text:00000192 LCD_data
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:555    .text:000001d8 LCD_string
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:596    .text:000001fa Beep
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:628    .text:00000218 Beep_Long
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:661    .text:00000236 EEPROM_read
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:696    .text:00000246 EEPROM_write
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:752    .data:00000000 Time_Count
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:759    .bss:00000000 Key_Flag
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:765    .text:00000256 __vector_18
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:793    .text:0000026a __vector_30
+                            *COM*:00000002 Serial_Count1
+                            *COM*:000003e8 RxD_BUF1
+                            *COM*:00000001 Serial_Reset_Count1
+                            *COM*:00000001 Serial_Flag
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:863    .text:000002ce __vector_12
+                            *COM*:00000001 Time_Flag
+                            *COM*:00000001 LCD_Serial_Time_Count
+                            *COM*:00000001 System_Run_Okay
+                            *COM*:00000001 System_Fault_Count
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:942    .text:0000033a Serial1_Buf_Processing
+                            *COM*:00000002 Buf_Start_Count
+                            *COM*:00000002 Head_Count
+                            *COM*:00000002 j_count
+                            *COM*:00000001 Serial_OK_Flag1
+                            *COM*:0000005e RxD_Info_BUF
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:1073   .text:0000040e Serial1_Check
+                            *COM*:00000001 Temp_Buf_Count
+                            *COM*:00000001 Ser_Check_Sum
+                            *COM*:00000002 i
+                            *COM*:00000001 LED_Data
+                            *COM*:00000014 LCD_LINE4_BUF
+                            *COM*:00000014 LCD_LINE3_BUF
+                            *COM*:00000014 LCD_LINE2_BUF
+                            *COM*:00000014 LCD_LINE1_BUF
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:1429   .text:00000646 main
+                            *COM*:00000001 Led_Count
+                            *COM*:00000001 Key_Toggle
+                            *COM*:00000001 Reset_Key_Count
+                            *COM*:00000001 Key_Data
+                            *COM*:0000000e KEY_BUF
+                            *COM*:00000001 Check_Sum
+GAS LISTING C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s 			page 67
+
+
+                            *COM*:00000001 Key_Input
+                            *COM*:00000001 Key_Push_Count
+                            *COM*:00000002 Key_Count
+                            *COM*:00000001 LCD_Replay_Count
+                            *COM*:00000001 Led_Delay_Count
+                            *COM*:00000002 j
+                            *COM*:00000002 i_count
+                            *COM*:00000002 Read_Length
+                            *COM*:00000001 UHD_Enable
+                            *COM*:00000001 UHD_Key_Flag
+                            *COM*:00000014 LCD_LINE1_TEMP
+                            *COM*:00000014 LCD_LINE2_TEMP
+                            *COM*:00000014 LCD_LINE3_TEMP
+                            *COM*:00000014 LCD_LINE4_TEMP
+                            *COM*:00000001 Flow_Count
+C:\DOCUME~1\happy\LOCALS~1\Temp/ccw9aaaa.s:2789   .text:00000ecc Letext
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__stack
